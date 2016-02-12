@@ -1,21 +1,19 @@
 body {
-  background: #475cd1;
-  color: #be2525;
-  border: solid 1px #be2525;
+  background: #808080;
 }
-body main {
-  background: rgba(255,255,255,0.9);
-  color: #475cd1;
-  border: solid 1px #475cd1;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  zoom: 1;
+#slider {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 356px;
 }
-body main:after,
-body main:before {
-  content: "";
-  display: table;
+#menu {
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  width: 100%;
 }
-body main:after {
-  clear: both;
+.podstrona_title {
+  padding-top: 120px;
+  text-align: right;
 }
