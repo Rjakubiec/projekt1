@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScope) {
+
+
     $rootScope.podstrona = false;
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
