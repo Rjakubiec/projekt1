@@ -6,7 +6,8 @@ angular
 		'ngResource',
 		'ngRoute',
 		'ui.bootstrap',
-		'ui.bootstrap.modal'
+		'ui.bootstrap.modal',
+        'bootstrapLightbox'
 	])
 	.config(function ($routeProvider) {
 

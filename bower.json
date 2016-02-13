@@ -22,6 +22,7 @@
     "angular-bootstrap": "^1.1.2",
     "angular-cookies": "^1.5.0",
     "angular-resource": "^1.5.0",
-    "startbootstrap-sb-admin-2": "^1.0.8"
+    "startbootstrap-sb-admin-2": "^1.0.8",
+    "angular-bootstrap-lightbox": "^0.10.0"
   }
 }

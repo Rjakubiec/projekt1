@@ -8,6 +8,12 @@ angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScop
     $scope.noWrapSlides = false;
     var slides = $scope.slides = [];
 
+        	
+        // 			$http.get('')
+        // 			.success(function(data) {
+        // 				$scope.slides = data;  
+        // 
+        // 			});
 
 
     $scope.addSlide = function () {
