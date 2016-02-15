@@ -1,23 +1,23 @@
 <?php
 require_once 'phpmailer/PHPMailerAutoload.php';
 
-if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputSubject']) && isset($_POST['inputMessage'])) {
+if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputSubject']) && isset($_POST['inputMessage']) && isset($_POST['inputNumber']) ) {
 
-    //check if any of the inputs are empty
-    if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputSubject']) || empty($_POST['inputMessage'])) {
+    
+    if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputSubject']) || empty($_POST['inputMessage']) || empty($_POST['inputNumber']) ) {
         $data = array('success' => false, 'message' => 'Proszę wypełnij odpowiednio formularz.');
         echo json_encode($data);
         exit;
     }
 
-    //create an instance of PHPMailer
+   
     $mail = new PHPMailer();
 
     $mail->From = $_POST['inputEmail'];
     $mail->FromName = $_POST['inputName'];
-    $mail->AddAddress('jakubiecrafal@gmail.com'); //recipient 
+    $mail->AddAddress('jakubiecrafal@gmail.com'); 
     $mail->Subject = $_POST['inputSubject'];
-    $mail->Body = "Name: " . $_POST['inputName'] . "\r\n\r\nMessage: " . stripslashes($_POST['inputMessage']);
+    $mail->Body = "Imię i nazwisko: " . $_POST['inputName'] . "\r\n\r\nWiadomość: " . stripslashes($_POST['inputMessage'] . "\r\n\r\nNumer kontaktowy: " .$_POST['inputNumber']);
 
     if (isset($_POST['ref'])) {
         $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];
