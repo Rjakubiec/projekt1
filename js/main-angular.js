@@ -7,7 +7,10 @@ angular
 		'ngRoute',
 		'ui.bootstrap',
 		'ui.bootstrap.modal',
-        'bootstrapLightbox'
+        'bootstrapLightbox',
+        'uiGmapgoogle-maps'
+        
+        
 	])
 	.config(function ($routeProvider) {
 

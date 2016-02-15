@@ -3,5 +3,59 @@
     <a ng-click='PL()' href='#/contact'>PL</a>
 </li>
 <li ng-controller="LangCtrl">
-    <a ng-click='ENG()'  href='#/en/contact'>ENG</a>
+    <a ng-click='ENG()' href='#/en/contact'>ENG</a>
 </li>
+<div class="row">
+<div ng-controller="KontaktCtrl" class="panel-body col-md-6 col-xs-12">
+    <form ng-submit="submit(contactform)" name="contactform" method="post"  class="form-horizontal" role="form">
+        <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+            <div class="col-lg-10">
+                <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię i nazwisko nadawcy"
+                required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+            <div class="col-lg-10">
+                <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email do korespondencji"
+                required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+            <div class="col-lg-10">
+                <input ng-model="formData.inputNumber" type="text" class="form-control" id="inputNumber" name="inputNumber" placeholder="Numer kontaktowy"
+                required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': contactform.inputSubject.$invalid && submitted }">
+            <div class="col-lg-10">
+                <input ng-model="formData.inputSubject" type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Temat wiadomości"
+                required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+            <div class="col-lg-10">
+                <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage" name="inputMessage" placeholder="Treść..."
+                required></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
+                    Wyślij
+                </button>
+            </div>
+        </div>
+    </form>
+    <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div id='map_canvas'  ng-controller="KontaktCtrl" class="col-md-6 col-xs-12">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+        <ui-gmap-marker idkey="marker.id" coords="marker.coords" options="marker.options" click="onClick()" events="marker.events" >
+            <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                <div><strong>{{title}}<br>{{adress}}<br>{{phone}}<br>{{nip}}</strong></div>
+            </ui-gmap-window>
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+</div>
+</div>

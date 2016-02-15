@@ -23,6 +23,7 @@
     "angular-cookies": "^1.5.0",
     "angular-resource": "^1.5.0",
     "startbootstrap-sb-admin-2": "^1.0.8",
-    "angular-bootstrap-lightbox": "^0.10.0"
+    "angular-bootstrap-lightbox": "^0.10.0",
+    "angular-google-maps": "^2.3.2"
   }
 }
