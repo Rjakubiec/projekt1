@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniak')
-    .controller('PracaCtrl', function ($scope, $rootScope, $sce) {
+    .controller('PracaCtrl', function ($scope, $rootScope, $sce, $http) {
         console.log('Praca');
 
         $rootScope.podstrona = true;
@@ -28,7 +28,7 @@ angular.module('szczesniak')
             console.log('test');
             $http({
                 method  : 'POST',
-                url     : 'contact-form.php',
+                url     : 'contact-formJob.php',
                 data    : $.param($scope.formData),  
                 headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
             }).success(function(data){
