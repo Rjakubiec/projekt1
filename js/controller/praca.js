@@ -30,7 +30,7 @@ angular.module('szczesniak')
                 method  : 'POST',
                 url     : 'contact-formJob.php',
                 data    : $.param($scope.formData),  
-                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
+                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
             }).success(function(data){
                 console.log(data);
                 if (data.success) { 
@@ -45,7 +45,7 @@ angular.module('szczesniak')
             });
         } else {
             $scope.submitButtonDisabled = false;
-            $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
+            $scope.resultMessage = 'Błąd <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Proszę wypełnij wszystkie pola.';
             $scope.result='bg-danger';
         }
     }

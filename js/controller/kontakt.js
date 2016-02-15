@@ -45,7 +45,7 @@ angular.module('szczesniak')
             });
         } else {
             $scope.submitButtonDisabled = false;
-            $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
+            $scope.resultMessage = 'Błąd <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Proszę wypełnij wszystkie pola.';
             $scope.result='bg-danger';
         }
     }

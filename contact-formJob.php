@@ -1,24 +1,24 @@
 <?php
 require_once 'phpmailer/PHPMailerAutoload.php';
 
-if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputSubject']) && isset($_POST['inputMessage'])) {
+if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputNumber']) && isset($_POST['inputPosition']) && isset($_POST['inputFile']) ) {
 
-    //check if any of the inputs are empty
-    if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputSubject']) || empty($_POST['inputMessage'])) {
+   
+    if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputNumber']) || empty($_POST['inputPosition']) || empty($_POST['inputFile']) ) {
         $data = array('success' => false, 'message' => 'Proszę wypełnij odpowiednio formularz.');
         echo json_encode($data);
         exit;
     }
 
-    //create an instance of PHPMailer
+  
     $mail = new PHPMailer();
 
     $mail->From = $_POST['inputEmail'];
     $mail->FromName = $_POST['inputName'];
-    $mail->AddAddress('jakubiecrafal@gmail.com'); //recipient 
-    $mail->Subject = $_POST['inputPosition'];
-    $mail->addAttachment = $_POST['inputFile']
-    $mail->Body = "Name: " . $_POST['inputName'] . "\r\n\r\nMessage: " . stripslashes($_POST['inputNumber']);
+    $mail->AddAddress('jakubiecrafal@gmail.com'); 
+    $mail->Subject = "Aplikacja na stanowisko" . $_POST['inputPosition'];
+    $mail->addAttachment = $_POST['inputFile'];
+    $mail->Body = "Imię i nazwisko: " . $_POST['inputName'] . "\r\n\r\nNumer kontaktowy: " . $_POST['inputNumber'];
 
     if (isset($_POST['ref'])) {
         $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];
