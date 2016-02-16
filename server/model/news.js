@@ -8,5 +8,5 @@ var NewsSchema = new Schema({
     img2: String,
     img3: String,
     img4: String  
-    // Mają na swojej stronie teraz 4 zdjęcia do newsa 
+    // Psszczesniak ma na swojej stronie teraz 4 zdjęcia do newsa 
 });
