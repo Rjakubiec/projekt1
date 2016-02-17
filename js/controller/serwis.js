@@ -5,13 +5,13 @@ angular.module('szczesniak')
         console.log('Serwis');
 
         $rootScope.podstrona = true;
-        if ($rootScope.lang == false) {
+         if ($rootScope.mainLanguage == 'PL') {
 
 
             $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Serwis</strong>");
             $rootScope.description = $sce.trustAsHtml("szybki serwis");
         }
-        else if ($rootScope.lang == true) {
+        else  {
 
 
             $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Service</strong>");

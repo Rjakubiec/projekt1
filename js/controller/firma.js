@@ -1,42 +1,36 @@
 'use strict';
 
-angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScope) {
+angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScope, $http) {
 
 
     $rootScope.podstrona = false;
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
-    var slides = $scope.slides = [];
-
-        	
-        // 			$http.get('')
-        // 			.success(function(data) {
-        // 				$scope.slides = data;  
-        // 
-        // 			});
-
-
-    $scope.addSlide = function () {
-
-
-        slides.push(
-            {
-                image: "img/DSC0729_1.jpg",
-                text: ""
-            },
-            {
-                image: "img/IMG_6297.jpg",
-                text: ""
-            },
-            {
-                image: "img/P20150813_54.jpg",
-                text: ""
+    $scope.slides = [];
+    $scope.news = [];
+ 
+        $http.get('http://localhost:3333/sliders')
+            .then(function (data) {
+                console.log(data.data);
+                $scope.slides = data.data;
             });
-    };
+            
+            // $http.get('http://localhost:3333/news')
+            // .then(function (data) {
+            //     console.log(data.data);
+            //     $scope.news = data.data;
+            // });
+
+       var slides = $scope.slides
+
+
+        $scope.addSlide = function () {
+            slides.push();
+        };
 
 
 
-    $scope.addSlide();
+        $scope.addSlide();
 
 
-});
+    });

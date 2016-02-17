@@ -1,5 +1,8 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
 var ProductsSchema = new Schema({
-    _id: String,
+    
     namePl: String,
     nameEn: String,
     descriptionPl: String,
@@ -13,3 +16,5 @@ var ProductsSchema = new Schema({
     sizeEn: String, 
     urlPdf: String // jeśli tego nie będzie to usuń :)
 });
+
+module.exports = mongoose.model('Products', ProductsSchema);

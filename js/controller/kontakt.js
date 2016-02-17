@@ -3,13 +3,15 @@
 angular.module('szczesniak')
     .controller('KontaktCtrl', function ($scope, $rootScope, $sce, $http) {
         console.log('Kontakt');
+        $scope.kwiaty = [];
+        
 
         $rootScope.podstrona = true;
-        if ($rootScope.lang == false) {
+        if ($rootScope.mainLanguage == 'PL') {
             $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Kontakt</strong>");
             $rootScope.description = $sce.trustAsHtml("tutaj kontakt");
         }
-        else if ($rootScope.lang == true) {
+        else {
             $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Contact</strong>");
             $rootScope.description = $sce.trustAsHtml("contact here");
 

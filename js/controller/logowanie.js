@@ -6,6 +6,10 @@ angular.module('szczesniak')
 
 		$rootScope.podstrona = false;
 
-		
+		 //  $http.get('http://localhost:3333/users')
+        //     .then(function (data) {
+        //         console.log(data.data);
+        //         $scope.users = data.data;
+        //     });
 		
 	});

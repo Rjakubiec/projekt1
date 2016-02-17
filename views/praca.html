@@ -1,10 +1,5 @@
 <p>praca</p>
-<li ng-controller="LangCtrl">
-    <a ng-click='PL()' href='#/job'>PL</a>
-</li>
-<li ng-controller="LangCtrl">
-    <a ng-click='ENG()' href='#/en/job'>ENG</a>
-</li>
+
 <div ng-controller="PracaCtrl" class="panel-body col-md-6 col-xs-12">
     <form ng-submit="submit(contactform)" name="contactform" method="post" class="form-horizontal" role="form">
         <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">

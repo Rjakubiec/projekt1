@@ -1,16 +1,10 @@
 <p>galeria</p>
-<li ng-controller="LangCtrl">
-    <a ng-click='PL()' href='#/gallery'>PL</a>
-</li>
-<li ng-controller="LangCtrl">
-    <a ng-click='ENG()'  href='#/en/gallery'>ENG</a>
-</li>
 
 <div class="col-md-12">
     <div class="row" >			
 			<div class="col-md-2 col-xs-12" ng-repeat="foto in fotos">
 				<a ng-click="openLightboxModal($index)" style="display: block;">
-					<img  ng-src="{{foto.thumbUrl}}" class="img-responsive img-thumbnail" alt=""/>                   
+					<img  ng-src="{{foto.thumbUrl}}" class="img-responsive" alt=""/>                   
 				</a>
                 <a href="{{foto.thumbUrl}}" download><button>Pobierz małe zdj</button></a><br>
                 <a href="{{foto.url}}" download><button>Pobierz duże zdj</button></a>

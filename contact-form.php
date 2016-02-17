@@ -12,7 +12,11 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
 
    
     $mail = new PHPMailer();
-
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;       
+    $mail->Host = 'mail.glasscenter.pl';
+    $mail->Username = 'oferta@glasscenter.pl';                 
+    $mail->Password = 'qwe123';
     $mail->From = $_POST['inputEmail'];
     $mail->FromName = $_POST['inputName'];
     $mail->AddAddress('jakubiecrafal@gmail.com'); 

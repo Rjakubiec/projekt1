@@ -1,5 +1,7 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
 var NewsSchema = new Schema({
-    _id: String,
     namePl: String,
     nameEn: String,
     descriptionPl: String,
@@ -10,3 +12,5 @@ var NewsSchema = new Schema({
     img4: String  
     // Psszczesniak ma na swojej stronie teraz 4 zdjęcia do newsa 
 });
+
+module.exports = mongoose.model('News', NewsSchema);
