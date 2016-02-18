@@ -30,7 +30,19 @@ angular
             .when('/main/newSlider', {
 				templateUrl: 'views/admin/newslider.html',
 				controller: 'NewSliderCtrl'
-			})          	           		
+			})  
+            .when('/main/newProducts', {
+				templateUrl: 'views/admin/newproducts.html',
+				controller: 'NewProductsCtrl'
+			})
+            .when('/main/newNews', {
+				templateUrl: 'views/admin/newnews.html',
+				controller: 'NewNewsCtrl'
+			})  
+            .when('/main/newGallery', {
+				templateUrl: 'views/admin/newgallery.html',
+				controller: 'NewGalleryCtrl'
+			})            	           		
 			.otherwise({
 		        redirectTo: '/login'
 	      	});

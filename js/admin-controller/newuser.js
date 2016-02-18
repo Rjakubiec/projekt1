@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-	.controller('NewUserCtrl', function($scope, $rootScope, $http){
-		
+    .controller('NewUserCtrl', function ($scope, $rootScope, $http) {
 
-		 $scope.users = [];
-        
+
+        $scope.users = [];
+
 
         $http.get('http://localhost:3333/users')
             .then(function (data) {
-                console.log(data.data);
+                console.log("data.data");
                 $scope.users = data.data;
             });
-            $scope.deleteUser = function (id) {
+        $scope.deleteUser = function (id) {
 
             $http.delete('http://localhost:3333/userD/' + id)
                 .then(function () {
@@ -22,7 +22,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addUser = function (data) {
 
-            $http.post('http://localhost:3333/user',data)
+            $http.post('http://localhost:3333/user', data)
                 .then(function () {
                     console.log('dodano');
 
@@ -30,9 +30,9 @@ angular.module('szczesniakAdmin')
 
 
         };
-        $scope.updateUser = function (data) {
+        $scope.updateUser = function (id,data) {
 
-            $http.put('http://localhost:3333/userU/'+data._id,data)
+            $http.put('http://localhost:3333/userU/'+id, data)
                 .then(function () {
                     console.log('update');
 
@@ -40,5 +40,5 @@ angular.module('szczesniakAdmin')
 
 
         };
-		
-	});
+
+    });

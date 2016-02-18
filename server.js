@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "GET, POST","PUT","DELETE");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,DELETE,POST,OPTIONS');
   next();
 });
 
@@ -50,7 +50,7 @@ app.get('/sliders', function(req,res,next) {
   });
 });
 //konkretny img slidera
-app.post('/slider/:id', function(req, res) {
+app.get('/slider/:id', function(req, res) {
   var id = req.params.id;
   Slider.findOne({_id:id}, function(err,slider){
     res.json(slider);
@@ -99,11 +99,11 @@ app.get('/users', function(req,res,next) {
 });
 
 
-app.post('/user/:id', function(req, res) {
+app.get('/user/:id', function(req, res) {
 
   var id = req.params.id;
 
-  var user = User.findOne({_id:id}, function(err,user){
+  User.findOne({_id:id}, function(err,user){
     res.json(user);
   });
 });
