@@ -1,26 +1,40 @@
+
+
 <table class="table">
     <thead>
         <tr>
-            
+
             <th>Login</th>
             <th>Email</th>
             <th>Hasło</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="user in users">           
-            <td><input type="text" ng-model="user.login" value="{{user.login}}"></td>
-            <td><input type="text" ng-model="user.email" value="{{user.email}}"></td>
-            <td><input type="text" ng-model="user.password" value="{{user.password}}"></td>
+        <tr ng-repeat="user in users">
+            <td>
+                <input type="text" ng-model="user.login" value="{{user.login}}">
+            </td>
+            <td>
+                <input type="text" ng-model="user.email" value="{{user.email}}">
+            </td>
+            <td>
+                <input type="text" ng-model="user.password" value="{{user.password}}">
+            </td>
             <td><a class="btn btn-danger" ng-click="deleteUser(user._id)">usuń</a></td>
             <td><a class="btn btn-success" ng-click="updateUser(user._id,user)">update</a></td>
         </tr>
-        <tr ng-model="user">           
-            <td><input type="text" ng-model="user.login"></td>
-            <td><input type="text" ng-model="user.email"></td>
-            <td><input type="text" ng-model="user.password"></td>
+        <tr ng-model="user">
+            <td>
+                <input type="text" ng-model="user.login">
+            </td>
+            <td>
+                <input type="text" ng-model="user.email">
+            </td>
+            <td>
+                <input type="text" ng-model="user.password">
+            </td>
             <td><a class="btn btn-default" ng-click="addUser(user)">dodaj</a></td>
         </tr>
-        
+
     </tbody>
 </table>

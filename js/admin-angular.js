@@ -7,7 +7,8 @@ angular
 		'ngRoute',
 		'ui.bootstrap',
 		'ui.bootstrap.modal',
-        'bootstrapLightbox'
+        'bootstrapLightbox',
+        'datatables'
         
 	])
 	.config(function ($routeProvider) {
