@@ -9,8 +9,6 @@ angular
 		'ui.bootstrap.modal',
         'bootstrapLightbox'
         
-        
-        
 	])
 	.config(function ($routeProvider) {
 

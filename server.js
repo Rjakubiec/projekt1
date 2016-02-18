@@ -1,7 +1,9 @@
 var express = require('express');
 var morgan = require('morgan');
+var multer  = require('multer')
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+
 
 
 var User = require('./server/model/user');
@@ -22,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,DELETE,POST,OPTIONS');
   next();
 });

@@ -8,7 +8,7 @@ angular.module('szczesniakAdmin')
 
         $http.get('http://localhost:3333/sliders')
             .then(function (data) {
-                console.log(data.data);
+               
                 $scope.slides = data.data;
             });
 
@@ -21,7 +21,7 @@ angular.module('szczesniakAdmin')
                 });
         };
         $scope.addSlide = function (data) {
-
+            console.log(data);
             $http.post('http://localhost:3333/slider',data)
                 .then(function () {
                     console.log('dodano');

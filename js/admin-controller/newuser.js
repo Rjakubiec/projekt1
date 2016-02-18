@@ -9,7 +9,7 @@ angular.module('szczesniakAdmin')
 
         $http.get('http://localhost:3333/users')
             .then(function (data) {
-                console.log("data.data");
+               
                 $scope.users = data.data;
             });
         $scope.deleteUser = function (id) {
@@ -21,7 +21,7 @@ angular.module('szczesniakAdmin')
                 });
         };
         $scope.addUser = function (data) {
-
+            console.log(data);
             $http.post('http://localhost:3333/user', data)
                 .then(function () {
                     console.log('dodano');
