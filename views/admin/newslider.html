@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-2" ng-repeat="slide in slides">
+
+        <img src="{{slide.img}}" class="img-responsive"></p>
+
+        <a class="btn btn-danger" ng-click="deleteSlide(slide._id)">usuń</a>
+
+    </div>
+</div>
+<div class="row">
+    <input type="text" ng-model='img'>
+    <a class="btn btn-default" ng-click="addSlide(img)">dodaj</a>
+</div>

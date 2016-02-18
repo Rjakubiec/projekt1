@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('szczesniak')
-	.controller('LogowanieCtrl', function($scope, $rootScope, $sce){
+angular.module('szczesniakAdmin')
+	.controller('PanelCtrl', function($scope, $rootScope, $sce){
 		
 
 		$rootScope.podstrona = false;

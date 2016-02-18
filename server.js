@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "GET, POST","PUT");
+  res.header("Access-Control-Allow-Methods", "GET, POST","PUT","DELETE");
   next();
 });
 
@@ -52,8 +52,8 @@ app.get('/sliders', function(req,res,next) {
 //konkretny img slidera
 app.post('/slider/:id', function(req, res) {
   var id = req.params.id;
-  User.findOne({_id:id}, function(err,user){
-    res.json(user);
+  Slider.findOne({_id:id}, function(err,slider){
+    res.json(slider);
   });
 });
 
@@ -90,9 +90,8 @@ app.post('/user', function(req,res,next) {
 });
 
 
-
 app.get('/users', function(req,res,next) {
-  var users = User.find(function(err,user) {
+  User.find(function(err,user) {
     if(err) res.json('error:'+err);
 
     res.json(user);
@@ -108,7 +107,20 @@ app.post('/user/:id', function(req, res) {
     res.json(user);
   });
 });
-
+//usuwanie user
+app.delete('/userD/:id', function(req, res, next) {
+  User.findByIdAndRemove(req.params.id, req.body, function (err, user) {
+    if (err) return next(err);
+    res.json(user);
+  });
+});
+// update user
+app.put('/userU/:id', function(req, res, next) {
+  User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+    if (err) return next(err);
+    res.json(user);
+  });
+});
 
 
 

@@ -16,13 +16,21 @@ angular
 
 		$routeProvider
 			.when('/login', {               
-				templateUrl: 'views/logowanie.html',
+				templateUrl: 'views/admin/logowanie.html',
 				controller: 'LogowanieCtrl'
 			})
 			.when('/main', {
-				templateUrl: 'views/panel.html',
+				templateUrl: 'views/admin/panel.html',
 				controller: 'PanelCtrl'
-			})			
+			})
+            .when('/main/newUser', {
+				templateUrl: 'views/admin/newuser.html',
+				controller: 'NewUserCtrl'
+			})
+            .when('/main/newSlider', {
+				templateUrl: 'views/admin/newslider.html',
+				controller: 'NewSliderCtrl'
+			})          	           		
 			.otherwise({
 		        redirectTo: '/login'
 	      	});
