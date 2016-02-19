@@ -11,7 +11,7 @@ angular
         'uiGmapgoogle-maps'
 
 
-    ])   
+    ])
     .config(function ($routeProvider) {
 
         $routeProvider
@@ -67,7 +67,11 @@ angular
                 redirectTo: '/'
             });
 
-    }).run(function ($rootScope, $location, $http) {
+    })
+    .config(function (LightboxProvider) {
+        LightboxProvider.templateUrl = 'views/lightbox.html';
+    })
+    .run(function ($rootScope, $location, $http) {
 
         $rootScope.mainLanguage = 'PL';
 

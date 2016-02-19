@@ -3,6 +3,16 @@
 angular.module('szczesniak')
     .controller('GaleriaCtrl', function ($scope, $rootScope, $sce, Lightbox, $http) {
         console.log('Galeria');
+        
+         
+           $scope.typs= [];
+        
+
+        $http.get('http://localhost:3333/typs')
+            .then(function (data) {
+
+                $scope.typs = data.data;
+            })
 
         $scope.fotos = [
             //             {

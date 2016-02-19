@@ -28,7 +28,7 @@ angular.module('szczesniak')
             console.log('test');
             $http({
                 method  : 'POST',
-                url     : 'contact-formJob.php',
+                url     : 'contact-formPraca.php',
                 data    : $.param($scope.formData),  
                 headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
             }).success(function(data){

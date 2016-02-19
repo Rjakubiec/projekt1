@@ -26,9 +26,14 @@
                 required>
             </div>
         </div>
+        <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+            <div class="col-lg-10">
+                <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage" name="inputMessage"  placeholder="Treść..." required></textarea>
+            </div>
+        </div>
         <div class="form-group" ng-class="{ 'has-error': contactform.inputFile.$invalid && submitted }">
             <div class="col-lg-10">
-                <input ng-model="formData.inputFile" type="file" id="inputFile" name="inputFile" >
+                <input ng-model="formData.inputFile" type="file" id="inputFile" name="inputFile">
             </div>
         </div>
         <div class="form-group">

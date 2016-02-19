@@ -22,7 +22,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
     $mail->AddAddress('jakubiecrafal@gmail.com'); 
     $mail->Subject = "Aplikacja na stanowisko" . $_POST['inputPosition'];
     $mail->addAttachment = $_POST['inputFile'];
-    $mail->Body = "Imię i nazwisko: " . $_POST['inputName'] . "\r\n\r\nNumer kontaktowy: " . $_POST['inputNumber'];
+    $mail->Body = "Imię i nazwisko: " . $_POST['inputName'] . "\r\n\r\nNumer kontaktowy: " . $_POST['inputNumber'] . "\r\n\r\nTreść: " . $_POST['inputMessage'];
 
     if (isset($_POST['ref'])) {
         $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];

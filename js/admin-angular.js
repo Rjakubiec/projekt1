@@ -42,7 +42,11 @@ angular
             .when('/main/newGallery', {
 				templateUrl: 'views/admin/newgallery.html',
 				controller: 'NewGalleryCtrl'
-			})            	           		
+			})  
+            .when('/main/newPropertis', {
+				templateUrl: 'views/admin/newpropertis.html',
+				controller: 'NewPropertisCtrl'
+			})           	           		
 			.otherwise({
 		        redirectTo: '/login'
 	      	});

@@ -24,6 +24,7 @@ var Slider = require('./server/model/slider');
 var Img = require('./server/model/img');
 var Size = require('./server/model/size');
 var Typ = require('./server/model/typ');
+var Category = require('./server/model/category');
 
 
 
@@ -41,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.all('/*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Origin");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Origin,__setXHR_");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,DELETE,POST,OPTIONS');
     next();
 });
@@ -164,7 +165,7 @@ app.put('/imgU/:id', function (req, res, next) {
 });
 //////////////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////Crud size care categroy/////////////////////////////////
+//////////////////////////////Crud size care/////////////////////////////////
 app.post('/size', function (req, res, next) {
 
     var size = new Size();
@@ -214,7 +215,7 @@ app.put('/sizeU/:id', function (req, res, next) {
 });
 ///////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////Crud typ care categroy/////////////////////////////////
+//////////////////////////////Crud typ car/////////////////////////////////
 app.post('/typ', function (req, res, next) {
 
     var typ = new Typ();
@@ -257,9 +258,59 @@ app.delete('/typD/:id', function (req, res, next) {
 });
 // update typ
 app.put('/typU/:id', function (req, res, next) {
-    Typ.findByIdAndUpdate(req.params.id, req.body, function (err, size) {
+    Typ.findByIdAndUpdate(req.params.id, req.body, function (err, typ) {
         if (err) return next(err);
-        res.json(size);
+        res.json(typ);
+    });
+});
+///////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////Crud categroy car/////////////////////////////////
+app.post('/category', function (req, res, next) {
+
+    var category = new Category();
+    category.categoryPl = req.body.categoryPl;
+    category.categoryEn = req.body.categoryEn;
+
+
+    category.save(function (err) {
+
+        if (err) return next(err);
+        res.json('Poprawnioe dodano ;-)');
+
+    });
+});
+
+
+app.get('/categorys', function (req, res, next) {
+    Category.find(function (err, category) {
+        if (err) res.json('error:' + err);
+
+        res.json(category);
+    });
+});
+
+
+app.get('/category/:id', function (req, res) {
+
+    var id = req.params.id;
+
+    Category.findOne({ _id: id }, function (err, category) {
+        res.json(category);
+    });
+});
+//usuwanie category
+app.delete('/categoryD/:id', function (req, res, next) {
+    Category.findByIdAndRemove(req.params.id, req.body, function (err, category) {
+        if (err) return next(err);
+        res.json(category);
+    });
+});
+// update category
+app.put('/categoryU/:id', function (req, res, next) {
+    Category.findByIdAndUpdate(req.params.id, req.body, function (err, category) {
+        if (err) return next(err);
+        res.json(category);
     });
 });
 ///////////////////////////////////////////////////////////////////////////////
