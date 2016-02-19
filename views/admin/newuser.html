@@ -1,5 +1,8 @@
 
-
+<input type="text" ng-model="filterQuery" placeholder="szukaj" />
+<INPUT TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
+<br>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -10,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="user in users">
+        <tr ng-repeat="user in users | filter:filterQuery">
             <td>
                 <input type="text" ng-model="user.login" value="{{user.login}}">
             </td>
@@ -18,7 +21,7 @@
                 <input type="text" ng-model="user.email" value="{{user.email}}">
             </td>
             <td>
-                <input type="text" ng-model="user.password" value="{{user.password}}">
+                <input type="password" ng-model="user.password" value="{{user.password}}">
             </td>
             <td><a class="btn btn-danger" ng-click="deleteUser(user._id)">usuń</a></td>
             <td><a class="btn btn-success" ng-click="updateUser(user._id,user)">update</a></td>
@@ -34,6 +37,7 @@
                 <input type="text" ng-model="user.password">
             </td>
             <td><a class="btn btn-default" ng-click="addUser(user)">dodaj</a></td>
+            
         </tr>
 
     </tbody>

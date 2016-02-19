@@ -8,7 +8,8 @@ angular
 		'ui.bootstrap',
 		'ui.bootstrap.modal',
         'bootstrapLightbox',
-        'datatables'
+        'datatables',
+        'ngFileUpload'
         
 	])
 	.config(function ($routeProvider) {
