@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ProductsSchema = new Schema({
+var ProductSchema = new Schema({
     
     namePl: String,
     nameEn: String,
@@ -17,4 +17,4 @@ var ProductsSchema = new Schema({
     urlPdf: String // jeśli tego nie będzie to usuń :)
 });
 
-module.exports = mongoose.model('Products', ProductsSchema);
+module.exports = mongoose.model('Product', ProductSchema);

@@ -26,6 +26,7 @@ var Size = require('./server/model/size');
 var Typ = require('./server/model/typ');
 var Category = require('./server/model/category');
 var News = require('./server/model/news');
+var Product = require('./server/model/product');
 
 
 
@@ -165,6 +166,57 @@ app.put('/imgU/:id', function (req, res, next) {
     });
 });
 //////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////crud products//////////////////////////////////////
+// dodaj product
+app.post('/product', function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
+            res.json({ error_code: 1, err_desc: err });
+            return;
+        }
+        var product = new Product();
+        // img.namePl = req.body.namePl;
+        // img.nameEn = req.body.nameEn;
+        product.img = req.file.path;
+        product.save();
+        res.json({ error_code: 0, err_desc: null });
+    })
+
+});
+
+// lista product 
+app.get('/products', function (req, res, next) {
+    Product.find(function (err, product) {
+        if (err) res.json('error:' + err);
+
+        res.json(product);
+    });
+});
+//konkretny product 
+app.get('/product/:id', function (req, res) {
+    var id = req.params.id;
+    Product.findOne({ _id: id }, function (err, product) {
+        res.json(product);
+    });
+});
+
+//usuwanie product
+app.delete('/productD/:id', function (req, res, next) {
+    Product.findByIdAndRemove(req.params.id, req.body, function (err, product) {
+        if (err) return next(err);
+        res.json(product);
+    });
+});
+// update product
+app.put('/productU/:id', function (req, res, next) {
+    Product.findByIdAndUpdate(req.params.id, req.body, function (err, product) {
+        if (err) return next(err);
+        res.json(product);
+    });
+});
+//////////////////////////////////////////////////////////////////////////////////////
+
 
 //////////////////////////////Crud size care/////////////////////////////////
 app.post('/size', function (req, res, next) {
