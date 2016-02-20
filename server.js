@@ -25,6 +25,7 @@ var Img = require('./server/model/img');
 var Size = require('./server/model/size');
 var Typ = require('./server/model/typ');
 var Category = require('./server/model/category');
+var News = require('./server/model/news');
 
 
 
@@ -314,6 +315,57 @@ app.put('/categoryU/:id', function (req, res, next) {
     });
 });
 ///////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////Crud News//////////////////////////////////////
+
+app.post('/news', function (req, res, next) {
+
+    var news = new News();
+    news.namePl = req.body.namePl;
+    news.nameEn = req.body.nameEn;
+    news.descriptionPl = req.body.descriptionPl;
+    news.descriptionEn = req.body.descriptionEn;
+    news.save(function (err) {
+
+        if (err) return next(err);
+        res.json('Poprawnioe dodano ;-)');
+
+    });
+});
+
+
+app.get('/newss', function (req, res, next) {
+    News.find(function (err, news) {
+        if (err) res.json('error:' + err);
+
+        res.json(news);
+    });
+});
+
+
+app.get('/news/:id', function (req, res) {
+
+    var id = req.params.id;
+
+    News.findOne({ _id: id }, function (err, news) {
+        res.json(news);
+    });
+});
+//usuwanie news
+app.delete('/newsD/:id', function (req, res, next) {
+    News.findByIdAndRemove(req.params.id, req.body, function (err, news) {
+        if (err) return next(err);
+        res.json(news);
+    });
+});
+// update news
+app.put('/newsU/:id', function (req, res, next) {
+    News.findByIdAndUpdate(req.params.id, req.body, function (err, news) {
+        if (err) return next(err);
+        res.json(news);
+    });
+});
+///////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////Crud usera//////////////////////////////////////
 

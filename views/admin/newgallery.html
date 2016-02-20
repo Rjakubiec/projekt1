@@ -53,8 +53,8 @@
         <br>
         <i ng-show="up.upload_form.file.$error.maxSize">Plik za duży
             {{up.file.size / 1000000|number:1}}MB: max 20M</i>
-        <button type="submit" ng-click="up.submit()">Dodaj</button>
-        <INPUT TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
+        <button class="btn btn-default" type="submit" ng-click="up.submit()">Dodaj</button>
+        <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
         <p>{{up.progress}}</p>
     </form>
 </div>

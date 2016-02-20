@@ -1,1 +1,31 @@
-<p>news</p>
+<h1>Lista newsów</h1>
+<input type="text" ng-model="filterQuery" placeholder="szukaj" />
+<div ng-repeat="news in newss | filter:filterQuery">
+
+    <li>{{news.namePl}}</li>
+    <button class="btn btn-default" ng-click="showme=true">Pokaż</button>
+    <button class="btn btn-default" ng-click="showme=false">Ukryj</button>
+    <div ng-show="showme">
+        <input class="form-control" type="text" ng-model="news.namePl" value="news.namePl">
+        <text-angular ng-model="news.descriptionPl" ng-value=""></text-angular>
+        <br>
+        <br>
+        <td><a class="btn btn-danger" ng-click="deleteNews(news._id)">usuń</a></td>
+        <td><a class="btn btn-success" ng-click="updateNews(news._id,news)">update</a></td>
+    </div>
+</div>
+
+<br>
+<br>
+<h1>Dodaj news</h1>
+<div ng-model="news"></div>
+
+<lable>Tytuł newsa</lable>
+<br>
+<input class="form-control" type="text" ng-model="news.namePl">
+
+<br>
+<lable>News treść</lable>
+<text-angular ng-model="news.htmlVariable"></text-angular>
+<td><a class="btn btn-default" ng-click="addNews(news)">dodaj</a></td>
+<INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">

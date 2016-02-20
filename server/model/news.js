@@ -6,10 +6,10 @@ var NewsSchema = new Schema({
     nameEn: String,
     descriptionPl: String,
     descriptionEn: String,
-    img1: String,
-    img2: String,
-    img3: String,
-    img4: String  
+    //img1: String,
+    //img2: String,
+    //img3: String,
+    //img4: String  
     // Psszczesniak ma na swojej stronie teraz 4 zdjęcia do newsa 
 });
 

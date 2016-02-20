@@ -63,6 +63,10 @@ angular
                 templateUrl: 'views/en/contact.html',
                 controller: 'KontaktCtrl'
             })
+            .when('/news/:id', {
+                templateUrl: 'views/news.html',
+                controller: 'NewsCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

@@ -33,7 +33,7 @@
 
     <script src="js/main-angular.js"></script>
     <script src="js/controller/firma.js"></script>
-   
+
 
 </head>
 
@@ -67,7 +67,7 @@
                            </a>
                         </li>
                         <li> <a ng-click="changeLanguage(mainLanguage)">{{mainLanguage}}</a></li>
-                     
+
                         <li class="pull-right" ng-show="mainLanguage == 'PL'">
                             <a href='admin.html'>Logowanie</a>
                         </li>
@@ -104,14 +104,22 @@
                 </uib-carousel>
             </div>
         </div>
-        <div class="zawartosc" ng-view=""></div>
+        <div class="col-md-3" ng-controller="NewsCtrl">
+            <li ng-repeat="news in newss" ng-show="mainLanguage == 'PL'">
+                <a href="#/news/{{news.namePl}}" ng-click="getNews(news._id)">
+                               {{news.namePl}}
+         </a>
+            </li>
+        </div>
+        <div class="zawartosc col-md-9" ng-view=""></div>
 
         <script src="js/controller/galeria.js"></script>
         <script src="js/controller/kontakt.js"></script>
         <script src="js/controller/praca.js"></script>
         <script src="js/controller/produkty.js"></script>
         <script src="js/controller/serwis.js"></script>
-       
+        <script src="js/controller/news.js"></script>
+
 
     </div>
 
