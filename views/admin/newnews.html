@@ -2,30 +2,65 @@
 <input type="text" ng-model="filterQuery" placeholder="szukaj" />
 <div ng-repeat="news in newss | filter:filterQuery">
 
-    <li>{{news.namePl}}</li>
-    <button class="btn btn-default" ng-click="showme=true">Pokaż</button>
-    <button class="btn btn-default" ng-click="showme=false">Ukryj</button>
-    <div ng-show="showme">
-        <input class="form-control" type="text" ng-model="news.namePl" value="news.namePl">
-        <text-angular ng-model="news.descriptionPl" ng-value=""></text-angular>
-        <br>
-        <br>
-        <td><a class="btn btn-danger" ng-click="deleteNews(news._id)">usuń</a></td>
-        <td><a class="btn btn-success" ng-click="updateNews(news._id,news)">update</a></td>
+    <h3>Nazwa polska : {{news.namePl}} , nazwa angielska : {{news.nameEn}}</h3>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-default" ng-click="showmePL=true">Pokaż news PL</button>
+            <br>
+            <a ng-click="showmePL=false">Ukryj news PL</a>   
+         </div>
+          <div class="col-md-2">
+             <button class="btn btn-default" ng-click="showmeEN=true">Pokaż news EN</button> <br>
+             <a ng-click="showmeEN=false">Ukryj news EN</a>
+          </div>
+           <td><a class="btn btn-danger" ng-click="deleteNews(news._id)">usuń</a></td>
+            <td><a class="btn btn-success" ng-click="updateNews(news._id,news)">update</a></td>
+        </div>
+        <div ng-show="showmePL">
+            <input class="form-control" type="text" ng-model="news.namePl" value="news.namePl">
+            <text-angular ng-model="news.descriptionPl" ng-value=""></text-angular>
+        </div>
+        <div ng-show="showmeEN">
+            <input class="form-control" type="text" ng-model="news.nameEn" value="news.nameEn">
+            <text-angular ng-model="news.descriptionEn" ng-value=""></text-angular>
+        </div>
+        <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
     </div>
-</div>
 
-<br>
-<br>
-<h1>Dodaj news</h1>
-<div ng-model="news"></div>
-
-<lable>Tytuł newsa</lable>
-<br>
-<input class="form-control" type="text" ng-model="news.namePl">
-
-<br>
-<lable>News treść</lable>
-<text-angular ng-model="news.htmlVariable"></text-angular>
-<td><a class="btn btn-default" ng-click="addNews(news)">dodaj</a></td>
-<INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
+    <br>
+    <br>
+    <h1>Dodaj news</h1>
+    <div ng-model="news"></div>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-default" ng-click="showmePLnew=true">Dodaj news PL</button>
+            <br>
+            <a ng-click="showmePLnew=false">Ukryj news PL</a>   
+         </div>
+         
+          <div class="col-md-2">
+            <button class="btn btn-default" ng-click="showmeENnew=true">Dodaj news EN</button>
+             <br>
+            <a ng-click="showmeENnew=false">Ukryj news EN</a>
+          </div>
+    </div>
+    <div ng-show="showmePLnew">   
+    <lable>Tytuł newsa</lable>
+    <br>
+    <input class="form-control" type="text" ng-model="news.namePl">
+    <br>
+    <lable>News treść</lable>
+    <text-angular ng-model="news.htmlVariablePl"></text-angular>
+    </div>
+    <div ng-show="showmeENnew">   
+    <lable>Tytuł newsa</lable>
+    <br>
+    <input class="form-control" type="text" ng-model="news.nameEn">
+    <br>
+    <lable>News treść</lable>
+    <text-angular ng-model="news.htmlVariableEn"></text-angular>
+    </div>
+    <br>
+    <br>
+    <a class="btn btn-default" ng-click="addNews(news)">dodaj</a>
+    <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">

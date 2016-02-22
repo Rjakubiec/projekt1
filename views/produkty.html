@@ -1,1 +1,7 @@
-<p>produkty</p>
+ <div class="col-md-12" ng-controller="ProduktyCtrl">
+            <div class="col-md-3" ng-repeat="product in products" ng-show="mainLanguage == 'PL'">
+                <a href="#/product/{{product.namePl}}" ng-click="getProduct(product._id)">
+                               <img src="{{product.img}}" class="img-responsive">
+         </a>
+           
+</div>

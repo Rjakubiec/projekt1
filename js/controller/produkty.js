@@ -6,11 +6,18 @@ angular.module('szczesniak')
         
         $scope.products = [];
 
-        //  $http.get('http://localhost:3333/products')
-        //     .then(function (data) {
-        //         console.log(data.data);
-        //         $scope.products = data.data;
-        //     });
+        $http.get('http://localhost:3333/products')
+            .then(function (data) {
+              console.log(data.data);
+                $scope.products = data.data;
+             });
+             
+             $scope.getProduct = function (id) {
+            $http.get('http://localhost:3333/products/' + id)
+                .then(function (data) {
+                    $rootScope.descriptionProduct = $sce.trustAsHtml(data.data);
+                });
+        };
 
         $rootScope.podstrona = true;
          if ($rootScope.mainLanguage == 'PL') {

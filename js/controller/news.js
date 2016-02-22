@@ -14,7 +14,7 @@ angular.module('szczesniak')
         $scope.getNews = function (id) {
             $http.get('http://localhost:3333/news/' + id)
                 .then(function (data) {
-                    $rootScope.description = $sce.trustAsHtml(data.data.descriptionPl);
+                    $rootScope.descriptionNews = $sce.trustAsHtml(data.data.descriptionPl);
                 });
         };
     });

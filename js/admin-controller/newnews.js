@@ -15,7 +15,8 @@ angular.module('szczesniakAdmin')
             });
         
         $scope.addNews = function (data) {
-            data.descriptionPl = data.htmlVariable;
+            data.descriptionPl = data.htmlVariablePl;
+            data.descriptionEn = data.htmlVariableEn;
             console.log(data);
             $http.post('http://localhost:3333/news', data)
                 .then(function () {

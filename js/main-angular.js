@@ -19,23 +19,23 @@ angular
                 templateUrl: 'views/firma.html',
                 controller: 'FirmaCtrl'
             })
-            .when('/produkty', {
+            .when('/products', {
                 templateUrl: 'views/produkty.html',
                 controller: 'ProduktyCtrl'
             })
-            .when('/serwis', {
+            .when('/service', {
                 templateUrl: 'views/serwis.html',
                 controller: 'SerwisCtrl'
             })
-            .when('/praca', {
+            .when('/job', {
                 templateUrl: 'views/praca.html',
                 controller: 'PracaCtrl'
             })
-            .when('/galeria', {
+            .when('/gallery', {
                 templateUrl: 'views/galeria.html',
                 controller: 'GaleriaCtrl'
             })
-            .when('/kontakt', {
+            .when('/contact', {
                 templateUrl: 'views/kontakt.html',
                 controller: 'KontaktCtrl'
             })
@@ -67,6 +67,18 @@ angular
                 templateUrl: 'views/news.html',
                 controller: 'NewsCtrl'
             })
+            .when('en/news/:id', {
+                templateUrl: 'views/en/news.html',
+                controller: 'NewsCtrl'
+            })
+            .when('/product/:id', {
+                templateUrl: 'views/produktyDetal.html',
+                controller: 'ProduktyDetalCtrl'
+            })
+            .when('en/product/:id', {
+                templateUrl: 'views/en/productsDetalis.html',
+                controller: 'ProduktyDetalCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -88,8 +100,8 @@ angular
         //     });
 
         $rootScope.menus = [
-            { 'namePl': 'Firma', 'nameEn': 'Company', 'urlPl': 'firma', 'urlEn': 'company' },
-            { 'namePl': 'Produkty', 'nameEn': 'Products', 'urlPl': 'produkty', 'urlEn': 'products' },
+            { 'namePl': 'Firma', 'nameEn': 'Company', 'urlPl': 'firma', 'urlEn': 'company'},
+            { 'namePl': 'Produkty', 'nameEn': 'Products', 'urlPl': 'produkty', 'urlEn': 'products'},
             { 'namePl': 'Serwis', 'nameEn': 'Service', 'urlPl': 'serwis', 'urlEn': 'service' },
             { 'namePl': 'Praca', 'nameEn': 'Job', 'urlPl': 'praca', 'urlEn': 'job' },
             { 'namePl': 'Galeria', 'nameEn': 'Gallery', 'urlPl': 'galeria', 'urlEn': 'gallery' },
@@ -100,11 +112,13 @@ angular
 
             if (language == 'PL') {
                 $rootScope.mainLanguage = 'EN';
+                //$location.path($rootScope.menus.urlEn = id)
                 $location.path('en' + $location.$$path);
                 console.log($location.$$path);
 
             } else {
                 $rootScope.mainLanguage = 'PL';
+                //$location.path($rootScope.menus.urlPl = id)
                 $location.path(($location.$$path).slice(3));
                 console.log($location.$$path);
             }
