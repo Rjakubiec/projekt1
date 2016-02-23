@@ -27,6 +27,9 @@
         <lable>Opis angielski</lable>
         <textarea class="form-control" type="text" ng-model="product.descriptionEn" value="{{product.descriptionEn}}" />
         <br>
+        <lable>Url pdf</lable>
+        <input class="form-control" type="text" ng-model="product.urlPdf" value="{{product.urlPdf}}">
+        <br>
         <a class="btn btn-danger" ng-click="deleteProduct(product._id)">usuń</a>
         <a class="btn btn-success" ng-click="updateProduct(product._id,product)">zmień</a>
         <br>
