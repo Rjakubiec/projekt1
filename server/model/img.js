@@ -7,7 +7,7 @@ var ImgSchema = new Schema({
     nameEn: String,
     typPl: String,
     typEn: String,   
-    img: String
+    url: String
     
 });
 

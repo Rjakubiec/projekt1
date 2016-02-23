@@ -1,0 +1,36 @@
+<div class="col-md-12" ng-controller="ProduktyCtrl">
+
+    <div ng-model="productDetalis" ng-show="mainLanguage == 'PL'">
+        <div class='row'>
+            <div class="col-md-8">
+                <img src="{{productDetalis.url[0]}}" class="img-responsive">
+                <div class="col-md-6">
+                  
+                        <img src="{{productDetalis.url[1]}}" class="img-responsive">
+                    
+                </div>
+                <div class="col-md-6">
+                                   
+                        <img src="{{productDetalis.url[2]}}" class="img-responsive">                   
+                </div>
+            </div>
+            <div class='col-md-4'>
+                <h3>Nazwa produktu:</h3>
+
+                <pre>{{productDetalis.namePl}}</pre>
+
+
+                <h4>Dane:</h4>
+
+                <pre>{{productDetalis.descriptionPl}}</pre>
+                <h4>Rodzaj:</h4>
+                <pre>{{productDetalis.typPl}}</pre>
+                <h4>Kategoria:</h4>
+                <pre>{{productDetalis.categoryPl}}</pre>
+                <h4>Typ:</h4>
+                <pre>{{productDetalis.sizePl}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

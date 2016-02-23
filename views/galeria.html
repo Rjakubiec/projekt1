@@ -1,5 +1,5 @@
-<p>galeria</p>
-<div class="col-md-2">
+<h3>Wyszukaj</h3>
+<div class="col-md-3">
     <select class="form-control" ng-model="filterQuery">
         <div>
             <option type="text" ng-repeat="typ in typs" >{{typ.typPl}}</option>
@@ -7,17 +7,18 @@
 
     </select>
 </div>
+<br>
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-2 col-xs-12" ng-repeat="foto in fotos | filter:filterQuery">
             <a ng-click="openLightboxModal($index)" style="display: block;">
-                <img ng-src="{{foto.img}}" class="img-responsive" alt="" />
+                <img ng-src="{{foto.url}}" class="img-responsive" alt="" />
             </a>
-            <a href="{{foto.img}}" download>
+            <a href="{{foto.url}}" download>
                 <button>Pobierz małe zdj</button>
             </a>
             <br>
-            <a href="{{foto.img}}" download>
+            <a href="{{foto.url}}" download>
                 <button>Pobierz duże zdj</button>
             </a>
         </div>

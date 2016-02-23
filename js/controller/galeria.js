@@ -20,95 +20,7 @@ angular.module('szczesniak')
             //                 'url': 'img/IMG_6297.jpg',
             //                 'caption': 'Zdjęcie 1',
             //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 2',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 3',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 4',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 2',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 3',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 4',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 2',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 3',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 4',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 2',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 3',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 4',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             },
-            //             {
-            // 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 5',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
-            // 
-            //             }
+           
         ];
 
         $http.get('http://localhost:3333/imgs')
@@ -129,13 +41,7 @@ angular.module('szczesniak')
             $rootScope.description = $sce.trustAsHtml("nice gallery");
         }
         
-        //         $scope.pobrano = false;		
-        // 			$http.get('')
-        // 			.success(function(data) {
-        // 				$scope.fotos = data;
-        // 				$scope.pobrano= true;
-        // 
-        // 			});
+   
 
         $scope.openLightboxModal = function (index) {
             Lightbox.openModal($scope.fotos, index);

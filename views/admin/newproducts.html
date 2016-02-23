@@ -5,7 +5,13 @@
 
     <div class="col-md-4">
 
-        <img src="{{product.img}}" class="img-responsive"></p>
+        <img src="{{product.url[0]}}" class="img-responsive"></p>
+        <div class="col-md-6">
+            <img src="{{product.url[1]}}" class="img-responsive"></p>
+        </div>
+        <div class="col-md-6">
+            <img src="{{product.url[2]}}" class="img-responsive"></p>
+        </div>
     </div>
     <div class="col-md-4">
         <lable>Nazwa polska</lable>
@@ -14,12 +20,12 @@
         <lable>Nazwa angielska</lable>
         <input class="form-control" type="text" ng-model="product.nameEn" value="{{product.nameEn}}">
         <br>
-        
+
         <lable>Opis polski</lable>
-        <textarea class="form-control" type="text" ng-model="product.descriptionPl" value="{{product.descriptionPl}}"/>
+        <textarea class="form-control" type="text" ng-model="product.descriptionPl" value="{{product.descriptionPl}}" />
         <br>
         <lable>Opis angielski</lable>
-        <textarea class="form-control" type="text" ng-model="product.descriptionEn" value="{{product.descriptionEn}}"/>
+        <textarea class="form-control" type="text" ng-model="product.descriptionEn" value="{{product.descriptionEn}}" />
         <br>
         <a class="btn btn-danger" ng-click="deleteProduct(product._id)">usuń</a>
         <a class="btn btn-success" ng-click="updateProduct(product._id,product)">zmień</a>
@@ -27,66 +33,66 @@
         <!--<lable>Rozmiar</lable>
         <input type="text" ng-model="img.sizePl" value="{{img.sizePl}}">
         <br>-->
-        </div>
-        <div class="col-md-4">
-            <lable>Typ produktu(PL)</lable>
-            <select class="form-control" ng-model="product.typPl">
-                <div>
-                    <option ng-repeat="typ in typs">{{typ.typPl}}</option>
-                </div>
-            </select>
-            <br>
-            <lable>Typ produktu(EN)</lable>
-            <select class="form-control" ng-model="product.typEn">
-                <div>
-                    <option ng-repeat="typ in typs">{{typ.typEn}}</option>
-                </div>
-            </select>
-            <br>
-            
-            <lable>Kategoria produktu(PL)</lable>
-            <select class="form-control" ng-model="product.categoryPl">
-                <div>
-                    <option ng-repeat="category in categorys">{{category.categoryPl}}</option>
-                </div>
-            </select>
-            <br>
-            <lable>Kategoria produktu(EN)</lable>
-            <select class="form-control" ng-model="product.categoryEn">
-                <div>
-                    <option ng-repeat="category in categorys">{{category.categoryEn}}</option>
-                </div>
-            </select>
-            <br>
-            <lable>Rozmiar produktu(PL)</lable>
-            <select class="form-control" ng-model="product.sizePl">
-                <div>
-                    <option ng-repeat="size in sizes">{{size.sizePl}}</option>
-                </div>
-            </select>
-            <br>
-            <lable>Rozmiar produktu(EN)</lable>
-            <select class="form-control" ng-model="product.sizeEn">
-                <div>
-                    <option ng-repeat="size in sizes">{{size.sizeEn}}</option>
-                </div>
-            </select>
-            <br>
-        </div>
-        
+    </div>
+    <div class="col-md-4">
+        <lable>Typ produktu(PL)</lable>
+        <select class="form-control" ng-model="product.typPl">
+            <div>
+                <option ng-repeat="typ in typs">{{typ.typPl}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Typ produktu(EN)</lable>
+        <select class="form-control" ng-model="product.typEn">
+            <div>
+                <option ng-repeat="typ in typs">{{typ.typEn}}</option>
+            </div>
+        </select>
+        <br>
+
+        <lable>Kategoria produktu(PL)</lable>
+        <select class="form-control" ng-model="product.categoryPl">
+            <div>
+                <option ng-repeat="category in categorys">{{category.categoryPl}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Kategoria produktu(EN)</lable>
+        <select class="form-control" ng-model="product.categoryEn">
+            <div>
+                <option ng-repeat="category in categorys">{{category.categoryEn}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Rozmiar produktu(PL)</lable>
+        <select class="form-control" ng-model="product.sizePl">
+            <div>
+                <option ng-repeat="size in sizes">{{size.sizePl}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Rozmiar produktu(EN)</lable>
+        <select class="form-control" ng-model="product.sizeEn">
+            <div>
+                <option ng-repeat="size in sizes">{{size.sizeEn}}</option>
+            </div>
+        </select>
+        <br>
+    </div>
+
     <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
-    
+
 </div>
 <br>
 <br>
 <br>
 
-<div class="row">
+<!--<div class="row">
     <form ng-controller="NewProductsCtrl as up" name="up.upload_form">
         <p> Dodaj obrazek produktu</p>
         <!--<input type="text" ng-model="up.namePl" value="">
 
-        <input type="text" ng-model="up.nameEn" value="">-->
+        <input type="text" ng-model="up.nameEn" value="">
 
         <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
         /> Miniaturka: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
@@ -99,4 +105,20 @@
         <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
         <p>{{up.progress}}</p>
     </form>
+</div>-->
+
+<div class="row">
+    <form ng-controller="NewProductsCtrl">
+        <h3> Dodaj zdjęcia produktu</h3>
+        <button ngf-select="uploadFiles($files)" multiple accept="image/*">Dodaj img</button>
+        <br>
+        <br>Zdjęcia:
+        <ul>
+            <li ng-repeat="f in files" style="font:smaller">
+                {{f.name}}
+            </li>
+        </ul>
+        <span class="progress" ng-show="progress >= 0">
+        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+    </span> {{errorMsg}}
 </div>

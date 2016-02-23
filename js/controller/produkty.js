@@ -1,32 +1,75 @@
 'use strict';
 
 angular.module('szczesniak')
-    .controller('ProduktyCtrl', function ($scope, $rootScope, $sce,$http) {
+    .controller('ProduktyCtrl', function ($scope, $rootScope, $sce, $http, Lightbox) {
         console.log('Produkty');
+    
+    
+        ////////////////////////////////Wyszukiwanie    
+        $scope.typs = [];
+
+
+        $http.get('http://localhost:3333/typs')
+            .then(function (data) {
+
+                $scope.typs = data.data;
+            })
+        $scope.sizes = [];
+
+
+        $http.get('http://localhost:3333/sizes')
+            .then(function (data) {
+
+                $scope.sizes = data.data;
+            })
+        $scope.categorys = [];
+
+
+        $http.get('http://localhost:3333/categorys')
+            .then(function (data) {
+
+                $scope.categorys = data.data;
+            })
+        
+        
+        /////////////////////////////////////    
         
         $scope.products = [];
+        $rootScope.productDetalis = [];
 
         $http.get('http://localhost:3333/products')
             .then(function (data) {
-              console.log(data.data);
+                console.log(data.data);
                 $scope.products = data.data;
-             });
-             
-             $scope.getProduct = function (id) {
-            $http.get('http://localhost:3333/products/' + id)
+            });
+
+        $scope.getProduct = function (id) {
+            $http.get('http://localhost:3333/product/' + id)
                 .then(function (data) {
-                    $rootScope.descriptionProduct = $sce.trustAsHtml(data.data);
+                    $rootScope.productDetalis = data.data;
+                    console.log($scope.productDetalis);
                 });
         };
 
         $rootScope.podstrona = true;
-         if ($rootScope.mainLanguage == 'PL') {
+        if ($rootScope.mainLanguage == 'PL') {
             $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Produkty</strong>");
             $rootScope.description = $sce.trustAsHtml("super produkty");
         }
-        else  {
+        else {
             $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Products</strong>");
             $rootScope.description = $sce.trustAsHtml("best products");
         }
-        
+
+
+        $scope.openLightboxModal = function (index) {
+            Lightbox.openModal($scope.products, index);
+
+        };
+
+        // $scope.reset = function () {
+        //     console.log('kurde');
+        //     $scope.sizes = {};
+        // }
+       
     });

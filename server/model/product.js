@@ -7,7 +7,7 @@ var ProductSchema = new Schema({
     nameEn: String,
     descriptionPl: String,
     descriptionEn: String,
-    img: String,
+    url: [String],
     typPl: String,
     typEn: String, // strażackie, wojskowe inne
     categoryPl: String, // Kontenery strażackie Przyczepy strażackie itp 

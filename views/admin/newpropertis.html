@@ -7,6 +7,7 @@
         </div>
 
     </select>
+    <input class="form-control" type="text" ng-model="typ.typPl" value="{{typ.typPl}}">
     <br>
     <br>
     <lable>Typ (EN)</lable>
@@ -15,12 +16,14 @@
             <option ng-repeat="typ in data.typs" value="{{typ._id}}">{{typ.typEn}}</option>
         </div>
     </select>
+    <input class="form-control" type="text" ng-model="typ.typEn" value="{{typ.typEn}}">
     <br>
-    <a class="btn btn-success" ng-click="updateTyp(data.singleSelect,typ)">update</a>
+    <a class="btn btn-success" ng-click="updateTyp(data.singleSelect,typ)">zmień</a>
     <a class="btn btn-danger" ng-click="deleteTyp(data.singleSelect)">usuń</a>
     <br>
     <br>
-
+<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+<lable> Dodaj typ</lable>
     <input class="form-control" type="text" ng-model="typ.typPl" value="{{typ.typPl}}">
     <br>
 
@@ -45,6 +48,7 @@
         </div>
 
     </select>
+    <input class="form-control" type="text" ng-model="category.categoryPl" value="{{category.categoryPl}}">
     <br>
     <br>
     <lable>Kategoria (EN)</lable>
@@ -54,12 +58,14 @@
         </div>
 
     </select>
+    <input class="form-control" type="text" ng-model="category.categoryEn" value="{{category.categoryEn}">
     <br>
-    <a class="btn btn-success" ng-click="updateCategory(data.singleSelect3,category)">update</a>
+    <a class="btn btn-success" ng-click="updateCategory(data.singleSelect3,category)">zmień</a>
     <a class="btn btn-danger" ng-click="deleteCategory(data.singleSelect3)">usuń</a>
     <br>
     <br>
-
+<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+<lable> Dodaj kategorie</lable>
     <input class="form-control" type="text" ng-model="category.categoryPl" value="{{category.categoryPl}}">
     <br>
 
@@ -84,6 +90,7 @@
         </div>
 
     </select>
+    <input class="form-control" type="text" ng-model="size.sizePl" value="{{size.sizePl}}">
     <br>
     <br>
     <lable>Rozmiar (EN)</lable>
@@ -93,12 +100,14 @@
         </div>
             
     </select>
+    <input class="form-control" type="text" ng-model="size.sizeEn" value="{{size.sizeEn}">
     <br>
-    <a class="btn btn-success" ng-click="updateSize(data.singleSelect2,size)">update</a>
+    <a class="btn btn-success" ng-click="updateSize(data.singleSelect2,size)">zmień</a>
     <a class="btn btn-danger" ng-click="deleteSize(data.singleSelect2)">usuń</a>
     <br>
     <br>
-
+<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <lable> Dodaj rozmiar</lable>
     <input class="form-control" type="text" ng-model="size.sizePl" value="{{size.sizePl}}">
     <br>
 

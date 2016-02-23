@@ -18,6 +18,9 @@ var storage = multer.diskStorage({ //multers disk storage settings
 var upload = multer({ //multer settings
     storage: storage
 }).single('file');
+var upload1 = multer({ //multer settings
+    storage: storage
+}).array('files', 3);
 
 var User = require('./server/model/user');
 var Slider = require('./server/model/slider');
@@ -128,7 +131,7 @@ app.post('/img', function (req, res) {
         var img = new Img();
         // img.namePl = req.body.namePl;
         // img.nameEn = req.body.nameEn;
-        img.img = req.file.path;
+        img.url = req.file.path;
         img.save();
         res.json({ error_code: 0, err_desc: null });
     })
@@ -170,15 +173,21 @@ app.put('/imgU/:id', function (req, res, next) {
 ///////////////////////////////////////crud products//////////////////////////////////////
 // dodaj product
 app.post('/product', function (req, res) {
-    upload(req, res, function (err) {
+
+    upload1(req, res, function (err) {
+       
         if (err) {
+             console.log(err);
             res.json({ error_code: 1, err_desc: err });
             return;
         }
         var product = new Product();
-        // img.namePl = req.body.namePl;
-        // img.nameEn = req.body.nameEn;
-        product.img = req.file.path;
+        
+        for(var i in req.files)
+        {
+            product.url[i] = req.files[i].path;
+        }
+    
         product.save();
         res.json({ error_code: 0, err_desc: null });
     })

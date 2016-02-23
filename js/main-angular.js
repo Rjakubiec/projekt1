@@ -72,21 +72,21 @@ angular
                 controller: 'NewsCtrl'
             })
             .when('/product/:id', {
-                templateUrl: 'views/produktyDetal.html',
-                controller: 'ProduktyDetalCtrl'
+                templateUrl: 'views/produktDetal.html',
+                controller: 'ProduktyCtrl'
             })
             .when('en/product/:id', {
-                templateUrl: 'views/en/productsDetalis.html',
-                controller: 'ProduktyDetalCtrl'
+                templateUrl: 'views/en/productDetalis.html',
+                controller: 'ProduktyCtrl'
             })
             .otherwise({
                 redirectTo: '/'
             });
 
     })
-    .config(function (LightboxProvider) {
-        LightboxProvider.templateUrl = 'views/lightbox.html';
-    })
+    // .config(function (LightboxProvider) {
+    //     LightboxProvider.templateUrl = 'views/lightbox.html';
+    // })
     .run(function ($rootScope, $location, $http) {
 
         $rootScope.mainLanguage = 'PL';

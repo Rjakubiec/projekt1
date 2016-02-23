@@ -3,9 +3,9 @@
 <br>
 <div class="row">
 
-    <div class="col-md-2" ng-repeat="img in imgs | filter:filterQuery">
+    <div class="col-md-3" ng-repeat="img in imgs | filter:filterQuery">
 
-        <img src="{{img.img}}" class="img-responsive"></p>
+        <img src="{{img.url}}" class="img-responsive"></p>
         <lable>Nazwa polska</lable>
         <input type="text" ng-model="img.namePl" value="{{img.namePl}}">
         <br>
