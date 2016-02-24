@@ -8,8 +8,7 @@ angular
         'ui.bootstrap',
         'ui.bootstrap.modal',
         'bootstrapLightbox',
-        'uiGmapgoogle-maps',
-        'jkuri.gallery'
+        'uiGmapgoogle-maps'
 
     ])
     .config(function ($routeProvider) {
