@@ -4,15 +4,9 @@
         <div class='row'>
             <div class="col-md-8">
                 <img src="{{productDetalis.url[0]}}" class="img-responsive">
-                <div class="col-md-6">
-                  
-                        <img src="{{productDetalis.url[1]}}" class="img-responsive">
-                    
-                </div>
-                <div class="col-md-6">
-                                   
-                        <img src="{{productDetalis.url[2]}}" class="img-responsive">                   
-                </div>
+                <div class="col-md-3" ng-repeat="img in productDetalis.url">             
+                            <img src="{{img}}" class="img-responsive"> 
+                </div>               
             </div>
             <div class='col-md-4'>
                 <h3>Nazwa produktu:</h3>

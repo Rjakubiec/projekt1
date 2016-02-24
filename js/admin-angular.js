@@ -52,4 +52,22 @@ angular
 		        redirectTo: '/login'
 	      	});
       
-    });
+    }).run(function($rootScope, $location,loginService) {
+
+      //var routeperm=['/login'];
+      $rootScope.$on('$routeChangeStart', function() {
+
+          if(!loginService.isLogged()) {
+
+
+              $rootScope.zalogowany = false;
+              $location.path('/login');
+          } else {
+
+
+              $rootScope.zalogowany = true;
+          }
+
+
+      });
+     });

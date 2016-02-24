@@ -20,7 +20,7 @@ var upload = multer({ //multer settings
 }).single('file');
 var upload1 = multer({ //multer settings
     storage: storage
-}).array('files', 3);
+}).array('files', 5);
 
 var User = require('./server/model/user');
 var Slider = require('./server/model/slider');
@@ -46,9 +46,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.all('/*', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://localhost");
     res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Origin,__setXHR_");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,DELETE,POST,OPTIONS');
+    res.header('Access-Control-Allow-Credentials', "true");
     next();
 });
 
@@ -74,19 +75,6 @@ app.post('/slider', function (req, res) {
 
 });
 
-
-// app.post('/slider', function(req,res,next) {
-// 
-//   var slider = new Slider();
-//   slider.img = req.body.img;
-//   
-//   slider.save(function(err) {
-// 
-//       if (err) return next(err);
-//       res.json('Poprawnioe dodano ;-)');
-// 
-//   });
-// });
 // lista img sliderów
 app.get('/sliders', function (req, res, next) {
     Slider.find(function (err, slider) {
@@ -129,8 +117,6 @@ app.post('/img', function (req, res) {
             return;
         }
         var img = new Img();
-        // img.namePl = req.body.namePl;
-        // img.nameEn = req.body.nameEn;
         img.url = req.file.path;
         img.save();
         res.json({ error_code: 0, err_desc: null });
@@ -170,24 +156,51 @@ app.put('/imgU/:id', function (req, res, next) {
 });
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////Logowanie////////////////////
+app.post('/users/login', function (req, res) {
+
+    User.findOne({
+        login: req.body.login
+    }, function (err, user) {
+        if (err) throw err;
+        
+        if (!user) {          
+            console.log("zly login");
+        } else {
+           
+            if (user.password == req.body.password) {
+          
+                console.log("dobre dane");
+                
+                res.json({ success: true });
+            } else {
+                
+                console.log("zle haslo");
+               
+            };
+        };
+    });
+});
+
+////////////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////crud products//////////////////////////////////////
 // dodaj product
 app.post('/product', function (req, res) {
 
     upload1(req, res, function (err) {
-       
+
         if (err) {
-             console.log(err);
+            console.log(err);
             res.json({ error_code: 1, err_desc: err });
             return;
         }
         var product = new Product();
-        
-        for(var i in req.files)
-        {
+
+        for (var i in req.files) {
             product.url[i] = req.files[i].path;
         }
-    
+
         product.save();
         res.json({ error_code: 0, err_desc: null });
     })

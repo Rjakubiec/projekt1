@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 20">
+    <nav ng-show="zalogowany" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 20">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -43,8 +43,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/main">Panel Administracyjny</a>
+            <a class="navbar-brand" href="#/main">Panel Administracyjny</a>          
         </div>
+        <li class="btn btn-danger pull-right" ng-controller="LogowanieCtrl" ng-click="wyloguj()">Wyloguj</li>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
@@ -66,7 +67,7 @@
                     <li>
                         <a href="#/main/newPropertis"><i class="fa-fw"></i> Dodaj właściowści</a>
                     </li>
-
+                   
                 </ul>
             </div>
         </div>
@@ -85,7 +86,8 @@
     <script src="js/admin-controller/newgallery.js"></script>
     <script src="js/admin-controller/newproducts.js"></script>
     <script src="js/admin-controller/newpropertis.js"></script>
-
+    <script src="js\services\loginService.js"></script>
+    <script src="js\services\sessionService.js"></script>
 
 
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>

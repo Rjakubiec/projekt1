@@ -1,15 +1,35 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-	.controller('LogowanieCtrl', function($scope, $rootScope, $sce){
+    .constant("authUrl","http://localhost:3333/users/login")
+	.controller('LogowanieCtrl', function($scope, $rootScope, $location,$http,authUrl,loginService){
 		
 
-		$rootScope.podstrona = false;
+        $scope.blad = '';
+        $scope.zaloguj = function(login,password) {
 
-		 //  $http.get('http://localhost:3333/users')
-        //     .then(function (data) {
-        //         console.log(data.data);
-        //         $scope.users = data.data;
+
+            loginService.login(login,password,$scope);
+
+        };
+        $scope.wyloguj = function () {
+            loginService.wyloguj();
+        };
+
+
+		// $scope.zaloguj = function (login,password) {
+        //     $http.post(authUrl, {
+        //         login : login,
+        //         password : password
+        //     }, {
+        //         withCredentials: true
+        //     }).success (function (data) {
+        //         $location.path("/main");
+        //     }).error(function (error) {
+        //         console.log(error);
         //     });
+        //     
+        // }
+
 		
 	});

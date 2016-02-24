@@ -1,32 +1,32 @@
 {
-  "name": "psszczesniak",
-  "version": "1.0.0",
-  "description": "psszczesniak",
-  "main": "index.html",
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "mongoose": "^4.4.3",
-    "morgan": "^1.6.1",
-    "multer": "^1.1.0"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rjakubiec/projekt1.git"
-  },
-  "keywords": [
-    "angularjs",
-    "html",
-    "css"
-  ],
-  "author": "rj",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rjakubiec/projekt1/issues"
-  },
-  "homepage": "https://github.com/Rjakubiec/projekt1#readme",
-  "scripts": {
-    "start": "node server.js"
-  }
+    "name": "psszczesniak",
+    "version": "1.0.0",
+    "description": "psszczesniak",
+    "main": "index.html",
+    "dependencies": {
+        "body-parser": "^1.15.0",
+        "express": "^4.13.4",
+        "mongoose": "^4.4.3",
+        "morgan": "^1.6.1",
+        "multer": "^1.1.0"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Rjakubiec/projekt1.git"
+    },
+    "keywords": [
+        "angularjs",
+        "html",
+        "css"
+    ],
+    "author": "rj",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Rjakubiec/projekt1/issues"
+    },
+    "homepage": "https://github.com/Rjakubiec/projekt1#readme",
+    "scripts": {
+        "start": "node server.js"
+    }
 }
