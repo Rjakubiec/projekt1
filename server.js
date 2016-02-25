@@ -244,6 +244,8 @@ app.put('/productU/:id', function (req, res, next) {
 app.post('/size', function (req, res, next) {
 
     var size = new Size();
+    size.categoryPl = req.body.categoryPl;
+    size.categoryEn = req.body.categoryEn;
     size.sizePl = req.body.sizePl;
     size.sizeEn = req.body.sizeEn;
 
@@ -344,6 +346,8 @@ app.put('/typU/:id', function (req, res, next) {
 app.post('/category', function (req, res, next) {
 
     var category = new Category();
+    category.typPl = req.body.typPl;
+    category.typEn = req.body.typEn;
     category.categoryPl = req.body.categoryPl;
     category.categoryEn = req.body.categoryEn;
 

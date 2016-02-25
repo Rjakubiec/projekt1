@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 
 var SizeSchema = new Schema({
     
+    categoryPl: String,
+    categoryEn: String,
     sizePl: String,
     sizeEn: String
     

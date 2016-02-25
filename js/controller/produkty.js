@@ -7,15 +7,14 @@ angular.module('szczesniak')
     
         ////////////////////////////////Wyszukiwanie    
         $scope.typs = [];
-
-
+       
         $http.get('http://localhost:3333/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
             })
         $scope.sizes = [];
-
+        
 
         $http.get('http://localhost:3333/sizes')
             .then(function (data) {

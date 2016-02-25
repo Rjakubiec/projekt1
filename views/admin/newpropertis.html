@@ -10,6 +10,8 @@
     <input class="form-control" type="text" ng-model="typ.typPl" value="{{typ.typPl}}">
     <br>
     <br>
+    <br>
+    <br>
     <lable>Typ (EN)</lable>
     <select class="form-control" name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
         <div>
@@ -18,15 +20,20 @@
     </select>
     <input class="form-control" type="text" ng-model="typ.typEn" value="{{typ.typEn}}">
     <br>
+    <br>
+   
     <a class="btn btn-success" ng-click="updateTyp(data.singleSelect,typ)">zmień</a>
     <a class="btn btn-danger" ng-click="deleteTyp(data.singleSelect)">usuń</a>
     <br>
+    <br> 
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h3> Dodaj typ</h3>
     <br>
-<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
-<lable> Dodaj typ</lable>
+    <br>
+    <lable>Nazwa typu (PL)</lable>
     <input class="form-control" type="text" ng-model="typ.typPl" value="{{typ.typPl}}">
     <br>
-
+    <lable>Nazwa typu (EN)</lable>
     <input class="form-control" type="text" ng-model="typ.typEn" value="{{typ.typEn}}">
     <br>
     <br>
@@ -41,7 +48,12 @@
 
 <div class="col-md-3">
     <lable>Kategoria (PL)</lable>
+     <select class="form-control" name="singleSelect3" id="singleSelect3" ng-model="data.singleSelect3" disabled>
+        <div>
+            <option type="text" ng-repeat="category in data.categorys" value="{{category._id}}">{{category.typPl}}</option>
+        </div>
 
+    </select>
     <select class="form-control" name="singleSelect3" id="singleSelect3" ng-model="data.singleSelect3">
         <div>
             <option type="text" ng-repeat="category in data.categorys" value="{{category._id}}">{{category.categoryPl}}</option>
@@ -52,6 +64,12 @@
     <br>
     <br>
     <lable>Kategoria (EN)</lable>
+     <select class="form-control" name="singleSelect3" id="singleSelect3" ng-model="data.singleSelect3" disabled>
+        <div>
+            <option type="text" ng-repeat="category in data.categorys" value="{{category._id}}">{{category.typEn}}</option>
+        </div>
+
+    </select>
     <select class="form-control" name="singleSelect3" id="singleSelect3" ng-model="data.singleSelect3">
         <div>
             <option type="text" ng-repeat="category in data.categorys" value="{{category._id}}">{{category.categoryEn}}</option>
@@ -64,11 +82,28 @@
     <a class="btn btn-danger" ng-click="deleteCategory(data.singleSelect3)">usuń</a>
     <br>
     <br>
-<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
-<lable> Dodaj kategorie</lable>
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h3> Dodaj kategorie</h3>
+    </Br>
+    </Br>
+    <lable>Typ kategorii (PL)</lable>
+    <select class="form-control" ng-model="category.typPl">
+        <div>
+            <option ng-repeat="typ in typs">{{typ.typPl}}</option>
+        </div>
+    </select>
+    <br>
+    <lable>Typ kategorii (EN)</lable>
+    <select class="form-control" ng-model="category.typEn">
+        <div>
+            <option ng-repeat="typ in typs">{{typ.typEn}}</option>
+        </div>
+    </select>
+    <br>
+    <lable>Nazwa kategorii (PL)</lable>
     <input class="form-control" type="text" ng-model="category.categoryPl" value="{{category.categoryPl}}">
     <br>
-
+    <lable>Nazwa kategorii (EN)</lable>
     <input class="form-control" type="text" ng-model="category.categoryEn" value="{{category.categoryEn}">
     <br>
     <br>
@@ -82,7 +117,13 @@
 
 <!--Size-->
 <div class="col-md-3">
-    <lable>Rozmiar (PL)</lable>
+    <lable>Podkategoria (PL)</lable>
+    <select class="form-control" name="singleSelect2" id="singleSelect2" ng-model="data.singleSelect2" disabled>
+        <div>
+            <option type="text" ng-repeat="size in data.sizes" value="{{size._id}}">{{size.categoryPl}}</option>
+        </div>
+
+    </select>
 
     <select class="form-control" name="singleSelect2" id="singleSelect2" ng-model="data.singleSelect2">
         <div>
@@ -93,12 +134,18 @@
     <input class="form-control" type="text" ng-model="size.sizePl" value="{{size.sizePl}}">
     <br>
     <br>
-    <lable>Rozmiar (EN)</lable>
+    <lable>Podkategoria (EN)</lable>
+       <select class="form-control" name="singleSelect2" id="singleSelect2" ng-model="data.singleSelect2" disabled>
+        <div>
+            <option type="text" ng-repeat="size in data.sizes" value="{{size._id}}">{{size.categoryEn}}</option>
+        </div>
+
+    </select>
     <select class="form-control" name="singleSelect2" id="singleSelect2" ng-model="data.singleSelect2">
         <div>
             <option type="text" ng-repeat="size in data.sizes" value="{{size._id}}">{{size.sizeEn}}</option>
         </div>
-            
+
     </select>
     <input class="form-control" type="text" ng-model="size.sizeEn" value="{{size.sizeEn}">
     <br>
@@ -106,11 +153,28 @@
     <a class="btn btn-danger" ng-click="deleteSize(data.singleSelect2)">usuń</a>
     <br>
     <br>
-<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
-    <lable> Dodaj rozmiar</lable>
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+    <h3> Dodaj podkategorię</h3>
+    <br>
+    <br>
+    <lable>Kategoria podkategorii (PL)</lable>
+    <select class="form-control" ng-model="size.categoryPl">
+        <div>
+            <option ng-repeat="category in categorys">{{category.categoryPl}}</option>
+        </div>
+    </select>
+    <br>
+    <lable>Kategoria podkategorii (EN)</lable>
+    <select class="form-control" ng-model="size.categoryEn">
+        <div>
+            <option ng-repeat="category in categorys">{{category.categoryEn}}</option>
+        </div>
+    </select>
+    <br>
+    <lable>Podkategoria (PL)</lable>
     <input class="form-control" type="text" ng-model="size.sizePl" value="{{size.sizePl}}">
     <br>
-
+    <lable>Podkategorie (EN)</lable>
     <input class="form-control" type="text" ng-model="size.sizeEn" value="{{size.sizeEn}">
     <br>
     <br>
@@ -121,4 +185,3 @@
     <br>
 
 </div>
-

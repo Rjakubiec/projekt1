@@ -1,33 +1,44 @@
 <H3>Wyszukaj po :</H3>
 <div class="row">
 <div class="col-md-3">
-    <select class="form-control" ng-model="filterQuery">
-        <div>           
-            <option type="text" ng-repeat="typ in typs" >{{typ.typPl}}</option>
+    <lable>Typ:</lable>
+    <select class="form-control" ng-model="filter1" >
+        <div>          
+           
+            <option type="text"  ng-repeat="typ in typs" >{{typ.typPl}}</option>
+         
         </div>
 
     </select>
 </div>
-<div class="col-md-3">
-    <select class="form-control" ng-model="filterQuery1">
+<div class="col-md-3" ng-show="filter1">
+    <lable>Kategoria:</lable>
+    <select class="form-control" ng-model="filter2 ">
         <div>
-            <option type="text" ng-repeat="category in categorys" >{{category.categoryPl}}</option>
+            <option ng-repeat="category in categorys | filter:filter1" >{{category.categoryPl}}</option>
+            
         </div>
 
     </select>
 </div>
-<div class="col-md-3">
-    <select class="form-control" ng-model="filterQuery2">
+<div class="col-md-3" ng-show="filter2">
+    <lable>Podkategoria:</lable>
+    <select class="form-control" ng-model="filter3 ">
         <div>
-            <option type="text" ng-repeat="size in sizes" >{{size.sizePl}}</option>
+           <option type="text"  ng-repeat="size in sizes | filter:filter2" >{{size.sizePl}}</option>
+           
         </div>
 
     </select>
+    
 </div>
-<button class="btn btn-danger" type="reset" ng-click="reset()">Reset</button>
+<div class="col-md-1">
+    <br>
+<button class="btn btn-danger" type="reset" ng-click="">Reset</button>
+</div>
 </div>
 <div class="col-md-12" ng-controller="ProduktyCtrl">
-            <div class="col-md-3" ng-repeat="product in products | filter:filterQuery | filter:filterQuery1 | filter:filterQuery2" ng-show="mainLanguage == 'PL'">
+            <div class="col-md-3" ng-repeat="product in products | filter:filter1 | filter:filter2 | filter:filter3" ng-show="mainLanguage == 'PL'">
                 <a href="#/product/{{product.namePl}}" ng-click="getProduct(product._id)">
                                <img src="{{product.url[0]}}" class="img-responsive">
          </a>

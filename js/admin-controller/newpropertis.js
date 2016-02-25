@@ -8,11 +8,15 @@ angular.module('szczesniakAdmin')
             singleSelect: null,
             typs: []
         };
+        
+         $scope.typs = [];
+        
 
         $http.get('http://localhost:3333/typs')
             .then(function (data) {
 
                 $scope.data.typs = data.data;
+                $scope.typs = data.data;
             });
 
 
@@ -49,7 +53,7 @@ angular.module('szczesniakAdmin')
             singleSelect2: null,
             sizes: []
         };
-
+        
 
         $http.get('http://localhost:3333/sizes')
             .then(function (data) {
@@ -90,12 +94,14 @@ angular.module('szczesniakAdmin')
             singleSelect3: null,
             categorys: []
         };
-
+        
+        $scope.categorys = [];
 
         $http.get('http://localhost:3333/categorys')
             .then(function (data) {
 
                 $scope.data.categorys = data.data;
+                $scope.categorys = data.data;
             });
 
         $scope.deleteCategory = function (id) {
