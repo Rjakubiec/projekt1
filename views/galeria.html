@@ -1,11 +1,14 @@
 <h3>Wyszukaj</h3>
 <div class="col-md-3">
-    <select class="form-control" ng-model="filterQuery">
+    <select id="select" class="form-control" ng-model="filterQuery">
         <div>
+            <option value="" selected>Wszystkie</option>
             <option type="text" ng-repeat="typ in typs" >{{typ.typPl}}</option>
         </div>
 
     </select>
+ 
+ <!--<input type="button" value="reset dropdown" data-ng-click="reset()"/>-->
 </div>
 <br>
 <div class="col-md-12">

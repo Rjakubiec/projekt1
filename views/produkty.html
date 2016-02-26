@@ -2,9 +2,9 @@
 <div class="row">
 <div class="col-md-3">
     <lable>Typ:</lable>
-    <select class="form-control" ng-model="filter1" >
+    <select class="form-control" ng-model="filter1" ng-change="reset2()" >
         <div>          
-           
+          
             <option type="text"  ng-repeat="typ in typs" >{{typ.typPl}}</option>
          
         </div>
@@ -15,6 +15,7 @@
     <lable>Kategoria:</lable>
     <select class="form-control" ng-model="filter2 ">
         <div>
+            
             <option ng-repeat="category in categorys | filter:filter1" >{{category.categoryPl}}</option>
             
         </div>
@@ -25,6 +26,7 @@
     <lable>Podkategoria:</lable>
     <select class="form-control" ng-model="filter3 ">
         <div>
+            
            <option type="text"  ng-repeat="size in sizes | filter:filter2" >{{size.sizePl}}</option>
            
         </div>
@@ -34,7 +36,7 @@
 </div>
 <div class="col-md-1">
     <br>
-<button class="btn btn-danger" type="reset" ng-click="">Reset</button>
+<button class="btn btn-danger" type="reset" ng-click="reset()">Reset</button>
 </div>
 </div>
 <div class="col-md-12" ng-controller="ProduktyCtrl">

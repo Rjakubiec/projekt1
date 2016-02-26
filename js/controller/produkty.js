@@ -65,10 +65,17 @@ angular.module('szczesniak')
             Lightbox.openModal($scope.products, index);
 
         };
-
-        // $scope.reset = function () {
-        //     console.log('kurde');
-        //     $scope.sizes = {};
-        // }
+                $scope.reset = function() {
+    $scope.filter1 = 0;
+    $scope.filter2 = 0;
+    $scope.filter3 = 0;
+};
+$scope.reset2 = function() {
+   
+    $scope.filter2 = 0;
+    $scope.filter3 = 0;
+};
+    
+     
        
     });

@@ -46,6 +46,9 @@ angular.module('szczesniak')
         $scope.openLightboxModal = function (index) {
             Lightbox.openModal($scope.fotos, index);
         };
-
+    //     $scope.reset = function() {
+    // $scope.filterQuery = 0;
+    //         };
+    // 
 
     });
