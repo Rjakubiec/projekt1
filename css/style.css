@@ -66,8 +66,15 @@
   width: 100%;
   top: 145px;
   background: #a91605;
-  color: #fff;
 }
-#menu2 {
-  color: #fff;
+#zawartosc {
+  padding: 50px;
+}
+#slider {
+  top: 124px;
+  position: relative;
+}
+#slider img {
+  width: 100%;
+  height: 400px;
 }

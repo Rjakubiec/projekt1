@@ -51,7 +51,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
             </div>
         </div>
-    <div class="container">
+   
         
         <div id="header2" class="row">
              <div id="logo" class="col-md-4">
@@ -75,7 +75,7 @@
         </div>
 
         <div class="row">
-            <nav id="menu" class="navbar navbar-default" style="width: 100% !important;" role="navigation">
+            <nav id="menu" class="navbar navbar-default" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
@@ -86,7 +86,7 @@
                         </button>
                     </div>
 
-                    <div id="menu2" class="collapse navbar-collapse navbar-ex1-collapse col-md-12 col-xs-12" style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
+                    <div class="collapse navbar-collapse navbar-ex1-collapse col-md-12" style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
                     ng-click="navCollapsed=true">
                         <ul class="nav navbar-nav">
                             <li>
@@ -116,6 +116,7 @@
                     </div>
                 </div>
             </nav>
+        </div>
             <div class="podstrona_title" ng-show="podstrona">
                 <div class="container">
                     <div class="title">
@@ -128,11 +129,12 @@
                 </div>
 
             </div>
-            <div ng-controller="FirmaCtrl">
+            <div class="row">
+            <div ng-controller="FirmaCtrl" id="slider">
                 <div ng-hide="podstrona">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                         <uib-slide ng-repeat="slide in slides" active="slide.active">
-                            <img id="slider" ng-src="{{slide.img}}">
+                            <img ng-src="{{slide.img}}">
                             <div class="carousel-caption">
 
                             </div>
@@ -140,15 +142,18 @@
                     </uib-carousel>
                 </div>
             </div>
-            <div class="col-md-2" ng-controller="NewsCtrl">
+            </div>
+             <div class="container">
+            <!--<div class="col-md-2" ng-controller="NewsCtrl">
                 <li ng-repeat="news in newss" ng-show="mainLanguage == 'PL'">
                     <a href="#/news/{{news.namePl}}" ng-click="getNews(news._id)">
                                {{news.namePl}}
          </a>
                 </li>
-            </div>
-            <div class="zawartosc col-md-9" ng-view=""></div>
-
+            </div>-->
+           
+            <div id="zawartosc" class="col-md-9" ng-view=""></div>
+            
             <script src="js/controller/galeria.js"></script>
             <script src="js/controller/kontakt.js"></script>
             <script src="js/controller/praca.js"></script>
