@@ -76,7 +76,7 @@
         <br>
     </div>
         
-        <h3> Dodaj zdjęcia produktu</h3>
+        <p> Dodaj zdjęcia produktu</p>
         <input type="file" class="btn button-default" ngf-select ng-model="files" ngf-multiple="true">
         <br>Zdjęcia:
         <ul>
@@ -88,7 +88,7 @@
         <span class="progress" ng-show="progress >= 0">
         <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>   
     </span> {{errorMsg}}
-     <button ng-click="uploadFiles(files,product)">Dodaj</button>
+     <button class="btn btn-default" ng-click="uploadFiles(files,product)">Dodaj nowy produkt</button>
      <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
 </div>
 <div class="row" ng-repeat="product in products | filter:filterQuery">

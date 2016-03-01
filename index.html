@@ -33,6 +33,9 @@
     <script src='http://maps.google.cn/maps/api/js?sensor=false'></script>
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src='Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js'></script>
+    <script src="bower_components/parallax.js/parallax.js"></script>
+    <script src="parallax.js"></script>
+
 
 
 
@@ -43,16 +46,16 @@
 </head>
 
 <body>
-    <div class="row">
-        <div id="header1">
-            <div id="shape" class="col-md-4">
 
-            </div>
-            <div id="textheader" class="col-md-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            </div>
+    <div id="header1">
+        <div id="shape" class="col-md-4">
+
+        </div>
+        <div id="textheader" class="col-md-8">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div id="header2">
@@ -89,22 +92,22 @@
                 </button>
             </div>
             <div class="container">
-                <div class="collapse navbar-collapse navbar-ex1-collapse col-md-12" style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
+                <div class="collapse navbar-collapse navbar-ex1-collapse " style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
                 ng-click="navCollapsed=true">
                     <ul class="nav navbar-nav">
-                        
+
                         <li>
                             <a class="navbar-brand" href="#/"></a>
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'">
                             <a href="#/{{menu.urlEn}}">
-                              <b> {{menu.namePl}}</b>
-                           </a>
+                                <b> {{menu.namePl}}</b>
+                            </a>
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
                             <a href="#/en/{{menu.urlEn}}">
-                              <b>{{menu.nameEn}}</b> 
-                           </a>
+                                <b>{{menu.nameEn}}</b>
+                            </a>
                         </li>
                         <li> <a ng-click="changeLanguage(mainLanguage)"><b>{{mainLanguage}}</b></a></li>
 
@@ -114,7 +117,7 @@
                         <li ng-show="mainLanguage == 'EN'">
                             <a href='admin.html'><b>Login</b></a>
                         </li>
-                        
+
                     </ul>
 
                 </div>
@@ -122,48 +125,43 @@
         </div>
     </nav>
 
-    <!--<div class="podstrona_title" ng-show="podstrona">
-
-            <div class="title">
-                <h3 ng-bind-html="pokaztitle"></h3>
-                <div>
-
-                </div>
-                <p ng-bind-html="description"></p>
-            </div>
-        </div>-->
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <div ng-controller="FirmaCtrl" id="slider">
-                <div ng-hide="podstrona">
-                    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-                        <uib-slide ng-repeat="slide in slides" active="slide.active">
-                            <img ng-src="{{slide.img}}">
-                             <div class="carousel-caption">
-                                 <h4>{{slide.namePl}}</h4>
-                             <p>{{slide.descriptionPl}}</p>
-                                 </div>
-                        </uib-slide>
-                    </uib-carousel>
-                </div>
-            </div>
+    <!--<div class="row">-->
+    <!-- <div class="col-md-12">-->
+    <div ng-controller="FirmaCtrl" id="slider">
+        <div ng-hide="podstrona">
+            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                <uib-slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.img}}">
+                    <div class="carousel-caption">
+                        <h4>{{slide.namePl}}</h4>
+                        <p>{{slide.descriptionPl}}</p>
+                    </div>
+                </uib-slide>
+            </uib-carousel>
         </div>
     </div>
+    <!--</div>-->
+    <!--</div>-->
 
-    <!--<div class="col-md-2" ng-controller="NewsCtrl">
-                <li ng-repeat="news in newss" ng-show="mainLanguage == 'PL'">
-                    <a href="#/news/{{news.namePl}}" ng-click="getNews(news._id)">
-                               {{news.namePl}}
-         </a>
-                </li>
-            </div>-->
-    <div class="container">
+    <!--<div class="container">-->
         <div class="row">
             <div id="zawartosc" class="col-md-12" ng-view=""></div>
         </div>
-    </div>
+    <!--</div>-->
+
+    <section>
+        <div id="medale">
+            <img src="stylus\site\medale.png" class="img-responsive">
+        </div>
+
+
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted"><b>Copyrights © 2016 SZCZĘŚNIAK Pojazdy Specjalne Sp. z o.o. | All</b></p>
+            </div>
+        </footer>
+    </section>
     <script src="js/controller/galeria.js"></script>
     <script src="js/controller/kontakt.js"></script>
     <script src="js/controller/praca.js"></script>
@@ -172,8 +170,8 @@
     <script src="js/controller/news.js"></script>
 
 
-    </div>
-    </div>
+
+
 </body>
 
 </html>
