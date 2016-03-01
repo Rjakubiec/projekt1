@@ -5,21 +5,54 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
 
-var storage = multer.diskStorage({ //multers disk storage settings
+var storage1 = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
-        cb(null, './img/')
+        cb(null, './img/slider/')
     },
     filename: function (req, file, cb) {
         var datetimestamp = Date.now();
-        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1])
+        cb(null, file.fieldname + '-' + datetimestamp +'.png')
+    }
+});
+var storage2 = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        cb(null, './img/news/')
+    },
+    filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        cb(null, file.fieldname + '-' + datetimestamp +'.png')
+    }
+});
+var storage3 = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        cb(null, './img/gallery/')
+    },
+    filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        cb(null, file.fieldname + '-' + datetimestamp +'.png')
+    }
+});
+var storage4 = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        cb(null, './img/products/')
+    },
+    filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        cb(null, file.fieldname + '-' + datetimestamp +'.png')
     }
 });
 
-var upload = multer({ //multer settings
-    storage: storage
+var upload1 = multer({ //slider
+    storage: storage1
 }).single('file');
-var upload1 = multer({ //multer settings
-    storage: storage
+var upload2 = multer({ //news
+    storage: storage2
+}).single('file');
+var upload3 = multer({ //gallery
+    storage: storage3
+}).single('file');
+var upload4 = multer({ //products
+    storage: storage4
 }).array('files', 5);
 
 var User = require('./server/model/user');
@@ -62,12 +95,16 @@ app.all('/*', function (req, res, next) {
 /////////////////////////////////////crud slider////////////////////////// 
 // dodaj im slidera
 app.post('/slider', function (req, res) {
-    upload(req, res, function (err) {
+    upload1(req, res, function (err) {
         if (err) {
             res.json({ error_code: 1, err_desc: err });
             return;
         }
         var slider = new Slider();
+         slider.namePl = req.body.slider.namePl;
+        slider.nameEn = req.body.slider.nameEn;
+        slider.descriptionPl = req.body.slider.descriptionPl;
+        slider.descriptionEn = req.body.slider.descriptionEn;
         slider.img = req.file.path;
         slider.save();
         res.json({ error_code: 0, err_desc: null });
@@ -111,12 +148,16 @@ app.put('/sliderU/:id', function (req, res, next) {
 ///////////////////////////////////////crud img//////////////////////////////////////
 // dodaj img gallery 
 app.post('/img', function (req, res) {
-    upload(req, res, function (err) {
+    upload3(req, res, function (err) {
         if (err) {
             res.json({ error_code: 1, err_desc: err });
             return;
         }
         var img = new Img();
+        img.namePl = req.body.img.namePl;
+        img.nameEn = req.body.img.nameEn;
+        img.typPl = req.body.img.typPl;
+        img.typEn = req.body.img.typEn;
         img.url = req.file.path;
         img.save();
         res.json({ error_code: 0, err_desc: null });
@@ -124,7 +165,7 @@ app.post('/img', function (req, res) {
 
 });
 
-// lista img sliderów
+// lista img gallery
 app.get('/imgs', function (req, res, next) {
     Img.find(function (err, img) {
         if (err) res.json('error:' + err);
@@ -132,7 +173,7 @@ app.get('/imgs', function (req, res, next) {
         res.json(img);
     });
 });
-//konkretny img slidera
+//konkretny img gallery
 app.get('/img/:id', function (req, res) {
     var id = req.params.id;
     Img.findOne({ _id: id }, function (err, img) {
@@ -140,14 +181,14 @@ app.get('/img/:id', function (req, res) {
     });
 });
 
-//usuwanie img slidera
+//usuwanie img gallery
 app.delete('/imgD/:id', function (req, res, next) {
     Img.findByIdAndRemove(req.params.id, req.body, function (err, img) {
         if (err) return next(err);
         res.json(img);
     });
 });
-// update img slidera
+// update img gallery
 app.put('/imgU/:id', function (req, res, next) {
     Img.findByIdAndUpdate(req.params.id, req.body, function (err, img) {
         if (err) return next(err);
@@ -188,7 +229,7 @@ app.post('/users/login', function (req, res) {
 // dodaj product
 app.post('/product', function (req, res) {
 
-    upload1(req, res, function (err) {
+    upload4(req, res, function (err) {
 
         if (err) {
             console.log(err);
@@ -200,6 +241,18 @@ app.post('/product', function (req, res) {
         for (var i in req.files) {
             product.url[i] = req.files[i].path;
         }
+
+        product.namePl = req.body.product.namePl;
+        product.nameEn = req.body.product.nameEn;
+        product.descriptionPl = req.body.product.descriptionPl;
+        product.descriptionEn = req.body.product.descriptionEn;
+        product.typPl = req.body.product.typPl;
+        product.typEn = req.body.product.typEn;
+        product.categoryPl = req.body.product.categoryPl;
+        product.categoryEn = req.body.product.categoryEn;
+        product.sizePl = req.body.product.sizePl;
+        product.sizeEn = req.body.product.sizeEn;
+        product.urlPdf = req.body.product.urlPdf;
 
         product.save();
         res.json({ error_code: 0, err_desc: null });
@@ -397,18 +450,21 @@ app.put('/categoryU/:id', function (req, res, next) {
 ////////////////////////////////Crud News//////////////////////////////////////
 
 app.post('/news', function (req, res, next) {
+    upload2(req, res, function (err) {
+        if (err) {
+            res.json({ error_code: 1, err_desc: err });
+            return;
+        }
+        var news = new News();
+        news.namePl = req.body.news.namePl;
+        news.nameEn = req.body.news.nameEn;
+        news.descriptionPl = req.body.news.descriptionPl;
+        news.descriptionEn = req.body.news.descriptionEn;
+        news.img = req.file.path;
+        news.save();
+        res.json({ error_code: 0, err_desc: null });
+    })
 
-    var news = new News();
-    news.namePl = req.body.namePl;
-    news.nameEn = req.body.nameEn;
-    news.descriptionPl = req.body.descriptionPl;
-    news.descriptionEn = req.body.descriptionEn;
-    news.save(function (err) {
-
-        if (err) return next(err);
-        res.json('Poprawnioe dodano ;-)');
-
-    });
 });
 
 

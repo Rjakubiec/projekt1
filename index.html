@@ -43,7 +43,8 @@
 </head>
 
 <body>
-    <div id="header1" class="row">
+    <div class="row">
+        <div id="header1">
             <div id="shape" class="col-md-4">
 
             </div>
@@ -51,119 +52,128 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
             </div>
         </div>
-   
-        
-        <div id="header2" class="row">
-             <div id="logo" class="col-md-4">
-                    <img src="stylus\site\logo.png" alt="">
-            </div>
-            <div id="header3" class="col-md-8">
-                <div id="daneheader" class="col-md-2 col-xs-6">
-                    Kontakt email
-                </div>
-                <div id="daneheader" class="col-md-2 col-xs-6">
-                    Telefon
-                </div>
-                <div id="daneheader" class="col-md-3 col-xs-6">
-                    Godziny pracy
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <div id="buttonG"><b>INWESTYCJA W ROZWÓJ</b></div>
-                </div>
-            </div>
-          
-        </div>
-
+    </div>
+    <div class="container">
         <div class="row">
-            <nav id="menu" class="navbar navbar-default" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-
-                    <div class="collapse navbar-collapse navbar-ex1-collapse col-md-12" style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
-                    ng-click="navCollapsed=true">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a class="navbar-brand" href="#/"></a>
-                            </li>
-                            <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'">
-                                <a href="#/{{menu.urlEn}}">
-                               {{menu.namePl}}
-                           </a>
-                            </li>
-                            <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
-                                <a href="#/en/{{menu.urlEn}}">
-                               {{menu.nameEn}}
-                           </a>
-                            </li>
-                            <li> <a ng-click="changeLanguage(mainLanguage)">{{mainLanguage}}</a></li>
-
-                            <li class="pull-right" ng-show="mainLanguage == 'PL'">
-                                <a href='admin.html'>Logowanie</a>
-                            </li>
-                            <li class="pull-right" ng-show="mainLanguage == 'EN'">
-                                <a href='admin.html'>Login</a>
-                            </li>
-
-                        </ul>
-
-                    </div>
+            <div id="header2">
+                <div id="logo" class="col-md-4">
+                    <img src="stylus\site\logo.png" alt="">
                 </div>
-            </nav>
-        </div>
-            <div class="podstrona_title" ng-show="podstrona">
-                <div class="container">
-                    <div class="title">
-                        <h3 ng-bind-html="pokaztitle"></h3>
-                        <div>
-
-                        </div>
-                        <p ng-bind-html="description"></p>
+                <div id="header3" class="col-md-8">
+                    <div id="daneheader" class="col-md-3 col-xs-6">
+                        Kontakt email
+                    </div>
+                    <div id="daneheader" class="col-md-3 col-xs-6">
+                        Telefon
+                    </div>
+                    <div id="daneheader" class="col-md-3 col-xs-6">
+                        Godziny pracy
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div id="buttonG"><b>INWESTYCJA W ROZWÓJ</b></div>
                     </div>
                 </div>
 
             </div>
-            <div class="row">
+        </div>
+    </div>
+
+    <nav id="menu" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="container">
+                <div class="collapse navbar-collapse navbar-ex1-collapse col-md-12" style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
+                ng-click="navCollapsed=true">
+                    <ul class="nav navbar-nav">
+                        
+                        <li>
+                            <a class="navbar-brand" href="#/"></a>
+                        </li>
+                        <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'">
+                            <a href="#/{{menu.urlEn}}">
+                              <b> {{menu.namePl}}</b>
+                           </a>
+                        </li>
+                        <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
+                            <a href="#/en/{{menu.urlEn}}">
+                              <b>{{menu.nameEn}}</b> 
+                           </a>
+                        </li>
+                        <li> <a ng-click="changeLanguage(mainLanguage)"><b>{{mainLanguage}}</b></a></li>
+
+                        <li ng-show="mainLanguage == 'PL'">
+                            <a href='admin.html'><b>Logowanie</b></a>
+                        </li>
+                        <li ng-show="mainLanguage == 'EN'">
+                            <a href='admin.html'><b>Login</b></a>
+                        </li>
+                        
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--<div class="podstrona_title" ng-show="podstrona">
+
+            <div class="title">
+                <h3 ng-bind-html="pokaztitle"></h3>
+                <div>
+
+                </div>
+                <p ng-bind-html="description"></p>
+            </div>
+        </div>-->
+
+
+    <div class="row">
+        <div class="col-md-12">
             <div ng-controller="FirmaCtrl" id="slider">
                 <div ng-hide="podstrona">
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                         <uib-slide ng-repeat="slide in slides" active="slide.active">
                             <img ng-src="{{slide.img}}">
-                            <div class="carousel-caption">
-
-                            </div>
+                             <div class="carousel-caption">
+                                 <h4>{{slide.namePl}}</h4>
+                             <p>{{slide.descriptionPl}}</p>
+                                 </div>
                         </uib-slide>
                     </uib-carousel>
                 </div>
             </div>
-            </div>
-             <div class="container">
-            <!--<div class="col-md-2" ng-controller="NewsCtrl">
+        </div>
+    </div>
+
+    <!--<div class="col-md-2" ng-controller="NewsCtrl">
                 <li ng-repeat="news in newss" ng-show="mainLanguage == 'PL'">
                     <a href="#/news/{{news.namePl}}" ng-click="getNews(news._id)">
                                {{news.namePl}}
          </a>
                 </li>
             </div>-->
-           
-            <div id="zawartosc" class="col-md-9" ng-view=""></div>
-            
-            <script src="js/controller/galeria.js"></script>
-            <script src="js/controller/kontakt.js"></script>
-            <script src="js/controller/praca.js"></script>
-            <script src="js/controller/produkty.js"></script>
-            <script src="js/controller/serwis.js"></script>
-            <script src="js/controller/news.js"></script>
-
-
+    <div class="container">
+        <div class="row">
+            <div id="zawartosc" class="col-md-12" ng-view=""></div>
         </div>
-  </div>
+    </div>
+    <script src="js/controller/galeria.js"></script>
+    <script src="js/controller/kontakt.js"></script>
+    <script src="js/controller/praca.js"></script>
+    <script src="js/controller/produkty.js"></script>
+    <script src="js/controller/serwis.js"></script>
+    <script src="js/controller/news.js"></script>
+
+
+    </div>
+    </div>
 </body>
 
 </html>

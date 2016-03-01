@@ -1,7 +1,96 @@
-<input type="text" ng-model="filterQuery" placeholder="szukaj" />
- <INPUT TYPE="button" class="btn btn-default" onClick="history.go(0)" VALUE="Odśwież">
+<div class="row">
+    <div class="col-md-3 col-xs-12">
+        <input class="form-control" type="text" ng-model="filterQuery" placeholder="Szukaj produktu" />  
+         <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">     
+    </div>
+      <div class="col-md-offset-9">      
+        <INPUT TYPE="button" ng-click="toggleCustom()" class="btn btn-default" VALUE="Dodaj nową pozycje">
+    </div>
+</div>
 <br>
 <br>
+<br>
+<div class="row" ng-hide="custom">
+    <form ng-controller="NewProductsCtrl">
+        <div class="col-md-4">
+        <lable>Nazwa polska</lable>
+        <input class="form-control" type="text" ng-model="product.namePl" >
+        <br>
+        <lable>Nazwa angielska</lable>
+        <input class="form-control" type="text" ng-model="product.nameEn">
+        <br>
+
+        <lable>Opis polski</lable>
+        <textarea class="form-control" type="text" ng-model="product.descriptionPl" />
+        <br>
+        <lable>Opis angielski</lable>
+        <textarea class="form-control" type="text" ng-model="product.descriptionEn" />
+        <br>
+        <lable>Url pdf</lable>
+        <input class="form-control" type="text" ng-model="product.urlPdf">
+
+    </div>
+    <div class="col-md-4">
+        <lable>Typ produktu(PL)</lable>
+        <select class="form-control" ng-model="product.typPl">
+            <div>
+                <option ng-repeat="typ in typs">{{typ.typPl}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Typ produktu(EN)</lable>
+        <select class="form-control" ng-model="product.typEn">
+            <div>
+                <option ng-repeat="typ in typs">{{typ.typEn}}</option>
+            </div>
+        </select>
+        <br>
+
+        <lable>Kategoria produktu(PL)</lable>
+        <select class="form-control" ng-model="product.categoryPl ">
+            <div>
+                <option ng-repeat="category in categorys | filter: product.typPl">{{category.categoryPl}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Kategoria produktu(EN)</lable>
+        <select class="form-control" ng-model="product.categoryEn ">
+            <div>
+                <option ng-repeat="category in categorys| filter: product.typEn">{{category.categoryEn}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Rozmiar produktu(PL)</lable>
+        <select class="form-control" ng-model="product.sizePl">
+            <div>
+                <option ng-repeat="size in sizes | filter : product.categoryPl">{{size.sizePl}}</option>
+            </div>
+        </select>
+        <br>
+        <lable>Rozmiar produktu(EN)</lable>
+        <select class="form-control" ng-model="product.sizeEn">
+            <div>
+                <option ng-repeat="size in sizes | filter : product.categoryEn">{{size.sizeEn}}</option>
+            </div>
+        </select>
+        <br>
+    </div>
+        
+        <h3> Dodaj zdjęcia produktu</h3>
+        <input type="file" class="btn button-default" ngf-select ng-model="files" ngf-multiple="true">
+        <br>Zdjęcia:
+        <ul>
+            <li ng-repeat="f in files" style="font:smaller">
+                {{f.name}} <br>
+                <img style="width:300px;" scr="{{f.file}}" ngf-size="{quality: 100}" />
+            </li>
+        </ul>
+        <span class="progress" ng-show="progress >= 0">
+        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>   
+    </span> {{errorMsg}}
+     <button ng-click="uploadFiles(files,product)">Dodaj</button>
+     <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+</div>
 <div class="row" ng-repeat="product in products | filter:filterQuery">
 
     <div class="col-md-4">
@@ -96,39 +185,3 @@
 <br>
 <br>
 <br>
-
-<!--<div class="row">
-    <form ng-controller="NewProductsCtrl as up" name="up.upload_form">
-        <p> Dodaj obrazek produktu</p>
-        <!--<input type="text" ng-model="up.namePl" value="">
-
-        <input type="text" ng-model="up.nameEn" value="">
-
-        <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
-        /> Miniaturka: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
-
-        <i ng-show="up.upload_form.file.$error.required">*wymagane</i>
-        <br>
-        <i ng-show="up.upload_form.file.$error.maxSize">Plik za duży
-            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
-        <button class="btn btn-default" type="submit" ng-click="up.submit()">Dodaj</button>
-        <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
-        <p>{{up.progress}}</p>
-    </form>
-</div>-->
-
-<div class="row">
-    <form ng-controller="NewProductsCtrl">
-        <h3> Dodaj zdjęcia produktu</h3>
-        <button ngf-select="uploadFiles($files)" multiple accept="image/*">Dodaj img</button>
-        <br>
-        <br>Zdjęcia:
-        <ul>
-            <li ng-repeat="f in files" style="font:smaller">
-                {{f.name}}
-            </li>
-        </ul>
-        <span class="progress" ng-show="progress >= 0">
-        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
-    </span> {{errorMsg}}
-</div>

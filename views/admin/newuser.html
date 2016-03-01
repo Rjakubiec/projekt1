@@ -1,44 +1,49 @@
-
-<input type="text" ng-model="filterQuery" placeholder="szukaj" />
-<INPUT TYPE="button" class="btn btn-default" onClick="history.go(0)" VALUE="Odśwież">
+<div class="row">
+    <div class="col-md-3 col-xs-12">
+        <input class="form-control" type="text" ng-model="filterQuery" placeholder="Szukaj użytkownika" />
+        <INPUT TYPE="button" class="btn btn-default" onClick="history.go(0)" VALUE="Odśwież">
+    </div>
+</div>
 <br>
 <br>
-<table class="table">
-    <thead>
-        <tr>
+<div class="row">
+    <table class="table col-md-12">
+        <thead>
+            <tr>
 
-            <th>Login</th>
-            <th>Email</th>
-            <th>Hasło</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="user in users | filter:filterQuery">
-            <td>
-                <input type="text" ng-model="user.login" value="{{user.login}}">
-            </td>
-            <td>
-                <input type="text" ng-model="user.email" value="{{user.email}}">
-            </td>
-            <td>
-                <input type="password" ng-model="user.password" value="{{user.password}}">
-            </td>
-            <td><a class="btn btn-danger" ng-click="deleteUser(user._id)">usuń</a></td>
-            <td><a class="btn btn-success" ng-click="updateUser(user._id,user)">update</a></td>
-        </tr>
-        <tr ng-model="user">
-            <td>
-                <input type="text" ng-model="user.login">
-            </td>
-            <td>
-                <input type="text" ng-model="user.email">
-            </td>
-            <td>
-                <input type="text" ng-model="user.password">
-            </td>
-            <td><a class="btn btn-default" ng-click="addUser(user)">dodaj</a></td>
-            
-        </tr>
+                <th>Login</th>
+                <th>Email</th>
+                <th>Hasło</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | filter:filterQuery">
+                <td>
+                    <input class="form-control" type="text" ng-model="user.login" value="{{user.login}}">
+                </td>
+                <td>
+                    <input class="form-control" type="text" ng-model="user.email" value="{{user.email}}">
+                </td>
+                <td>
+                    <input class="form-control" type="password" ng-model="user.password" value="{{user.password}}">
+                </td>
+                <td><a class="btn btn-danger" ng-click="deleteUser(user._id)">Usuń</a>
+                <a class="btn btn-success" ng-click="updateUser(user._id,user)">Zmień</a></td>
+            </tr>
+            <tr ng-model="user">
+                <td>
+                    <input class="form-control" type="text" ng-model="user.login">
+                </td>
+                <td>
+                    <input class="form-control" type="text" ng-model="user.email">
+                </td>
+                <td>
+                    <input class="form-control" type="text" ng-model="user.password">
+                </td>
+                <td><a class="btn btn-default" ng-click="addUser(user)">Dodaj</a></td>
 
-    </tbody>
-</table>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

@@ -1,16 +1,67 @@
-<input type="text" ng-model="filterQuery" placeholder="szukaj" />
+<div class="row">
+    <div class="col-md-3 col-xs-12">
+        <input class="form-control" type="text" ng-model="filterQuery" placeholder="Szukaj obrazu" />  
+         <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">     
+    </div>
+      <div class="col-md-offset-9">      
+        <INPUT TYPE="button" ng-click="toggleCustom()" class="btn btn-default" VALUE="Dodaj nową pozycje">
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="row" ng-hide="custom">
+    <div class="col-md-6">
+         <lable>Nazwa polska</lable>
+        <input class="form-control" type="text" ng-model="img.namePl">
+        <br>
+        <lable>Nazwa angielska</lable>
+        <input class="form-control" type="text" ng-model="img.nameEn">
+        <br>
+        <br>
+        <lable>Kategoria zdjęcia(PL)</lable>
+        <select class="form-control" ng-model="img.typPl">
+            <div >
+            <option ng-repeat="typ in typs" >{{typ.typPl}}</option>
+            </div>
+        </select>
+        <br>
+         <lable>Kategoria zdjęcia(EN)</lable>
+        <select class="form-control" ng-model="img.typEn">
+            <div >
+            <option ng-repeat="typ in typs" >{{typ.typEn}}</option>
+            </div>
+        </select>
+        <br>
+    </div>
+    <div class="col-md-6">
+  
+        <p> Dodaj obraz do galerii</p>
+        <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
+        /><img style="width:400px;" ngf-thumbnail="file || '/thumb.jpg'" ngf-size="{quality: 100}" />
+
+        <i ng-show="file.$error.required">*wymagane</i>
+        <br>
+        <i ng-show="file.$error.maxSize">Plik za duży
+            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+        <button class="btn btn-default" ng-click="uploadFiles(file,img)">Dodaj pozycję do galerii</button>
+       
+        <p>{{up.progress}}</p>
+    
+    </div>
+</div>
 <br>
 <br>
 <div class="row">
 
     <div class="col-md-3" ng-repeat="img in imgs | filter:filterQuery">
 
-        <img src="{{img.url}}" class="img-responsive"></p>
+        <img src="{{img.url}}" class="img-responsive" style="height: 200px;width: 300px; "/>
         <lable>Nazwa polska</lable>
-        <input type="text" ng-model="img.namePl" value="{{img.namePl}}">
+        <input class="form-control" type="text" ng-model="img.namePl" value="{{img.namePl}}">
         <br>
         <lable>Nazwa angielska</lable>
-        <input type="text" ng-model="img.nameEn" value="{{img.nameEn}}">
+        <input class="form-control" type="text" ng-model="img.nameEn" value="{{img.nameEn}}">
         <br>
         <br>
         <!--<lable>Rozmiar</lable>
@@ -36,25 +87,4 @@
 
     </div>
 </div>
-<br>
-<br>
-<br>
-<div class="row">
-    <form ng-controller="NewGalleryCtrl as up" name="up.upload_form">
-        <p> Dodaj obrazek do galerii</p>
-        <!--<input type="text" ng-model="up.namePl" value="">
 
-        <input type="text" ng-model="up.nameEn" value="">-->
-
-        <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
-        /> Miniaturka: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
-
-        <i ng-show="up.upload_form.file.$error.required">*wymagane</i>
-        <br>
-        <i ng-show="up.upload_form.file.$error.maxSize">Plik za duży
-            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
-        <button class="btn btn-default" type="submit" ng-click="up.submit()">Dodaj</button>
-        <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
-        <p>{{up.progress}}</p>
-    </form>
-</div>

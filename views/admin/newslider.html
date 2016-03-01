@@ -1,29 +1,69 @@
 <div class="row">
-    <div class="col-md-2" ng-repeat="slide in slides">
+    <div class="col-md-3 col-xs-12">
+        <input class="form-control" type="text" ng-model="filterQuery" placeholder="Szukaj slidera" />  
+         <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">     
+    </div>
+      <div class="col-md-offset-9">      
+        <INPUT TYPE="button" ng-click="toggleCustom()" class="btn btn-default" VALUE="Dodaj nową pozycje">
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="row" ng-hide="custom">
+    <div class="col-md-6">
+         <lable>Główny tekst Pl</lable>
+        <input class="form-control" type="text" ng-model="slider.namePl">
+        <br>
+        <lable>Główny tekst En</lable>
+        <input class="form-control" type="text" ng-model="slider.nameEn">
+        <br>
+        <lable>Podtekst Pl</lable>
+        <input class="form-control" type="text" ng-model="slider.descriptionPl">
+        <br>
+        <lable>Podtekst En</lable>
+        <input class="form-control" type="text" ng-model="slider.descriptionEn">
+        <br>    
+        <br>
+    </div>
+    <div class="col-md-6">
+  
+        <p> Dodaj obraz do slidera</p>
+        <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
+        /><img style="width:400px;" ngf-thumbnail="file || '/thumb.jpg'" ngf-size="{quality: 100}" />
 
-        <img src="{{slide.img}}" class="img-responsive"></p>
+        <i ng-show="file.$error.required">*wymagane</i>
+        <br>
+        <i ng-show="file.$error.maxSize">Plik za duży
+            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+        <button class="btn btn-default" ng-click="uploadFiles(file,slider)">Dodaj pozycję do slidera</button>
+       
+        <p>{{up.progress}}</p>
+    
+    </div>
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+</div>
 
+<div class="row">
+    <div class="col-md-3" ng-repeat="slide in slides">
+
+        <img src="{{slide.img}}" class="img-responsive" style="height: 200px;width: 400px; ">
+         <lable>Główny tekst Pl</lable>
+        <input class="form-control" type="text" ng-model="slide.namePl" value="{{slide.namePl}}">
+        <br>
+        <lable>Główny tekst En</lable>
+        <input class="form-control" type="text" ng-model="slide.nameEn" value="{{slide.nameEn}}">
+        <br>
+        <lable>Podtekst Pl</lable>
+        <input class="form-control" type="text" ng-model="slide.descriptionPl" value="{{slide.descriptionPl}}">
+        <br>
+        <lable>Podtekst En</lable>
+        <input class="form-control" type="text" ng-model="slide.descriptionEn" value="{{slide.descriptionEn}}">
+        <br>    
+        <br>
         <a class="btn btn-danger" ng-click="deleteSlide(slide._id)">usuń</a>
+         <a class="btn btn-success" ng-click="updateSlide(slide._id,slide)">zmień</a>
 
     </div>
 </div>
-<br> 
 
-<hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
-<br>
-<div class="row">
-    <form ng-controller="NewSliderCtrl as up" name="up.upload_form">
-       
-        <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
-        />
-         Miniaturka: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
-        
-        <i ng-show="up.upload_form.file.$error.required">*wymagane</i>
-        <br>
-        <i ng-show="up.upload_form.file.$error.maxSize">Plik za duży
-            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
-        <button type="submit" class="btn btn-default" ng-click="up.submit()">Dodaj</button>
-        <INPUT TYPE="button" class="btn btn-default" onClick="history.go(0)" VALUE="Odśwież">
-        <p>{{up.progress}}</p>
-    </form>
-</div>

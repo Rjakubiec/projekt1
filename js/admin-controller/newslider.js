@@ -27,25 +27,32 @@ angular.module('szczesniakAdmin')
                     console.log('dodano');
 
                 });
+        };
+        $scope.updateSlide = function (id, data) {
+            console.log(data);
+            $http.put('http://localhost:3333/sliderU/' + id, data)
+                .then(function () {
+                    console.log('update');
 
-
+                });
         };
         
         
-        
          var vm = this;
-        vm.submit = function(){ //function to call on form submit
-            if (vm.upload_form.file.$valid && vm.file) { //check if from is valid
-                vm.upload(vm.file); //call upload function
-            }
-        }
-        
-        vm.upload = function (file) {
+      $scope.uploadFiles = function (file,slider) {
+        $scope.file = file;
+        $scope.slider = slider;   
+            console.log(file);
+            console.log(slider);
             Upload.upload({
-                url: 'http://localhost:3333/slider', //webAPI exposed to upload the file
-                data:{file:file} //pass file as data, should be user ng-model
+                url: 'http://localhost:3333/slider',
+                arrayKey: '',
+                data: {
+                    file: file,
+                    slider: slider
+                }
             }).then(function (resp) { //upload function returns a promise
-                if(resp.data.error_code === 0){ //validate success
+                if (resp.data.error_code === 0) { //validate success
                     $window.alert('Poprawnie dodano');
                 } else {
                     $window.alert('Nie dodano');
@@ -53,12 +60,22 @@ angular.module('szczesniakAdmin')
             }, function (resp) { //catch error
                 console.log('Błąd: ' + resp.status);
                 $window.alert('Błąd: ' + resp.status);
-            }, function (evt) { 
+            }, function (evt) {
                 console.log(evt);
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 console.log('Postęp: ' + progressPercentage + '% ' + evt.config.data.file.name);
                 vm.progress = 'Postęp: ' + progressPercentage + '% '; // capture upload progress
             });
+        
+    };
+        
+        
+        
+        
+        
+         $scope.custom = true;
+        $scope.toggleCustom = function() {
+            $scope.custom = $scope.custom === false ? true: false;
         };
 
     });

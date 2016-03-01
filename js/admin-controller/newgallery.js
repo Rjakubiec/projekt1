@@ -41,18 +41,21 @@ angular.module('szczesniakAdmin')
                 });
         };
 
-        var vm = this;
-        vm.submit = function () { //function to call on form submit
-            if (vm.upload_form.file.$valid && vm.file) { //check if from is valid
-                vm.upload(vm.file); //call upload function
-            }
-        }
-
-        vm.upload = function (file) {
+         var vm = this;
+    
+        
+        $scope.uploadFiles = function (file,img) {
+        $scope.file = file;
+        $scope.img = img;   
             console.log(file);
+            console.log(img);
             Upload.upload({
-                url: 'http://localhost:3333/img', //webAPI exposed to upload the file
-                data: { file: file } //pass file as data, should be user ng-model
+                url: 'http://localhost:3333/img',
+                arrayKey: '',
+                data: {
+                    file: file,
+                    img: img
+                }
             }).then(function (resp) { //upload function returns a promise
                 if (resp.data.error_code === 0) { //validate success
                     $window.alert('Poprawnie dodano');
@@ -68,6 +71,16 @@ angular.module('szczesniakAdmin')
                 console.log('Postęp: ' + progressPercentage + '% ' + evt.config.data.file.name);
                 vm.progress = 'Postęp: ' + progressPercentage + '% '; // capture upload progress
             });
+        
+    };
+        
+        
+        
+        
+        
+         $scope.custom = true;
+        $scope.toggleCustom = function() {
+            $scope.custom = $scope.custom === false ? true: false;
         };
 
     });
