@@ -15,11 +15,11 @@ angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScop
                 $scope.slides = data.data;
             });
             
-            // $http.get('http://localhost:3333/news')
-            // .then(function (data) {
-            //     console.log(data.data);
-            //     $scope.news = data.data;
-            // });
+            //  $http.get('http://localhost:3333/news')
+            //  .then(function (data) {
+            //      console.log(data.data);
+            //      $scope.news = data.data;
+            //  });
 
        var slides = $scope.slides
 

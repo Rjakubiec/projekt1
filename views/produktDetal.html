@@ -19,8 +19,7 @@
                 <div class="modal-body next"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left prev">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
+                        <i class="glyphicon glyphicon-chevron-left"></i> Previous
                     </button>
                     <button type="button" class="btn btn-primary next">
                         Next
@@ -31,36 +30,37 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="col-md-12" ng-controller="ProduktyCtrl">
 
-<div class="col-md-12" ng-controller="ProduktyCtrl">
-
-    <div ng-model="productDetalis" ng-show="mainLanguage == 'PL'">
-        <div class='row'>
-            <div class="col-md-8">
-                <img src="{{productDetalis.url[0]}}" class="img-responsive">
-                <div id="links" class="col-md-4" ng-repeat="img in productDetalis.url">
-                    <a href="{{img}}"  data-gallery>
-                         <img src="{{img}}" class="img-responsive">
+        <div ng-model="productDetalis" ng-show="mainLanguage == 'PL'">
+            <div class='row'>
+                <div class="col-md-8">
+                    <img src="{{productDetalis.url[0]}}" class="img-responsive">
+                    <div id="links" class="col-md-4" ng-repeat="img in productDetalis.url">
+                        <a href="{{img}}" data-gallery>
+                            <img src="{{img}}" class="img-responsive">
                         </a>
-                    </div>                      
+                    </div>
+                </div>
+                <div class='col-md-4'>
+                    <h3>Nazwa produktu:</h3>
+
+                    <pre>{{productDetalis.namePl}}</pre>
+
+
+                    <h4>Dane:</h4>
+
+                    <pre>{{productDetalis.descriptionPl}}</pre>
+                    <h4>Rodzaj:</h4>
+                    <pre>{{productDetalis.typPl}}</pre>
+                    <h4>Kategoria:</h4>
+                    <pre>{{productDetalis.categoryPl}}</pre>
+                    <h4>Typ:</h4>
+                    <pre>{{productDetalis.sizePl}}</pre>
+                    <a href="{{productDetalis.urlPdf}}">PDF</a>
+                </div>
             </div>
-            <div class='col-md-4'>
-                <h3>Nazwa produktu:</h3>
-
-                <pre>{{productDetalis.namePl}}</pre>
-
-
-                <h4>Dane:</h4>
-
-                <pre>{{productDetalis.descriptionPl}}</pre>
-                <h4>Rodzaj:</h4>
-                <pre>{{productDetalis.typPl}}</pre>
-                <h4>Kategoria:</h4>
-                <pre>{{productDetalis.categoryPl}}</pre>
-                <h4>Typ:</h4>
-                <pre>{{productDetalis.sizePl}}</pre>
-                <a href="{{productDetalis.urlPdf}}">PDF</a>
         </div>
     </div>
-</div>
 </div>

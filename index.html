@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <link rel="stylesheet" href="Bootstrap-Image-Gallery\css\bootstrap-image-gallery.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
 
 
     <meta name="description" content="">
@@ -36,7 +36,7 @@
     <script src="bower_components/parallax.js/parallax.js"></script>
     <script src="parallax.js"></script>
 
-
+    <link rel="stylesheet" href="css/style.css">
 
 
     <script src="js/main-angular.js"></script>
@@ -45,7 +45,7 @@
 
 </head>
 
-<body>
+<body class="font">
 
     <div id="header1">
         <div id="shape" class="col-md-4">
@@ -73,7 +73,8 @@
                         Godziny pracy
                     </div>
                     <div class="col-md-3 col-xs-6">
-                        <div id="buttonG"><b>INWESTYCJA W ROZWÓJ</b></div>
+                        <div id="buttonG"><b>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</b></div>
+                        <img src="stylus\site\element.png" class="img-responsive elementB">
                     </div>
                 </div>
 
@@ -103,20 +104,21 @@
                             <a href="#/{{menu.urlEn}}">
                                 <b> {{menu.namePl}}</b>
                             </a>
-                        </li>
+                        </li>                           
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
                             <a href="#/en/{{menu.urlEn}}">
                                 <b>{{menu.nameEn}}</b>
                             </a>
                         </li>
-                        <li> <a ng-click="changeLanguage(mainLanguage)"><b>{{mainLanguage}}</b></a></li>
-
-                        <li ng-show="mainLanguage == 'PL'">
+                         
+                        <li class="pull-right"> <a ng-click="changeLanguage(mainLanguage)"><b>{{mainLanguage}}</b></a></li>
+                       
+                        <!--<li ng-show="mainLanguage == 'PL'">
                             <a href='admin.html'><b>Logowanie</b></a>
                         </li>
                         <li ng-show="mainLanguage == 'EN'">
                             <a href='admin.html'><b>Login</b></a>
-                        </li>
+                        </li>-->
 
                     </ul>
 
@@ -125,29 +127,22 @@
         </div>
     </nav>
 
-    <!--<div class="row">-->
-    <!-- <div class="col-md-12">-->
     <div ng-controller="FirmaCtrl" id="slider">
         <div ng-hide="podstrona">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.img}}">
-                    <div class="carousel-caption">
-                        <h4>{{slide.namePl}}</h4>
+                    <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
+                        <h1><b>{{slide.namePl}}<b></h1>
                         <p>{{slide.descriptionPl}}</p>
+                        <img src="stylus\site\element.png" class="img-responsive" style="top: 20px;height: 140px;width: 80px;">
                     </div>
                 </uib-slide>
             </uib-carousel>
         </div>
     </div>
-    <!--</div>-->
-    <!--</div>-->
 
-    <!--<div class="container">
-        <div class="row">-->
-            <div id="zawartosc" class="col-md-12" ng-view=""></div>
-        
-    <!--</div>-->
+            <div ng-view=""></div>
 
    <section>
         <div id="medale">

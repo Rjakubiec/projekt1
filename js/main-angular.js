@@ -99,12 +99,12 @@ angular
         //     });
 
         $rootScope.menus = [
-            { 'namePl': 'Firma', 'nameEn': 'Company', 'urlPl': 'firma', 'urlEn': 'company'},
-            { 'namePl': 'Produkty', 'nameEn': 'Products', 'urlPl': 'produkty', 'urlEn': 'products'},
-            { 'namePl': 'Serwis', 'nameEn': 'Service', 'urlPl': 'serwis', 'urlEn': 'service' },
-            { 'namePl': 'Praca', 'nameEn': 'Job', 'urlPl': 'praca', 'urlEn': 'job' },
-            { 'namePl': 'Galeria', 'nameEn': 'Gallery', 'urlPl': 'galeria', 'urlEn': 'gallery' },
-            { 'namePl': 'Kontakt', 'nameEn': 'Contact', 'urlPl': 'kontakt', 'urlEn': 'contact' },
+            { 'namePl': 'FIRMA', 'nameEn': 'COMPANY', 'urlPl': 'firma', 'urlEn': 'company'},
+            { 'namePl': 'PRODUKTY', 'nameEn': 'PRODUCTS', 'urlPl': 'produkty', 'urlEn': 'products'},
+            { 'namePl': 'SERWIS', 'nameEn': 'SERVICE', 'urlPl': 'serwis', 'urlEn': 'service' },
+            { 'namePl': 'PRACA', 'nameEn': 'JOB', 'urlPl': 'praca', 'urlEn': 'job' },
+            { 'namePl': 'GALERIA', 'nameEn': 'GALLERY', 'urlPl': 'galeria', 'urlEn': 'gallery' },
+            { 'namePl': 'KONTAKT', 'nameEn': 'CONTACT', 'urlPl': 'kontakt', 'urlEn': 'contact' },
 
         ];
         $rootScope.changeLanguage = function (language) {

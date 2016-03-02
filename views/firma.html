@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row"  style="padding-top: 25px">
         <h4><b>Oto 6 powodów, dla których warto wybrać produkty naszej Firmy:</b></h4>
     </div>
     <br>
@@ -96,23 +96,98 @@
     </div>
 </div>
 
+<div class="divparallax">
 
-<div class="parallax">
-    <img src="stylus\site\imgparalax.jpg" alt="">
+    <div class="parallax" style="background-image: url('stylus/site/imgparalax.jpg')">
+       <div class="color-green"> </div>
+        <div class="container" ng-controller="NewsCtrl">
+            <div class="row">
+                <div class="col-md-8">
+                <h3><b>NAJNOWESZE WIADOMOŚCI</b></h3>
+                </div>
+                <div class="col-md-offset-2 col-md-1">
+                <button class="sprawdzButton" style="position: absolute; top: 60px;text-align: right;">WIĘCEJ</button> 
+                </div>
+            </div>
+            <div class="row" ng-model="newss">                    
+                <div class="col-md-4">
+                    <img src="{{newss[1].img}}" alt="" class="img-responsive">
+                    <div class="podpis">
+                       <p>{{newss[1].namePl}}</p> 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{newss[1].img}}" alt="" class="img-responsive">
+                    <div class="podpis">
+                       <p>{{newss[1].namePl}}</p> 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{newss[1].img}}" alt="" class="img-responsive">
+                    <div class="podpis">
+                       <p>{{newss[1].namePl}}</p> 
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
-<div class="container">
+<div class="container padding1">
     <div class="row">
         <div class="col-md-offset-1 flagiD">
-        <p>Produkowane pojazdy są oferowane oraz eksploatowane w następują</p>
+            <p>Produkowane pojazdy są oferowane oraz eksploatowane w następujących krajach</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <img src="stylus\site\flagi.png" class="img-responsive"  alt="">
-        </div>  
+            <img src="stylus\site\flagi.png" class="img-responsive" alt="">
+        </div>
     </div>
 </div>
+<div class="container padding1">
+    <div class="row ">
+        <div class="col-md-4 center">
+            <img src="stylus\site\straz.png" class="img-responsive" alt="">
+            <br>
+            <img src="stylus\site\element.png" class="img-responsive element">
+            <p><b>PRODUKTY STRAŻACKIE</b></p>
+            <br>
+            <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class="sprawdzButton center"><b>Zobacz</b></button>
+        </div>
+        <div class="col-md-4 center">
+            <img src="stylus\site\wojskowe.png" class="img-responsive" alt="">
+            <br>
+            <img src="stylus\site\element.png" class="img-responsive element">
+            <p><b>PRODUKTY WOJSKOWE</b></p>
+            <br>
+            <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class="sprawdzButton center"><b>Zobacz</b></button>
+        </div>
+        <div class="col-md-4 center">
+            <img src="stylus\site\inne.png" class="img-responsive" alt="">
+            <br>
+            <img src="stylus\site\element.png" class="img-responsive element">
+            <p><b>PRODUKTY INNE</b></p>
+            <br>
+            <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class="sprawdzButton center"><b>Zobacz</b></button>
+        </div>
+    </div>
+</div>
+
 
 
 <script>
