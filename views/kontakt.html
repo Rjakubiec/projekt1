@@ -1,63 +1,123 @@
-<p>kontakt</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
 
-<div class="row">
-    <div ng-controller="KontaktCtrl" class="panel-body col-md-8 col-xs-12">
-        <form ng-submit="submit(contactform)" name="contactform" method="post" class="form-horizontal" role="form">
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię i nazwisko nadawcy"
-                    required>
-                </div>
+            <p><strong><span style="font-size: medium;">SZCZĘŚNIAK Pojazdy Specjalne Sp z o.o.</span><br><span style="font-size: small;">ul. Bestwińska 105A 43-346 Bielsko-Biała<br></span><span style="font-size: small;">tel: +48 33 827 3400 fax: +48 33 818 2614</span><br><span style="font-size: small;">NIP: 5472099801 REGON: 241073251<br></span></strong>
+                <span style="font-size: small;"> <strong><a href="mailto:biuro@psszczesniak.pl">biuro@psszczesniak.pl</a> <a href="http://www.psszczesniak.pl">www.psszczesniak.pl</a></strong>            <strong><br></strong></span>
+            </p>
+            <p><strong>Dane teleadresowe do działów :</strong></p>
+            <table style="height: 316px; width: 358px;" border="0" class="table">
+                <tbody>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Sekretariat</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3400</span>
+                            <br><span style="font-size: small;">(fax) +48 33 818 2614</span>
+                            <br><span style="font-size: small;"><a href="mailto:biuro@psszczesniak.pl">biuro@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Dział Handlowy</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3436<br>+48 33 827 3418<br>+48 33 827 3409</span>
+                            <span style="font-size: small;"></span>
+                            <br><span style="font-size: small;"><a href="mailto:handlowy@psszczesniak.pl">handlowy@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Eksport</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3429<br></span> <span style="font-size: small;"><a href="mailto:export@psszczesniak.pl">export@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Dział Zakupów</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3427</span>
+                            <br><span style="font-size: small;"><a href="mailto:zakupy@psszczesniak.pl">zakupy@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Księgowość</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3423</span>
+                            <br><span style="font-size: small;"><a href="mailto:ksiegowosc@psszczesniak.pl">ksiegowosc@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Serwis</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3430</span>
+                            <br><span style="font-size: small;"><a href="mailto:serwis@psszczesniak.pl">serwis@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Kadry</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">+48 33 827 3432</span>
+                            <br><span style="font-size: small;"><a href="mailto:kadry@psszczesniak.pl">kadry@psszczesniak.pl</a></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-size: small;"><strong>Systemy Zarządzania</strong></span></td>
+                        <td style="text-align: right;"><span style="font-size: small;">&nbsp; +48 33 827 3437</span>
+                            <br><span style="font-size: small;"><a href="mailto:iso@psszczesniak.pl">iso@psszczesniak.pl</a>&nbsp;</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-md-6 col-xs-12">
+            <h3>Jak nas znaleźć</h3>
+            <div id='map_canvas' ng-controller="KontaktCtrl">
+
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                    <ui-gmap-marker idkey="marker.id" coords="marker.coords" options="marker.options" click="onClick()" events="marker.events">
+                        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                            <div><strong>{{title}}<br>{{adress}}<br>{{phone}}<br>{{nip}}</strong></div>
+                        </ui-gmap-window>
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
             </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email do korespondencji"
-                    required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputNumber.$invalid && submitted }">
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputNumber" type="text" class="form-control" id="inputNumber" name="inputNumber" placeholder="Numer kontaktowy"
-                    required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputSubject.$invalid && submitted }">
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputSubject" type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Temat wiadomości"
-                    required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
-                <div class="col-lg-10">
-                    <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage" name="inputMessage" placeholder="Treść..."
-                    required></textarea>
-                </div>
-            </div>
-                <lable>Odbiorca :</lable>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inputSekretariat" name="inputSekretariat"  value="">Sekretariat</label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inputKsiegowosc" name="inputKsiegowosc"  value="">Księgowość</label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inputSerwis" name="inputSerwis"  value="">Serwis</label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inputSprzedaz" name="inputSprzedaz"  value="">Dział sprzedaży</label>
-                        <Br>                       
-                    <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
-                        Wyślij
-                    </button>
-              
-        </form>
-        <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+        </div>
     </div>
-    <div class="clearfix visible-xs-block"></div>
-    <div id='map_canvas' ng-controller="KontaktCtrl" class="col-md-6 col-xs-12">
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-            <ui-gmap-marker idkey="marker.id" coords="marker.coords" options="marker.options" click="onClick()" events="marker.events">
-                <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-                    <div><strong>{{title}}<br>{{adress}}<br>{{phone}}<br>{{nip}}</strong></div>
-                </ui-gmap-window>
-            </ui-gmap-marker>
-        </ui-gmap-google-map>
+
+    <div class="row">
+        <div ng-controller="KontaktCtrl" class="panel-body col-md-6 col-xs-12">
+            <form ng-submit="submit(contactform)" name="contactform" method="post" class="form-horizontal" role="form">
+                <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+                    <div class="col-lg-10">
+                        <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię i nazwisko nadawcy"
+                        required>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+                    <div class="col-lg-10">
+                        <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email do korespondencji"
+                        required>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': contactform.inputNumber.$invalid && submitted }">
+                    <div class="col-lg-10">
+                        <input ng-model="formData.inputNumber" type="text" class="form-control" id="inputNumber" name="inputNumber" placeholder="Numer kontaktowy"
+                        required>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': contactform.inputSubject.$invalid && submitted }">
+                    <div class="col-lg-10">
+                        <input ng-model="formData.inputSubject" type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Temat wiadomości"
+                        required>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+                    <div class="col-lg-10">
+                        <textarea ng-model="formData.inputMessage" class="form-control" rows="6" id="inputMessage" name="inputMessage" placeholder="Treść..."
+                        required></textarea>
+                    </div>
+                </div>
+                <lable>Odbiorca :</lable>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inputSekretariat" name="inputSekretariat" value="">Sekretariat</label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inputKsiegowosc" name="inputKsiegowosc" value="">Księgowość</label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inputSerwis" name="inputSerwis" value="">Serwis</label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="inputSprzedaz" name="inputSprzedaz" value="">Dział sprzedaży</label>
+                <Br>
+                <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
+                    Wyślij
+                </button>
+
+            </form>
+            <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
+        </div>
+
     </div>
 </div>

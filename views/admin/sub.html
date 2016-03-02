@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-3" ng-repeat="sub in subs" style="padding-bottom: 10px">
+        <button class="btn btn-default" ng-click="getSub(sub._id); toggleCustom()" style="width: 200px">{{sub.namePl}}</button>
+    </div>
+</div>
+<div class="row" ng-hide="custom" ng-model="subDetalis">
+    <div class="col-md-6" >
+
+        <lable>Tytuł newsa Pl</lable>
+        <input class="form-control" type="text" ng-model="subDetalis.namePl" value="subDetalis.namePl">
+        <lable>Treść</lable>
+        <text-angular ng-model="subDetalis.descriptionPl" ng-value=""></text-angular>
+        <br>
+        <br>    
+        <a class="btn btn-success" ng-click="updateSub(subDetalis._id,subDetalis)" style="width: 200px">zmień</a>
+    </div>
+    <div class="col-md-6">
+        <lable>Tytuł newsa En</lable>
+        <input class="form-control" type="text" ng-model="subDetalis.nameEn" value="subDetalis.nameEn">
+        <lable>Treść</lable>
+        <text-angular ng-model="subDetalis.descriptionEn" ng-value=""></text-angular>
+        
+    </div>
+    
+</div>

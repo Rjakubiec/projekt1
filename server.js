@@ -63,6 +63,8 @@ var Typ = require('./server/model/typ');
 var Category = require('./server/model/category');
 var News = require('./server/model/news');
 var Product = require('./server/model/product');
+var Addon = require('./server/model/addon');
+var Sub = require('./server/model/sub');
 
 
 
@@ -552,6 +554,111 @@ app.put('/userU/:id', function (req, res, next) {
 });
 ///////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////Crud addon//////////////////////////////////////
+
+app.post('/addon', function (req, res, next) {
+
+    var addon = new Addon();
+    addon.nrTele = req.body.nrTele;
+    addon.eMail = req.body.eMail;
+    addon.godzPracy = req.body.godzPracy;
+    addon.topTekstPl = req.body.topTekstPl;
+    addon.topTekstEn = req.body.topTekstEn;
+
+    addon.save(function (err) {
+
+        if (err) return next(err);
+        res.json('Poprawnioe dodano ;-)');
+
+    });
+});
+
+
+app.get('/addons', function (req, res, next) {
+    Addon.find(function (err, addon) {
+        if (err) res.json('error:' + err);
+
+        res.json(addon);
+    });
+});
+
+
+app.get('/addon/:id', function (req, res) {
+
+    var id = req.params.id;
+
+    Addon.findOne({ _id: id }, function (err, addon) {
+        res.json(addon);
+    });
+});
+//usuwanie addon
+app.delete('/addonD/:id', function (req, res, next) {
+    Addon.findByIdAndRemove(req.params.id, req.body, function (err, addon) {
+        if (err) return next(err);
+        res.json(addon);
+    });
+});
+// update addon
+app.put('/addonU/:id', function (req, res, next) {
+    Addon.findByIdAndUpdate(req.params.id, req.body, function (err, addon) {
+        if (err) return next(err);
+        res.json(addon);
+    });
+});
+///////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////Crud sub//////////////////////////////////////
+
+app.post('/sub', function (req, res, next) {
+
+    var sub = new Sub();
+    sub.namePl = req.body.namePl;
+    sub.nameEn = req.body.nameEn;
+    sub.descriptionPl = req.body.descriptionPl;
+    sub.descriptionEn = req.body.descriptionEn;
+
+    sub.save(function (err) {
+
+        if (err) return next(err);
+        res.json('Poprawnioe dodano ;-)');
+
+    });
+});
+
+
+app.get('/subs', function (req, res, next) {
+    Sub.find(function (err, sub) {
+        if (err) res.json('error:' + err);
+
+        res.json(sub);
+    });
+});
+
+
+app.get('/sub/:id', function (req, res) {
+
+    var id = req.params.id;
+
+    Sub.findOne({ _id: id }, function (err, sub) {
+        res.json(sub);
+    });
+});
+//usuwanie sub
+app.delete('/subD/:id', function (req, res, next) {
+    Sub.findByIdAndRemove(req.params.id, req.body, function (err, sub) {
+        if (err) return next(err);
+        res.json(sub);
+    });
+});
+// update sub
+app.put('/subU/:id', function (req, res, next) {
+    Sub.findByIdAndUpdate(req.params.id, req.body, function (err, sub) {
+        if (err) return next(err);
+        res.json(sub);
+    });
+});
+///////////////////////////////////////////////////////////////////////////////////
 
 
 app.listen(3333, function (err) {

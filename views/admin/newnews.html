@@ -4,95 +4,97 @@
         <input class="form-control" type="text" ng-model="filterQuery" placeholder="Szukaj newsa" />
         <INPUT TYPE="button" class="btn btn-default" onClick="history.go(0)" VALUE="Odśwież">
     </div>
-      <div class="col-md-offset-9">
-       
+    <div class="col-md-offset-9">
+
         <INPUT TYPE="button" ng-click="toggleCustom()" class="btn btn-default" VALUE="Stówrz nowy">
     </div>
 </div>
 
 
-    <div ng-hide="custom">
+<div ng-hide="custom">
     <h1>Dodaj news</h1>
     <div ng-model="news"></div>
     <div class="row">
         <div class="col-md-2">
             <button class="btn btn-default" ng-click="showmePLn()">Stwórz news PL</button>
-              
-         </div>
-         
-          <div class="col-md-2">
+
+        </div>
+
+        <div class="col-md-2">
             <button class="btn btn-default" ng-click="showmeENn()">Stwórz news EN</button>
-             
-          </div>
+
+        </div>
     </div>
-    <div ng-hide="showmePLnew">   
-    <lable>Tytuł newsa</lable>
-    <br>
-    <input class="form-control" type="text" ng-model="news.namePl">
-    
-    <lable>Dodaj miniaturke na stronę główną</lable>
-    <br>
-    <br>
-  
-        <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
-        /><img style="width:400px;" ngf-thumbnail="file || '/thumb.jpg'" ngf-size="{quality: 100}" />
+    <div ng-hide="showmePLnew">
+        <lable>Tytuł newsa</lable>
+        <br>
+        <input class="form-control" type="text" ng-model="news.namePl">
+
+        <lable>Dodaj miniaturke na stronę główną</lable>
+        <br>
+        <br>
+
+        <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" /><img style="width:400px;" ngf-thumbnail="file || '/thumb.jpg'" ngf-size="{quality: 100}" />
 
         <i ng-show="file.$error.required">*wymagane</i>
         <br>
         <i ng-show="file.$error.maxSize">Plik za duży
             {{up.file.size / 1000000|number:1}}MB: max 20M</i>
-             
+
         <p>{{up.progress}}</p>
-  
-    <br>
-    <lable>News treść</lable>
-    <text-angular ng-model="news.htmlVariablePl"></text-angular>
+
+        <br>
+        <lable>News treść</lable>
+        <text-angular ng-model="news.htmlVariablePl"></text-angular>
     </div>
-    <div ng-hide="showmeENnew">   
-    <lable>Tytuł newsa</lable>
-    <br>
-    <input class="form-control" type="text" ng-model="news.nameEn">
-    <br>
-    <lable>Treść</lable>
-    <text-angular ng-model="news.htmlVariableEn"></text-angular>
+    <div ng-hide="showmeENnew">
+        <lable>Tytuł newsa</lable>
+        <br>
+        <input class="form-control" type="text" ng-model="news.nameEn">
+        <br>
+        <lable>Treść</lable>
+        <text-angular ng-model="news.htmlVariableEn"></text-angular>
     </div>
     <br>
     <br>
     <a class="btn btn-default" ng-click="uploadFiles(file,news)">dodaj</a>
     <INPUT class="btn btn-default" TYPE="button" onClick="history.go(0)" VALUE="Odśwież">
-    </div>
+</div>
+
+
 <div ng-repeat="news in newss | filter:filterQuery">
-    <h4>Nazwa polska : {{news.namePl}}</h4> 
-     <h4>Nazwa angielska : {{news.nameEn}}</h4>
-     <p>Data dodania newsa : {{news.data}}</p>
-     <img src="{{news.img}}" class="img-responsive" style="height: 200px;width: 300px; "/>
+    <h4>Nazwa polska : {{news.namePl}}</h4>
+    <h4>Nazwa angielska : {{news.nameEn}}</h4>
+    <p>Data dodania newsa : {{news.data}}</p>
+    <img src="{{news.img}}" class="img-responsive" style="height: 200px;width: 300px; " />
     <div class="row">
         <div class="col-md-2">
             <button class="btn btn-default" ng-click="showmePL1()">Pokaż news PL</button>
-             
-         </div>
-          <div class="col-md-2">
-             <button class="btn btn-default" ng-click="showmeEN1()">Pokaż news EN</button> <br>
-            
-          </div>
-           <td><a class="btn btn-danger" ng-click="deleteNews(news._id)">usuń</a></td>
-            <td><a class="btn btn-success" ng-click="updateNews(news._id,news)">zmień</a></td>
-        </div>
-        <div ng-hide="showmePL">
-            <lable>Tytuł newsa</lable>
-            <input class="form-control" type="text" ng-model="news.namePl" value="news.namePl">
-             <lable>Treść</lable>
-            <text-angular ng-model="news.descriptionPl" ng-value=""></text-angular>
-        </div>
-        <div ng-hide="showmeEN">
-            <lable>Tytuł newsa</lable>
-            <input class="form-control" type="text" ng-model="news.nameEn" value="news.nameEn">
-            <lable>Treść</lable>
-            <text-angular ng-model="news.descriptionEn" ng-value=""></text-angular>
-        </div>
-        <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
-    </div>
 
-    <br>
-    <br>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-default" ng-click="showmeEN1()">Pokaż news EN</button>
+            <br>
+
+        </div>
+        <td><a class="btn btn-danger" ng-click="deleteNews(news._id)">usuń</a></td>
+        <td><a class="btn btn-success" ng-click="updateNews(news._id,news)">zmień</a></td>
+    </div>
     
+    <div ng-hide="showmePL">
+        <lable>Tytuł newsa</lable>
+        <input class="form-control" type="text" ng-model="news.namePl" value="news.namePl">
+        <lable>Treść</lable>
+        <text-angular ng-model="news.descriptionPl" ng-value=""></text-angular>
+    </div>
+    <div ng-hide="showmeEN">
+        <lable>Tytuł newsa</lable>
+        <input class="form-control" type="text" ng-model="news.nameEn" value="news.nameEn">
+        <lable>Treść</lable>
+        <text-angular ng-model="news.descriptionEn" ng-value=""></text-angular>
+    </div>
+    <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
+</div>
+
+<br>
+<br>

@@ -47,7 +47,15 @@ angular
             .when('/main/newPropertis', {
 				templateUrl: 'views/admin/newpropertis.html',
 				controller: 'NewPropertisCtrl'
-			})           	           		
+			})  
+            .when('/main/Addon', {
+				templateUrl: 'views/admin/addon.html',
+				controller: 'AddonCtrl'
+			}) 
+            .when('/main/Sub', {
+				templateUrl: 'views/admin/sub.html',
+				controller: 'SubCtrl'
+			})            	           		
 			.otherwise({
 		        redirectTo: '/login'
 	      	});

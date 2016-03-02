@@ -4,7 +4,7 @@ angular.module('szczesniakAdmin')
     .controller('NewNewsCtrl', function ($scope, $rootScope, $http, Upload, $window) {
 
         $scope.newss = [];
-
+        
 
         $http.get('http://localhost:3333/newss')
             .then(function (data) {
@@ -24,6 +24,14 @@ angular.module('szczesniakAdmin')
 
                 });
         };
+        
+         $scope.getNews = function (id) {
+            $http.get('http://localhost:3333/news/' + id)
+                .then(function (data) {
+                    $rootScope.newsDetalis = data.data;
+                    console.log($scope.newsDetalis);
+                });
+        }
         $scope.deleteNews = function (id) {
 
             $http.delete('http://localhost:3333/newsD/' + id)
