@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="col-md-4" ng-repeat="news in newss">
-            <a href="#/news/{{news.namePl}}" ng-click="getNews(news._id)">
+            <a href="#/news/{{news.namePl | spaceless}}" ng-click="getNews(news._id)">
                 <img src="{{news.img}}" alt="" class="img-responsive" style="height: 220px; width: 400px">
             </a>
             <div style="text-align: center;">

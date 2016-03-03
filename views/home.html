@@ -134,7 +134,7 @@
 
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
 
-                    <a href="#/news/{{newss[0].namePl}}" ng-click="getNews(newss[0]._id)">
+                    <a href="#/news/{{newss[0].namePl | spaceless}}" ng-click="getNews(newss[0]._id)">
                         <div class="podpis">
                             <p>{{newss[0].namePl}}</p>
                         </div>
@@ -143,7 +143,7 @@
                 <div class="col-md-4">
 
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
-                    <a href="#/news/{{newss[2].namePl}}" ng-click="getNews(newss[2]._id)">
+                    <a href="#/news/{{newss[2].namePl | spaceless}}" ng-click="getNews(newss[2]._id)">
                         <div class="podpis">
                             <p>{{newss[2].namePl}}</p>
                         </div>
@@ -153,7 +153,7 @@
 
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
 
-                    <a href="#/news/{{newss[3].namePl}}" ng-click="getNews(newss[3]._id)">
+                    <a href="#/news/{{newss[3].namePl | spaceless}}" ng-click="getNews(newss[3]._id)">
                         <div class="podpis">
                             <p>{{newss[3].namePl}}</p>
                         </div>
