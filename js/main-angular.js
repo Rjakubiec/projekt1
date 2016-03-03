@@ -15,8 +15,12 @@ angular
 
         $routeProvider
             .when('/', {
-                templateUrl: 'views/firma.html',
+                templateUrl: 'views/home.html',
                 controller: 'FirmaCtrl'
+            })
+            .when('/company', {
+                templateUrl: 'views/firma.html',
+                controller: 'FirmaSubCtrl'
             })
             .when('/products', {
                 templateUrl: 'views/produkty.html',
@@ -38,9 +42,26 @@ angular
                 templateUrl: 'views/kontakt.html',
                 controller: 'KontaktCtrl'
             })
+            .when('/news', {
+                templateUrl: 'views/newsLista.html',
+                controller: 'NewsCtrl'
+            })
+             .when('/news/:id', {
+                templateUrl: 'views/news.html',
+                controller: 'NewsCtrl'
+            })
+             .when('/product/:id', {
+                templateUrl: 'views/produktDetal.html',
+                controller: 'ProduktyCtrl'
+            })
+            /////ANG///////
             .when('/en', {
-                templateUrl: 'views/en/company.html',
+                templateUrl: 'views/en/homeEn.html',
                 controller: 'FirmaCtrl'
+            })
+            .when('/en/company', {
+                templateUrl: 'views/en/company.html',
+                controller: 'FirmaSubCtrl'
             })
             .when('/en/products', {
                 templateUrl: 'views/en/products.html',
@@ -61,18 +82,14 @@ angular
             .when('/en/contact', {
                 templateUrl: 'views/en/contact.html',
                 controller: 'KontaktCtrl'
-            })
-            .when('/news/:id', {
-                templateUrl: 'views/news.html',
-                controller: 'NewsCtrl'
-            })
+            })          
             .when('en/news/:id', {
                 templateUrl: 'views/en/news.html',
                 controller: 'NewsCtrl'
-            })
-            .when('/product/:id', {
-                templateUrl: 'views/produktDetal.html',
-                controller: 'ProduktyCtrl'
+            })            
+            .when('en/news', {
+                templateUrl: 'views/en/newsAll.html',
+                controller: 'NewsCtrl'
             })
             .when('en/product/:id', {
                 templateUrl: 'views/en/productDetalis.html',
@@ -83,9 +100,6 @@ angular
             });
 
     })
-    // .config(function (LightboxProvider) {
-    //     LightboxProvider.templateUrl = 'views/lightbox.html';
-    // })
     .run(function ($rootScope, $location, $http) {
 
         $rootScope.mainLanguage = 'PL';

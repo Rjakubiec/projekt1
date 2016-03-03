@@ -46,35 +46,42 @@
 </head>
 
 <body class="font">
-
-    <div id="header1">
+    
+    <div id="header1" ng-controller="FirmaCtrl">
         <div id="shape" class="col-md-4">
 
         </div>
         <div id="textheader" class="col-md-8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>{{addons[0].topTekstPl}}</p>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" ng-controller="FirmaCtrl">
         <div class="row">
             <div id="header2">
                 <div id="logo" class="col-md-4">
+                    <a href="#/">
                     <img src="stylus\site\logo.png" alt="">
+                    </a>
                 </div>
                 <div id="header3" class="col-md-8">
-                    <div id="daneheader" class="col-md-3 col-xs-6">
-                        Kontakt email
+                    <div  class="col-md-3 col-xs-6 daneheader">
+                        <b>Kontakt email</b>
+                        <p>{{addons[0].eMail}}</p>
                     </div>
-                    <div id="daneheader" class="col-md-3 col-xs-6">
-                        Telefon
+                    <div  class="col-md-3 col-xs-6 daneheader">
+                        <b>Telefon</b>
+                        <p>{{addons[0].nrTele}}</p>
                     </div>
-                    <div id="daneheader" class="col-md-3 col-xs-6">
-                        Godziny pracy
+                    <div  class="col-md-3 col-xs-6 daneheader">
+                        <b>Godziny pracy</b>
+                        <p>{{addons[0].godzPracy}}</p>
                     </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div id="buttonG"><b>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</b></div>
+                    <div class="col-md-3 col-xs-6" ng-controller="FirmaCtrl">
+                        <a href="#/company" ng-click="getSub(id)" style="text-decoration: none;">
+                        <div id="buttonG"><b>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</b></div>                       
                         <img src="stylus\site\element.png" class="img-responsive elementB">
+                        </a>
                     </div>
                 </div>
 
@@ -111,7 +118,8 @@
                             </a>
                         </li>
                          
-                        <li class="pull-right"> <a ng-click="changeLanguage(mainLanguage)"><b>{{mainLanguage}}</b></a></li>
+                        <li class="pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><b></b><img src="stylus\site\flagagb.png" alt="" style="width:35px"></a></li>
+                        <li class="pull-right" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><b></b><img src="stylus\site\flagapl.png" alt="" style="width:35px"></a></li>
                        
                         <!--<li ng-show="mainLanguage == 'PL'">
                             <a href='admin.html'><b>Logowanie</b></a>
@@ -163,6 +171,7 @@
     <script src="js/controller/produkty.js"></script>
     <script src="js/controller/serwis.js"></script>
     <script src="js/controller/news.js"></script>
+    <script src="js/controller/firmasub.js"></script>
 
 
 

@@ -62,14 +62,12 @@
 #header2 {
   padding: 20px 0px 0px 0px;
 }
-#daneheader {
-  text-align: center;
+.daneheader {
   position: relative;
+  color: #333;
 }
-#menu {
-  position: relative;
-  width: 100%;
-  background: #a91605;
+.daneheader p {
+  color: #a91605;
 }
 #zawartosc {
   padding: 50px;
@@ -82,7 +80,9 @@
   height: 500px;
 }
 .footer {
-  bottom: 0;
+  position: relative;
+  left: 0px;
+  bottom: 0px;
   width: 100%;
   height: 50px;
   background-color: #333;
@@ -94,6 +94,8 @@
   color: #fff;
 }
 #medale {
+  width: 100%;
+  position: relative;
   padding-bottom: 10px;
 }
 .boxclass {
@@ -109,6 +111,9 @@
   -webkit-box-shadow: 10px 3px 1px -6px #eee;
   -moz-box-shadow: 10px 3px 1px -6px #eee;
   box-shadow: 10px 3px 1px -6px #eee;
+}
+.box:hover {
+  background: #a91605;
 }
 .shapeicon {
   top: 50px;
@@ -142,8 +147,8 @@
   z-index: 1;
   position: absolute;
   width: 100%;
-  background-size: 100% !important;
-  height: 520px;
+  background-size: 100% 100% !important;
+  height: 100%;
   background-position: center center !important;
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
@@ -154,7 +159,7 @@
   position: absolute;
   width: 100%;
   background-color: #1f3622;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .divparallax h3 {
   z-index: 3;
@@ -217,6 +222,9 @@
   padding: 8px 20px;
   font: normal 400 16px/1 "Open Sans", sans-serif;
 }
+.sprawdzButton:hover {
+  background: #eee;
+}
 .podpis {
   z-index: 3;
   width: 330px;
@@ -226,8 +234,12 @@
   position: absolute;
 }
 .podpis p {
-  line-height: 100px;
+  color: #000;
+  padding: 30px 0px 0px 0px;
   text-align: center;
+}
+.podpis:hover {
+  background: #eee;
 }
 #menu.navbar-default .navbar-brand {
   color: #fff;
@@ -257,4 +269,9 @@
 #menu.navbar-default .navbar-toggle:hover .icon-bar,
 #menu.navbar-default .navbar-toggle:focus .icon-bar {
   background-color: #e84545;
+}
+#menu {
+  position: relative;
+  width: 100%;
+  background: #a91605;
 }

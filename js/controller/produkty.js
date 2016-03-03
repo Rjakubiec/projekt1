@@ -1,20 +1,33 @@
 'use strict';
 
 angular.module('szczesniak')
-    .controller('ProduktyCtrl', function ($scope, $rootScope, $sce, $http, Lightbox,$document) {
+    .controller('ProduktyCtrl', function ($scope, $rootScope, $sce, $http, Lightbox, $document, $location) {
         console.log('Produkty');
+
+
+        $scope.hash = $location.hash();
+        console.log($location.hash());
+        if ($scope.hash == 'inne') {
+            $scope.filter1 = 'Produkty inne'
+        }
+        else if ($scope.hash == 'wojskowe') {
+            $scope.filter1 = 'Produkty wojskowe'
+        }
+        else if ($scope.hash == 'strazackie') {
+            $scope.filter1 = 'Produkty strażackie'
+        }
     
     
         ////////////////////////////////Wyszukiwanie    
         $scope.typs = [];
-       
+
         $http.get('http://localhost:3333/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
             })
         $scope.sizes = [];
-        
+
 
         $http.get('http://localhost:3333/sizes')
             .then(function (data) {
@@ -65,17 +78,17 @@ angular.module('szczesniak')
             Lightbox.openModal($scope.products, index);
 
         };
-                $scope.reset = function() {
-    $scope.filter1 = 0;
-    $scope.filter2 = 0;
-    $scope.filter3 = 0;
-};
-$scope.reset2 = function() {
-   
-    $scope.filter2 = 0;
-    $scope.filter3 = 0;
-};
-    
-     
-       
+        $scope.reset = function () {
+            $scope.filter1 = 0;
+            $scope.filter2 = 0;
+            $scope.filter3 = 0;
+        };
+        $scope.reset2 = function () {
+
+            $scope.filter2 = 0;
+            $scope.filter3 = 0;
+        };
+
+
+
     });
