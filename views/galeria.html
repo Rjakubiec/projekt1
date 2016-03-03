@@ -30,7 +30,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container padding1">
     <div class="row">
         <h3>Wyszukaj</h3>
         <div class="col-md-3">
@@ -45,22 +45,15 @@
         <!--<input type="button" value="reset dropdown" data-ng-click="reset()"/>-->
     </div>
     <br>
-    <br>
-    <br>
     <div class="row">
         <div class="col-md-12">
 
-            <div class="col-md-2 col-xs-12" ng-repeat="foto in fotos | filter:filterQuery">
+            <div class="col-md-3 col-xs-12 foto" ng-repeat="foto in fotos | filter:filterQuery">
                 <a href="{{foto.url}}" data-gallery title="{{foto.namePl}}">
-                    <img src="{{foto.url}}" class="img-responsive" alt="{{foto.namePl}}" style="height: 200px;width: 400px; ">
-                </a>
-
-                <a href="{{foto.url}}" download>
-                    <button>Pobierz małe zdj</button>
-                </a>
-                <br>
-                <a href="{{foto.url}}" download>
-                    <button>Pobierz duże zdj</button>
+                    <img src="{{foto.url}}" class="img-responsive" alt="{{foto.namePl}}">
+                </a>            
+                <a href="{{foto.url}}" download style="text-align:center;">
+                    <button class="btn glyphicon glyphicon-download">Pobierz</button>
                 </a>
             </div>
         </div>

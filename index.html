@@ -135,7 +135,7 @@
         </div>
     </nav>
 
-    <div ng-controller="FirmaCtrl" id="slider">
+    <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'PL'">
         <div ng-hide="podstrona">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
@@ -143,6 +143,20 @@
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
                         <h1><b>{{slide.namePl}}<b></h1>
                         <p>{{slide.descriptionPl}}</p>
+                        <img src="stylus\site\element.png" class="img-responsive" style="top: 20px;height: 140px;width: 80px;">
+                    </div>
+                </uib-slide>
+            </uib-carousel>
+        </div>
+    </div>
+     <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'EN'">
+        <div ng-hide="podstrona">
+            <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                <uib-slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.img}}">
+                    <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
+                        <h1><b>{{slide.nameEn}}<b></h1>
+                        <p>{{slide.descriptionEn}}</p>
                         <img src="stylus\site\element.png" class="img-responsive" style="top: 20px;height: 140px;width: 80px;">
                     </div>
                 </uib-slide>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container padding1">
     <div class="row">
     <H3>Wyszukaj po :</H3>
    </div> 
@@ -43,11 +43,13 @@
         </div>
     </div>
     <div class="col-md-12" ng-controller="ProduktyCtrl">
-        <div class="col-md-3" ng-repeat="product in products | filter:filter1 | filter:filter2 | filter:filter3" ng-show="mainLanguage == 'PL'">
+        <div class="col-md-4 col-xs-12 foto" ng-repeat="product in products | filter:filter1 | filter:filter2 | filter:filter3">
             <a href="#/product/{{product.namePl}}" ng-click="getProduct(product._id)">
                 <img src="{{product.url[0]}}" class="img-responsive">
             </a>
-
+            <div class="podpisProdukt">
+                <p>{{product.namePl}}</p>
+            </div>
         </div>
     </div>
 </div>

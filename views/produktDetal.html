@@ -30,14 +30,14 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container padding1">
     <div class="col-md-12" ng-controller="ProduktyCtrl">
 
         <div ng-model="productDetalis" ng-show="mainLanguage == 'PL'">
             <div class='row'>
                 <div class="col-md-8">
                     <img src="{{productDetalis.url[0]}}" class="img-responsive">
-                    <div id="links" class="col-md-4" ng-repeat="img in productDetalis.url">
+                    <div id="links" class="col-md-2 fotoMini" ng-repeat="img in productDetalis.url">
                         <a href="{{img}}" data-gallery>
                             <img src="{{img}}" class="img-responsive">
                         </a>

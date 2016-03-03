@@ -115,10 +115,14 @@
 .box:hover {
   background: #a91605;
 }
+.icon {
+  top: 65px;
+  position: absolute;
+}
 .shapeicon {
   top: 50px;
   right: 10px;
-  width: 30%;
+  width: 27%;
   position: relative;
   border-bottom: 80px solid #eee;
   border-right: 20px solid transparent;
@@ -237,6 +241,43 @@
   color: #000;
   padding: 30px 0px 0px 0px;
   text-align: center;
+}
+.foto {
+  padding: 10px 10px 0px 0px;
+}
+.foto img {
+  height: 220px;
+  width: 400px;
+}
+.foto button {
+  color: #fff;
+  line-height: 10px;
+}
+.foto:hover {
+  opacity: 0.6;
+  background: #fff;
+}
+.podpisProdukt {
+  padding: 20px 0px 0px 0px;
+  height: 80px;
+  width: 360px;
+  background: #eee;
+}
+.podpisProdukt {
+  line-height: 15px;
+  text-align: center;
+  text-align: justify;
+}
+.fotoMini {
+  padding: 10px 10px 0px 0px;
+}
+.fotoMini img {
+  height: 110px;
+  width: 250px;
+}
+.fotoMini:hover {
+  opacity: 0.6;
+  background: #fff;
 }
 .podpis:hover {
   background: #eee;
