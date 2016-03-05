@@ -82,7 +82,7 @@ angular.module('szczesniak')
             $scope.filter1 = 0;
             $scope.filter2 = 0;
             $scope.filter3 = 0;
-            $location.path('products');
+            $location.hash('');
             
         };
         $scope.reset2 = function () {

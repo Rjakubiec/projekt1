@@ -65,7 +65,7 @@
 <div ng-repeat="news in newss | filter:filterQuery">
     <h4>Nazwa polska : {{news.namePl}}</h4>
     <h4>Nazwa angielska : {{news.nameEn}}</h4>
-    <p>Data dodania newsa : {{news.data}}</p>
+    <p>Data dodania newsa : {{news.data |limitTo: 10}}</p>
     <img src="{{news.img}}" class="img-responsive" style="height: 200px;width: 300px; " />
     <div class="row">
         <div class="col-md-2">

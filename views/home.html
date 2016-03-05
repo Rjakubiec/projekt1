@@ -5,7 +5,7 @@
     <br>
     <div class="row boxclass">
         <div class="col-md-4">
-            <div class="box">
+            <div class="box animated slideInLeft">
                 <div class="shapeicon">
                     
                 </div>
@@ -22,7 +22,7 @@
                 </div>
 
             </div>
-            <div class="box">
+            <div class="box animated slideInLeft">
                 <div class="shapeicon">
 
                 </div>
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="box">
+            <div class="box animated slideInDown">
                 <div class="shapeicon">
 
                 </div>
@@ -58,7 +58,7 @@
                 </div>
 
             </div>
-            <div class="box">
+            <div class="box animated slideInUp">
                 <div class="shapeicon">
 
                 </div>
@@ -76,7 +76,7 @@
 
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 animated slideInRight">
             <div class="box">
                 <div class="shapeicon">
 
@@ -94,7 +94,7 @@
                 </div>
 
             </div>
-            <div class="box">
+            <div class="box animated slideInRight">
                 <div class="shapeicon">
                 </div>
                 <div class="textH">
@@ -114,7 +114,7 @@
     </div>
 </div>
 
-<div class="divparallax">
+<div class="divparallax animated slideInRight">
 
     <div class="parallax" style="background-image: url('stylus/site/imgparalax.png')">
         <div class="color-green"> </div>
@@ -129,13 +129,16 @@
                     </a>
                 </div>
             </div>
-            <div class="row" ng-model="newss">
+            <div class="row " ng-model="newss">
                 <div class="col-md-4">
 
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
 
-                    <a href="#/news/{{newss[0].namePl | spaceless}}" ng-click="getNews(newss[0]._id)">
+                    <a href="#/news/{{newss[0].namePl | spaceless}}#{{newss[0]._id}}" ng-click="getNews(newss[0]._id)">
                         <div class="podpis">
+                            <div class="dataNews">
+                                <p style="text-align: right;">{{newss[0].data |limitTo: 10}}</p>
+                            </div>
                             <p>{{newss[0].namePl}}</p>
                         </div>
                     </a>
@@ -143,8 +146,11 @@
                 <div class="col-md-4">
 
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
-                    <a href="#/news/{{newss[2].namePl | spaceless}}" ng-click="getNews(newss[2]._id)">
+                    <a href="#/news/{{newss[2].namePl | spaceless}}#{{newss[2]._id}}" ng-click="getNews()">                      
                         <div class="podpis">
+                             <div class="dataNews">
+                                <p style="text-align: right;">{{newss[2].data |limitTo: 10}}</p>
+                            </div>
                             <p>{{newss[2].namePl}}</p>
                         </div>
                     </a>
@@ -153,8 +159,11 @@
 
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
 
-                    <a href="#/news/{{newss[3].namePl | spaceless}}" ng-click="getNews(newss[3]._id)">
+                    <a href="#/news/{{newss[3].namePl | spaceless}}#{{newss[3]._id}}" ng-click="getNews(newss[3]._id)">
                         <div class="podpis">
+                            <div class="dataNews">
+                                <p style="text-align: right;">{{newss[3].data |limitTo: 10}}</p>
+                            </div>
                             <p>{{newss[3].namePl}}</p>
                         </div>
                     </a>

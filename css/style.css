@@ -239,8 +239,16 @@
 }
 .podpis p {
   color: #000;
-  padding: 30px 0px 0px 0px;
   text-align: center;
+}
+.newsData {
+  position: absolute;
+  z-index: 3;
+  right: 0px;
+  top: 0px;
+}
+.newsData p {
+  padding: 10px 0px 0px 0px;
 }
 .foto {
   padding: 10px 10px 0px 0px;

@@ -44,7 +44,7 @@
     </div>
     <div class="col-md-12" ng-controller="ProduktyCtrl">
         <div class="col-md-4 col-xs-12 foto" ng-repeat="product in products | filter:filter1 | filter:filter2 | filter:filter3">
-            <a href="#/product/{{product.namePl | spaceless}}" ng-click="getProduct(product._id)">
+            <a href="#/product/{{product.namePl | spaceless}}#{{product._id}}" ng-click="getProduct()">
                 <img src="{{product.url[0]}}" class="img-responsive">
             </a>
             <div class="podpisProdukt">

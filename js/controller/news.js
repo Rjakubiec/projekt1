@@ -6,7 +6,7 @@ angular.module('szczesniak')
         
         
         console.log($location.path());
-        
+           
         if ($location.path()=='/') {
             $rootScope.podstrona = false;
         }
@@ -14,6 +14,10 @@ angular.module('szczesniak')
         $rootScope.podstrona = true;
         }
         
+        
+        
+        $rootScope.hash = $location.hash();
+     
         $scope.newss = [];
 
         $http.get('http://localhost:3333/newss')
@@ -21,12 +25,24 @@ angular.module('szczesniak')
                 console.log(data.data);
                 $scope.newss = data.data;
             });
-        $scope.getNews = function (id) {
-            $http.get('http://localhost:3333/news/' + id)
+            
+        $scope.getNews = function () {
+            $http.get('http://localhost:3333/news/' + $rootScope.hash)
                 .then(function (data) {
                     $rootScope.descriptionNews = $sce.trustAsHtml(data.data.descriptionPl);
                 });
         };
+       
+       
+        console.log($location.hash());
+        if ($scope.hash =='') {
+            
+        }
+        else{      
+        $scope.getNews();
+        }
+        
+        
        
     }).filter('spaceless',function() {
     return function(input) {

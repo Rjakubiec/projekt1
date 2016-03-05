@@ -52,7 +52,7 @@ angular
             })
              .when('/product/:id', {
                 templateUrl: 'views/produktDetal.html',
-                controller: 'ProduktyCtrl'
+                controller: 'ProduktyDCtrl'
             })
             /////ANG///////
             .when('/en', {
@@ -93,7 +93,7 @@ angular
             })
             .when('en/product/:id', {
                 templateUrl: 'views/en/productDetalis.html',
-                controller: 'ProduktyCtrl'
+                controller: 'ProduktyDCtrl'
             })
             .otherwise({
                 redirectTo: '/'
