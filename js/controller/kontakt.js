@@ -66,16 +66,9 @@ angular.module('szczesniak')
         };
 
         $scope.windowOptions = {
-            visible: false
+            visible: true
         };
-
-        $scope.onClick = function() {
-            $scope.windowOptions.visible = !$scope.windowOptions.visible;
-        };
-
-        $scope.closeClick = function() {
-            $scope.windowOptions.visible = false;
-        };
+                    
 
         $scope.title = "SZCZĘŚNIAK Pojazdy Specjalne Sp z o.o.";
         $scope.adress = "ul. Bestwińska 105A 43-346 Bielsko-Biała";

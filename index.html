@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <link rel="stylesheet" href="Bootstrap-Image-Gallery\css\bootstrap-image-gallery.min.css">
     <link rel="stylesheet" href="animate.css\animate.min.css">
-    
+
 
 
     <meta name="description" content="">
@@ -47,7 +47,7 @@
 </head>
 
 <body class="font">
-    
+
     <div id="header1" ng-controller="FirmaCtrl">
         <div id="shape" class="col-md-4">
 
@@ -62,26 +62,26 @@
             <div id="header2">
                 <div id="logo" class="col-md-4">
                     <a href="#/">
-                    <img src="stylus\site\logo.png" alt="">
+                        <img src="stylus\site\logo.png" alt="">
                     </a>
                 </div>
                 <div id="header3" class="col-md-8">
-                    <div  class="col-md-3 col-xs-6 daneheader">
-                        <b>Kontakt email</b>
+                    <div class="col-md-3 col-xs-6 daneheader">
+                        <b>KONTAKT EMAIL</b>
                         <p>{{addons[0].eMail}}</p>
                     </div>
-                    <div  class="col-md-3 col-xs-6 daneheader">
-                        <b>Telefon</b>
+                    <div class="col-md-3 col-xs-6 daneheader">
+                        <b>TELEFON</b>
                         <p>{{addons[0].nrTele}}</p>
                     </div>
-                    <div  class="col-md-3 col-xs-6 daneheader">
-                        <b>Godziny pracy</b>
+                    <div class="col-md-3 col-xs-6 daneheader">
+                        <b>GODZINY PRACY</b>
                         <p>{{addons[0].godzPracy}}</p>
                     </div>
                     <div class="col-md-3 col-xs-6" ng-controller="FirmaCtrl">
                         <a href="#/company" ng-click="getSub(id)" style="text-decoration: none;">
-                        <div id="buttonG"><b>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</b></div>                       
-                        <img src="stylus\site\element.png" class="img-responsive elementB">
+                            <div id="buttonG"><b>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</b></div>
+                            <img src="stylus\site\element.png" class="img-responsive elementB">
                         </a>
                     </div>
                 </div>
@@ -109,34 +109,35 @@
                             <a class="navbar-brand" href="#/"></a>
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'">
-                            <a href="#/{{menu.urlEn}}">
-                                <b> {{menu.namePl}}</b>
+                            <a href="#/{{menu.urlEn}}" style="padding-right: 0px;">
+                                <b style="border-right: 1px solid #fff; padding-right: 10px;"> {{menu.namePl}}</b>
                             </a>
-                        </li>                           
+                        </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
                             <a href="#/en/{{menu.urlEn}}">
                                 <b>{{menu.nameEn}}</b>
                             </a>
                         </li>
-                         
-                        <li class="pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><b></b><img src="stylus\site\flagagb.png" alt="" style="width:35px"></a></li>
-                        <li class="pull-right" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><b></b><img src="stylus\site\flagapl.png" alt="" style="width:35px"></a></li>
-                       
-                        <!--<li ng-show="mainLanguage == 'PL'">
+                    </ul>
+                    <ul class="nav navbar-nav" style="float: right;">
+                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><b>ZMIEŃ </b><img src="stylus\site\flagagb.png" alt="" style="width:35px"></a></li>
+                        <li class="" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><b>CHANGE </b><img src="stylus\site\flagapl.png" alt="" style="width:35px"></a></li>
+                    </ul>
+                    <!--<li ng-show="mainLanguage == 'PL'">
                             <a href='admin.html'><b>Logowanie</b></a>
                         </li>
                         <li ng-show="mainLanguage == 'EN'">
                             <a href='admin.html'><b>Login</b></a>
                         </li>-->
 
-                    </ul>
+
 
                 </div>
             </div>
         </div>
     </nav>
 
-    <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'PL'">
+    <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'PL'" class="slideInRight">
         <div ng-hide="podstrona">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
@@ -150,7 +151,7 @@
             </uib-carousel>
         </div>
     </div>
-     <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'EN'">
+    <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'EN'" class="slideInRight">
         <div ng-hide="podstrona">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
@@ -165,9 +166,9 @@
         </div>
     </div>
 
-            <div ng-view=""></div>
+    <div ng-view=""></div>
 
-   <section>
+    <section>
         <div id="medale">
             <img src="stylus\site\medale.png" class="img-responsive" style="width: 100%;">
         </div>

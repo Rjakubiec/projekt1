@@ -1,5 +1,8 @@
 .font {
-  font-family: Open Sans Bold !important;
+  font-family: Open Sans !important;
+}
+.font p {
+  font-weight: normal !important;
 }
 #map_canvas {
   height: 500px;
@@ -61,6 +64,9 @@
 }
 #header2 {
   padding: 20px 0px 0px 0px;
+}
+#header3 b {
+  font-size: 11px;
 }
 .daneheader {
   position: relative;
@@ -191,6 +197,9 @@
 .flagiD {
   padding-bottom: 20px;
 }
+.flagiD {
+  font-size: 16px;
+}
 .padding1 {
   padding-top: 30px;
   padding-bottom: 60px;
@@ -241,14 +250,8 @@
   color: #000;
   text-align: center;
 }
-.newsData {
-  position: absolute;
-  z-index: 3;
-  right: 0px;
-  top: 0px;
-}
-.newsData p {
-  padding: 10px 0px 0px 0px;
+.podpis i {
+  color: #000;
 }
 .foto {
   padding: 10px 10px 0px 0px;
@@ -290,13 +293,18 @@
 .podpis:hover {
   background: #eee;
 }
+.buttonList {
+  border-radius: 0 !important;
+  background: #a91605;
+  border: 0px;
+  color: #fff;
+}
 #menu.navbar-default .navbar-brand {
   color: #fff;
 }
 #menu.navbar-default {
   margin-bottom: 0px;
   font-size: 14px;
-  background-color: #e84545;
   border-bottom-width: 0px;
 }
 #menu.navbar-default .navbar-nav>li>a {
