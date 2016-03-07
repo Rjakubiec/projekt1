@@ -67,20 +67,20 @@
                 </div>
                 <div id="header3" class="col-md-8">
                     <div class="col-md-3 col-xs-6 daneheader">
-                        <b>KONTAKT EMAIL</b>
+                        <strong>KONTAKT EMAIL</strong>
                         <p>{{addons[0].eMail}}</p>
                     </div>
                     <div class="col-md-3 col-xs-6 daneheader">
-                        <b>TELEFON</b>
+                        <strong>TELEFON</strong>
                         <p>{{addons[0].nrTele}}</p>
                     </div>
                     <div class="col-md-3 col-xs-6 daneheader">
-                        <b>GODZINY PRACY</b>
+                        <strong>GODZINY PRACY</strong>
                         <p>{{addons[0].godzPracy}}</p>
                     </div>
                     <div class="col-md-3 col-xs-6" ng-controller="FirmaCtrl">
                         <a href="#/company" ng-click="getSub(id)" style="text-decoration: none;">
-                            <div id="buttonG"><b>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</b></div>
+                            <div id="buttonG"><strong>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</strong></div>
                             <img src="stylus\site\element.png" class="img-responsive elementB">
                         </a>
                     </div>
@@ -110,24 +110,24 @@
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'">
                             <a href="#/{{menu.urlEn}}" style="padding-right: 0px;">
-                                <b style="border-right: 1px solid #fff; padding-right: 10px;"> {{menu.namePl}}</b>
+                                <strong style="border-right: 1px solid #fff; padding-right: 10px;"> {{menu.namePl}}</strong>
                             </a>
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
                             <a href="#/en/{{menu.urlEn}}">
-                                <b>{{menu.nameEn}}</b>
+                                <strong>{{menu.nameEn}}</strong>
                             </a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav" style="float: right;">
-                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><b>ZMIEŃ </b><img src="stylus\site\flagagb.png" alt="" style="width:35px"></a></li>
-                        <li class="" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><b>CHANGE </b><img src="stylus\site\flagapl.png" alt="" style="width:35px"></a></li>
+                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><strong>ZMIEŃ </strong><img src="stylus\site\flagagb.png" alt="" style="width:35px"></a></li>
+                        <li class="" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><strong>CHANGE </strong><img src="stylus\site\flagapl.png" alt="" style="width:35px"></a></li>
                     </ul>
                     <!--<li ng-show="mainLanguage == 'PL'">
-                            <a href='admin.html'><b>Logowanie</b></a>
+                            <a href='admin.html'><strong>Logowanie</strong></a>
                         </li>
                         <li ng-show="mainLanguage == 'EN'">
-                            <a href='admin.html'><b>Login</b></a>
+                            <a href='admin.html'><strong>Login</strong></a>
                         </li>-->
 
 
@@ -143,7 +143,7 @@
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.img}}">
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
-                        <h1><b>{{slide.namePl}}<b></h1>
+                        <h1><strong>{{slide.namePl}}<strong></h1>
                         <p>{{slide.descriptionPl}}</p>
                         <img src="stylus\site\element.png" class="img-responsive" style="top: 20px;height: 140px;width: 80px;">
                     </div>
@@ -157,7 +157,7 @@
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.img}}">
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
-                        <h1><b>{{slide.nameEn}}<b></h1>
+                        <h1><strong>{{slide.nameEn}}<strong></h1>
                         <p>{{slide.descriptionEn}}</p>
                         <img src="stylus\site\element.png" class="img-responsive" style="top: 20px;height: 140px;width: 80px;">
                     </div>
@@ -177,7 +177,7 @@
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted"><b>Copyrights © 2016 SZCZĘŚNIAK Pojazdy Specjalne Sp. z o.o. | All</b></p>
+                <p class="text-muted"><strong>Copyrights © 2016 SZCZĘŚNIAK Pojazdy Specjalne Sp. z o.o. | All</strong></p>
             </div>
         </footer>
     </section>
