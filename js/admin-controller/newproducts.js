@@ -9,7 +9,7 @@ angular.module('szczesniakAdmin')
         $scope.products = [];
 
 
-        $http.get('http://localhost:3333/products')
+        $http.get('http://pszcz.projekty.surprise.design:3123/products')
             .then(function (data) {
 
                 $scope.products = data.data;
@@ -19,7 +19,7 @@ angular.module('szczesniakAdmin')
         $scope.typs = [];
 
 
-        $http.get('http://localhost:3333/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
@@ -28,7 +28,7 @@ angular.module('szczesniakAdmin')
         $scope.categorys = [];
 
 
-        $http.get('http://localhost:3333/categorys')
+        $http.get('http://pszcz.projekty.surprise.design:3123/categorys')
             .then(function (data) {
 
                 $scope.categorys = data.data;
@@ -37,7 +37,7 @@ angular.module('szczesniakAdmin')
         $scope.sizes = [];
 
 
-        $http.get('http://localhost:3333/sizes')
+        $http.get('http://pszcz.projekty.surprise.design:3123/sizes')
             .then(function (data) {
 
                 $scope.sizes = data.data;
@@ -47,7 +47,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteProduct = function (id) {
 
-            $http.delete('http://localhost:3333/productD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3123/productD/' + id)
                 .then(function () {
                     console.log('usunieto');
 
@@ -55,7 +55,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateProduct = function (id, data) {
             console.log(data);
-            $http.put('http://localhost:3333/productU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3123/productU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -69,7 +69,7 @@ $scope.uploadFiles = function (files,product) {
             console.log(files);
             console.log(files);
             Upload.upload({
-                url: 'http://localhost:3333/product',
+                url: 'http://pszcz.projekty.surprise.design:3123/product',
                 arrayKey: '',
                 data: {
                     files: files,

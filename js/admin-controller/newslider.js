@@ -6,7 +6,7 @@ angular.module('szczesniakAdmin')
         $scope.slides = [];
         
 
-        $http.get('http://localhost:3333/sliders')
+        $http.get('http://pszcz.projekty.surprise.design:3123/sliders')
             .then(function (data) {
                
                 $scope.slides = data.data;
@@ -14,7 +14,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteSlide = function (id) {
 
-            $http.delete('http://localhost:3333/sliderD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3123/sliderD/' + id)
                 .then(function () {
                     console.log('usunieto');
 
@@ -22,7 +22,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addSlide = function (data) {
             console.log(data);
-            $http.post('http://localhost:3333/slider',data)
+            $http.post('http://pszcz.projekty.surprise.design:3123/slider',data)
                 .then(function () {
                     console.log('dodano');
 
@@ -30,7 +30,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateSlide = function (id, data) {
             console.log(data);
-            $http.put('http://localhost:3333/sliderU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3123/sliderU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -45,7 +45,7 @@ angular.module('szczesniakAdmin')
             console.log(file);
             console.log(slider);
             Upload.upload({
-                url: 'http://localhost:3333/slider',
+                url: 'http://pszcz.projekty.surprise.design:3123/slider',
                 arrayKey: '',
                 data: {
                     file: file,

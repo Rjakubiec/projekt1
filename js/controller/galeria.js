@@ -8,7 +8,7 @@ angular.module('szczesniak')
            $scope.typs= [];
         
 
-        $http.get('http://localhost:3333/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
@@ -23,7 +23,7 @@ angular.module('szczesniak')
            
         ];
 
-        $http.get('http://localhost:3333/imgs')
+        $http.get('http://pszcz.projekty.surprise.design:3123/imgs')
             .then(function (data) {
                 console.log(data.data);
                 $scope.fotos = data.data;

@@ -81,7 +81,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.all('/*', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://pszcz.projekty.surprise.design");
+    res.header("Access-Control-Allow-Origin", "http://localhost");
     res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Origin,__setXHR_");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,DELETE,POST,OPTIONS');
     res.header('Access-Control-Allow-Credentials', "true");
@@ -665,5 +665,4 @@ app.listen(3123, function (err) {
 
     if (err) throw err;
     console.log('Server running on port 3123');
-
 });

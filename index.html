@@ -108,20 +108,22 @@
                         <li>
                             <a class="navbar-brand" href="#/"></a>
                         </li>
-                        <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'">
-                            <a href="#/{{menu.urlEn}}" style="padding-right: 0px;">
-                                <strong style="border-right: 1px solid #fff; padding-right: 10px;"> {{menu.namePl}}</strong>
+                        <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'" ng-class="{'lastt':$last}">
+                            <a href="#/{{menu.urlEn}}" >
+                                <strong> {{menu.namePl}}</strong>
                             </a>
                         </li>
-                        <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'">
+                        <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'" ng-class="{'lastt':$last}">
                             <a href="#/en/{{menu.urlEn}}">
                                 <strong>{{menu.nameEn}}</strong>
                             </a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav" style="float: right;">
-                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><strong>ZMIEŃ </strong><img src="stylus\site\flagagb.png" alt="" style="width:35px"></a></li>
-                        <li class="" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><strong>CHANGE </strong><img src="stylus\site\flagapl.png" alt="" style="width:35px"></a></li>
+                        <!--<li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><strong>ZMIEŃ </strong><img src="stylus\site\flagagb.png" alt="" style="width:38px"></a></li>
+                        <li class="" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><strong>CHANGE </strong><img src="stylus\site\flagapl.png" alt="" style="width:38px"></a></li>-->
+                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'" id="language"> <a ng-click="changeLanguage(mainLanguage)"><strong>ZMIEŃ --> English</strong></a></li>
+                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'EN'" id="language"> <a ng-click="changeLanguage(mainLanguage)"><strong>CHANGE --> Polski</strong></a></li>
                     </ul>
                     <!--<li ng-show="mainLanguage == 'PL'">
                             <a href='admin.html'><strong>Logowanie</strong></a>

@@ -12,7 +12,7 @@ angular.module('szczesniakAdmin')
          $scope.typs = [];
         
 
-        $http.get('http://localhost:3333/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
             .then(function (data) {
 
                 $scope.data.typs = data.data;
@@ -22,7 +22,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteTyp = function (id) {
             console.log(id);
-            $http.delete('http://localhost:3333/typD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3123/typD/' + id)
                 .then(function () {
                     console.log('usunieto');
 
@@ -30,7 +30,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addTyp = function (data) {
             console.log(data);
-            $http.post('http://localhost:3333/typ', data)
+            $http.post('http://pszcz.projekty.surprise.design:3123/typ', data)
                 .then(function () {
                     console.log('dodano');
 
@@ -40,7 +40,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateTyp = function (id, data) {
 
-            $http.put('http://localhost:3333/typU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3123/typU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -55,7 +55,7 @@ angular.module('szczesniakAdmin')
         };
         
 
-        $http.get('http://localhost:3333/sizes')
+        $http.get('http://pszcz.projekty.surprise.design:3123/sizes')
             .then(function (data) {
 
                 $scope.data.sizes = data.data;
@@ -63,7 +63,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteSize = function (id) {
             console.log(id);
-            $http.delete('http://localhost:3333/sizeD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3123/sizeD/' + id)
                 .then(function () {
                     console.log('usunieto');
 
@@ -71,7 +71,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addSize = function (data) {
             console.log(data);
-            $http.post('http://localhost:3333/size', data)
+            $http.post('http://pszcz.projekty.surprise.design:3123/size', data)
                 .then(function () {
                     console.log('dodano');
 
@@ -81,7 +81,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateSize = function (id, data) {
 
-            $http.put('http://localhost:3333/sizeU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3123/sizeU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -97,7 +97,7 @@ angular.module('szczesniakAdmin')
         
         $scope.categorys = [];
 
-        $http.get('http://localhost:3333/categorys')
+        $http.get('http://pszcz.projekty.surprise.design:3123/categorys')
             .then(function (data) {
 
                 $scope.data.categorys = data.data;
@@ -106,7 +106,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteCategory = function (id) {
             console.log(id);
-            $http.delete('http://localhost:3333/categoryD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3123/categoryD/' + id)
                 .then(function () {
                     console.log('usunieto');
 
@@ -114,7 +114,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addCategory = function (data) {
             console.log(data);
-            $http.post('http://localhost:3333/category', data)
+            $http.post('http://pszcz.projekty.surprise.design:3123/category', data)
                 .then(function () {
                     console.log('dodano');
 
@@ -124,7 +124,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateCategory = function (id, data) {
 
-            $http.put('http://localhost:3333/categoryU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3123/categoryU/' + id, data)
                 .then(function () {
                     console.log('update');
 

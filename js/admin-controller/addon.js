@@ -7,7 +7,7 @@ angular.module('szczesniakAdmin')
         $scope.addons = [];
 
 
-        $http.get('http://localhost:3333/addons')
+        $http.get('http://pszcz.projekty.surprise.design:3123/addons')
             .then(function (data) {
                
                 $scope.addons = data.data;
@@ -15,7 +15,7 @@ angular.module('szczesniakAdmin')
             });
         $scope.deleteAddon = function (id) {
 
-            $http.delete('http://localhost:3333/addonD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3123/addonD/' + id)
                 .then(function () {
                     console.log('usunieto');
 
@@ -23,7 +23,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addAddon = function (data) {
             console.log(data);
-            $http.post('http://localhost:3333/addon', data)
+            $http.post('http://pszcz.projekty.surprise.design:3123/addon', data)
                 .then(function () {
                     console.log('dodano');
 
@@ -33,7 +33,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateAddon = function (id,data) {
 
-            $http.put('http://localhost:3333/addonU/'+id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3123/addonU/'+id, data)
                 .then(function () {
                     console.log('update');
 

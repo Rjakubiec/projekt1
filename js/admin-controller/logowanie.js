@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-    .constant("authUrl","http://localhost:3333/users/login")
+    .constant("authUrl","http://pszcz.projekty.surprise.design:3123/users/login")
 	.controller('LogowanieCtrl', function($scope, $rootScope, $location,$http,authUrl,loginService){
 		
 

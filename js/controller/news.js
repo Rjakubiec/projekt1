@@ -20,14 +20,14 @@ angular.module('szczesniak')
      
         $scope.newss = [];
 
-        $http.get('http://localhost:3333/newss')
+        $http.get('http://pszcz.projekty.surprise.design:3123/newss')
             .then(function (data) {
                 console.log(data.data);
                 $scope.newss = data.data;
             });
             
         $scope.getNews = function () {
-            $http.get('http://localhost:3333/news/' + $rootScope.hash)
+            $http.get('http://pszcz.projekty.surprise.design:3123/news/' + $rootScope.hash)
                 .then(function (data) {
                     $rootScope.descriptionNews = $sce.trustAsHtml(data.data.descriptionPl);
                 });
