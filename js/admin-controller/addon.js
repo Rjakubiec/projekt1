@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-    .controller('AddonCtrl', function ($scope, $rootScope, $http) {
+    .controller('AddonCtrl', function ($scope, $rootScope, $http,$window) {
 
 
         $scope.addons = [];
@@ -18,6 +18,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/addonD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -26,6 +27,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/addon', data)
                 .then(function () {
                     console.log('dodano');
+                    $window.location.reload();
 
                 });
 

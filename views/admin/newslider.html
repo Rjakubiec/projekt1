@@ -61,7 +61,7 @@
         <input class="form-control" type="text" ng-model="slide.descriptionEn" value="{{slide.descriptionEn}}">
         <br>    
         <br>
-        <a class="btn btn-danger" ng-click="deleteSlide(slide._id)">usuń</a>
+        <a class="btn btn-danger" ng-really-message="Czy na pewno chcesz usunąć to zdjęcie z slidera ?" ng-really-click="deleteSlide(slide._id)">usuń</a>
          <a class="btn btn-success" ng-click="updateSlide(slide._id,slide)">zmień</a>
 
     </div>

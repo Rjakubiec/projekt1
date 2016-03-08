@@ -3,7 +3,7 @@ angular.module('szczesniakAdmin').factory('loginService', function($http,$locati
     return {
         login: function(login,password, scope) {
 
-            $http.post('http://localhost:3333/users/login', {
+            $http.post('http://pszcz.projekty.surprise.design:3123/users/login', {
                 login: login,
                 password: password
             }, {

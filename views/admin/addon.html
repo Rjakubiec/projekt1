@@ -1,14 +1,19 @@
 <div class="col-md-6" ng-repeat="addon in addons">
-<lable>Numer telefonu</lable>
-<input class="form-control" type="text" ng-model="addon.nrTele" value="{{addon.nrTele}}"><br>
-<lable>Adres email</lable>
-<input class="form-control" type="text" ng-model="addon.eMail " value="{{addon.eMail}}"><br>
-<lable>Godziny pracy</lable>
-<input class="form-control" type="text" ng-model="addon.godzPracy" value="{{addon.godzPracy}}"><br>
-<lable>Tekst górny Pl</lable>
-<input class="form-control" type="text" ng-model="addon.topTekstPl" value="{{addon.topTekstPl}}"><br>
-<lable>Tekst górny En</lable>
-<input class="form-control" type="text" ng-model="addon.topTekstEn" value="{{addon.topTekstEn}}"><br>
-<a class="btn btn-success" ng-click="updateAddon(addon._id,addon)">Zmień</a></td>
- 
+    <lable>Numer telefonu</lable>
+    <input class="form-control" type="text" ng-model="addon.nrTele" value="{{addon.nrTele}}">
+    <br>
+    <lable>Adres email</lable>
+    <input class="form-control" type="text" ng-model="addon.eMail " value="{{addon.eMail}}">
+    <br>
+    <lable>Godziny pracy</lable>
+    <input class="form-control" type="text" ng-model="addon.godzPracy" value="{{addon.godzPracy}}">
+    <br>
+    <lable>Tekst górny Pl</lable>
+    <input class="form-control" type="text" ng-model="addon.topTekstPl" value="{{addon.topTekstPl}}">
+    <br>
+    <lable>Tekst górny En</lable>
+    <input class="form-control" type="text" ng-model="addon.topTekstEn" value="{{addon.topTekstEn}}">
+    <br>
+    <a class="btn btn-success" ng-click="updateAddon(addon._id,addon)">Zmień</a></td>
+
 </div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-    .controller('SubCtrl', function ($scope, $rootScope, $http) {
+    .controller('SubCtrl', function ($scope, $rootScope, $http,$window) {
 
 
         $scope.subs = [];
@@ -19,6 +19,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/subD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
                     
                 });
         };
@@ -38,6 +39,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/sub', data)
                 .then(function () {
                     console.log('dodano');
+                    $window.location.reload();
 
                 });
 

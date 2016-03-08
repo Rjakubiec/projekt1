@@ -64,9 +64,6 @@
         <input class="form-control" type="text" ng-model="img.nameEn" value="{{img.nameEn}}">
         <br>
         <br>
-        <!--<lable>Rozmiar</lable>
-        <input type="text" ng-model="img.sizePl" value="{{img.sizePl}}">
-        <br>-->
         <lable>Kategoria zdjęcia(PL)</lable>
         <select class="form-control" ng-model="img.typPl">
             <div >
@@ -82,7 +79,7 @@
         </select>
         <br>
 
-        <a class="btn btn-danger" ng-click="deleteImg(img._id)">usuń</a>
+        <a class="btn btn-danger" ng-really-message="Czy na pewno chcesz usunąć to zdjęcie?" ng-really-click="deleteImg(img._id)">usuń</a>
         <td><a class="btn btn-success" ng-click="updateImg(img._id,img)">zmień</a></td>
 
     </div>

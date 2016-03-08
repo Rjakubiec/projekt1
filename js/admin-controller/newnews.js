@@ -21,6 +21,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/news', data)
                 .then(function () {
                     console.log('dodano');
+                    $window.location.reload();
 
                 });
         };
@@ -37,6 +38,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/newsD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -72,6 +74,7 @@ angular.module('szczesniakAdmin')
             }).then(function (resp) { //upload function returns a promise
                 if (resp.data.error_code === 0) { //validate success
                     $window.alert('Poprawnie dodano');
+                    $window.location.reload();
                 } else {
                     $window.alert('Nie dodano');
                 }

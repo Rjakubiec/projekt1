@@ -115,7 +115,7 @@ angular.module('szczesniak')
             input=input.replace(/ż/ig, 'z');
             input=input.replace(/ź/ig, 'z');
             input=input.replace(/Ź/ig, 'Z');
-            input=input.replace(/[\[\]']+/g,'')
+            input=input.replace(/\[.*?\]/g,'')
             input=input.replace("\\]", '_');
             
             

@@ -27,7 +27,7 @@
                 <td>
                     <input class="form-control" type="password" ng-model="user.password" value="{{user.password}}">
                 </td>
-                <td><a class="btn btn-danger" ng-click="deleteUser(user._id)">Usuń</a>
+                <td><a class="btn btn-danger" ng-really-message="Czy na pewno chcesz usunąć tego użytkownika ?" ng-really-click="deleteUser(user._id)">Usuń</a>
                 <a class="btn btn-success" ng-click="updateUser(user._id,user)">Zmień</a></td>
             </tr>
             <tr ng-model="user">

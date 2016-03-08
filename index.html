@@ -104,14 +104,24 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse " style="width: 100% !important;" ng-class="!navCollapsed && 'in'"
                 ng-click="navCollapsed=true">
                     <ul class="nav navbar-nav">
-
                         <li>
                             <a class="navbar-brand" href="#/"></a>
                         </li>
+                        
+                        <!--<li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'" class="dropdown" ng-if="menu.namePl == 'FIRMA'">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FIRMA<span class="caret"></span></a>
+                            <div ng-controller="FirmaSubCtrl">
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="sub in subs"><a href="#/company" ng-click="getSub(id)" style="text-decoration: none;">{{sub.namePl}}</a></li>
+                                </ul>
+                            </div>
+                        </li>-->
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'" ng-class="{'lastt':$last}">
+
                             <a href="#/{{menu.urlEn}}" >
                                 <strong> {{menu.namePl}}</strong>
                             </a>
+
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'" ng-class="{'lastt':$last}">
                             <a href="#/en/{{menu.urlEn}}">
@@ -140,7 +150,7 @@
     </nav>
 
     <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'PL'" class="slideInRight">
-        <div ng-hide="podstrona">
+        <div ng-hide="podstrona" id="preloader">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.img}}">
@@ -195,6 +205,8 @@
 
 
 
+
 </body>
+
 
 </html>

@@ -23,7 +23,7 @@
     <br>
    
     <a class="btn btn-success" ng-click="updateTyp(data.singleSelect,typ)">zmień</a>
-    <a class="btn btn-danger" ng-click="deleteTyp(data.singleSelect)">usuń</a>
+    <a class="btn btn-danger" ng-really-message="Czy na pewno chcesz usunąć ten typ ?" ng-really-click="deleteTyp(data.singleSelect)">usuń</a>
     <br>
     <br> 
     <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
@@ -79,7 +79,7 @@
     <input class="form-control" type="text" ng-model="category.categoryEn" value="{{category.categoryEn}">
     <br>
     <a class="btn btn-success" ng-click="updateCategory(data.singleSelect3,category)">zmień</a>
-    <a class="btn btn-danger" ng-click="deleteCategory(data.singleSelect3)">usuń</a>
+    <a class="btn btn-danger" ng-really-message="Czy na pewno chcesz usunąć tą kategorie ?" ng-really-click="deleteCategory(data.singleSelect3)">usuń</a>
     <br>
     <br>
     <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
@@ -150,7 +150,7 @@
     <input class="form-control" type="text" ng-model="size.sizeEn" value="{{size.sizeEn}">
     <br>
     <a class="btn btn-success" ng-click="updateSize(data.singleSelect2,size)">zmień</a>
-    <a class="btn btn-danger" ng-click="deleteSize(data.singleSelect2)">usuń</a>
+    <a class="btn btn-danger" ng-really-message="Czy na pewno chcesz usunąć tą podkategorię ?" ng-really-click="deleteSize(data.singleSelect2)">usuń</a>
     <br>
     <br>
     <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />

@@ -7,7 +7,7 @@
         <div class="col-md-4">
             <div class="box animated slideInLeft">
                 <div class="shapeicon">
-                    
+
                 </div>
                 <div class="textH">
                     <p><strong>AIR FREIGHT</strong></p>
@@ -29,7 +29,7 @@
                 <div class="textH">
                     <p><strong>ROAD TRANSPORTATION</strong></p>
                 </div>
-                  <div class="icon">
+                <div class="icon">
                     <img src="stylus\site\icon2.png" alt="">
                 </div>
                 <br>
@@ -48,7 +48,7 @@
                 <div class="textH">
                     <p><strong>PACKAKING & STORAGE</strong></p>
                 </div>
-                 <div class="icon">
+                <div class="icon">
                     <img src="stylus\site\icon3.png" alt="">
                 </div>
                 <br>
@@ -65,7 +65,7 @@
                 <div class="textH">
                     <p><strong>SEA FREIGHT</strong></p>
                 </div>
-                 <div class="icon">
+                <div class="icon">
                     <img src="stylus\site\icon4.png" alt="">
                 </div>
                 <br>
@@ -84,7 +84,7 @@
                 <div class="textH">
                     <p><strong>RAILWAY LOGISTICS</strong></p>
                 </div>
-                 <div class="icon">
+                <div class="icon">
                     <img src="stylus\site\icon5.png" alt="">
                 </div>
                 <br>
@@ -100,7 +100,7 @@
                 <div class="textH">
                     <p><strong>WAREHOUSING</strong></p>
                 </div>
-                 <div class="icon">
+                <div class="icon">
                     <img src="stylus\site\icon6.png" alt="">
                 </div>
                 <br>
@@ -131,12 +131,12 @@
             </div>
             <div class="row " ng-model="newss">
                 <div class="col-md-4">
-
+                    <a href="#/news/{{newss[0].namePl | spaceless}}#{{newss[0]._id}}" ng-click="getNews(newss[0]._id)">
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
 
-                    <a href="#/news/{{newss[0].namePl | spaceless}}#{{newss[0]._id}}" ng-click="getNews(newss[0]._id)">
+                    
                         <div class="podpis">
-                            <div >
+                            <div>
                                 <p style="text-align: right;"><i>{{newss[0].data |limitTo: 10}}</i></p>
                             </div>
                             <p>{{newss[0].namePl}}</p>
@@ -144,11 +144,11 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-
+                     <a href="#/news/{{newss[2].namePl | spaceless}}#{{newss[2]._id}}" ng-click="getNews()">
                     <img src="{{newss[1].img}}" alt="" class="img-responsive">
-                    <a href="#/news/{{newss[2].namePl | spaceless}}#{{newss[2]._id}}" ng-click="getNews()">                      
+                   
                         <div class="podpis">
-                             <div>
+                            <div>
                                 <p style="text-align: right;"><i>{{newss[2].data |limitTo: 10}}</i> </p>
                             </div>
                             <p>{{newss[2].namePl}}</p>
@@ -156,10 +156,10 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-
-                    <img src="{{newss[1].img}}" alt="" class="img-responsive">
-
                     <a href="#/news/{{newss[3].namePl | spaceless}}#{{newss[3]._id}}" ng-click="getNews(newss[3]._id)">
+                        <img src="{{newss[1].img}}" alt="" class="img-responsive">
+
+
                         <div class="podpis">
                             <div>
                                 <p style="text-align: right;"><i>{{newss[3].data |limitTo: 10}}</i></p>

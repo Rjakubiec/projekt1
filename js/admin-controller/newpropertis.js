@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-    .controller('NewPropertisCtrl', function ($scope, $rootScope, $http) {
+    .controller('NewPropertisCtrl', function ($scope, $rootScope, $http,$window) {
         
         //////////////////////////////////types
         $scope.data = {
@@ -25,6 +25,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/typD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -33,6 +34,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/typ', data)
                 .then(function () {
                     console.log('dodano');
+                    $window.location.reload();
 
                 });
 
@@ -66,6 +68,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/sizeD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -74,6 +77,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/size', data)
                 .then(function () {
                     console.log('dodano');
+                    $window.location.reload();
 
                 });
 
@@ -109,6 +113,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/categoryD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -117,6 +122,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/category', data)
                 .then(function () {
                     console.log('dodano');
+                    $window.location.reload();
 
                 });
 

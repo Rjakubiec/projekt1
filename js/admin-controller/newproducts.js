@@ -50,6 +50,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/productD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -61,23 +62,29 @@ angular.module('szczesniakAdmin')
 
                 });
         };
+        
+           var vm = this;
+    
      
-$scope.uploadFiles = function (files,product) {
-        $scope.files = files;
+$scope.uploadFiles = function (pdf,files,product) {
+        $scope.pdf=pdf;
+        $scope.files = files;      
         $scope.product = product;
         if (files && files.length) {
-            console.log(files);
+            console.log(pdf);
             console.log(files);
             Upload.upload({
                 url: 'http://pszcz.projekty.surprise.design:3123/product',
                 arrayKey: '',
                 data: {
+                    pdf:pdf,
                     files: files,
                     product: product
                 }
             }).then(function (resp) { //upload function returns a promise
                 if (resp.data.error_code === 0) { //validate success
                     $window.alert('Poprawnie dodano');
+                    $window.location.reload();
                 } else {
                     $window.alert('Nie dodano');
                 }
@@ -86,9 +93,9 @@ $scope.uploadFiles = function (files,product) {
                 $window.alert('Błąd: ' + resp.status);
             }, function (evt) {
                 console.log(evt);
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('Postęp: ' + progressPercentage + '% ' + evt.config.data.file.name);
-                vm.progress = 'Postęp: ' + progressPercentage + '% '; // capture upload progress
+               var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+               console.log('Postęp: ' + progressPercentage + '% ' + evt.config.data.pdf.name);
+               vm.progress = 'Postęp: ' + progressPercentage + '% '; // capture upload progress
             });
         }
     };

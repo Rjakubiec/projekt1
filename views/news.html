@@ -2,3 +2,12 @@
     <div class="col-md-12" ng-bind-html="descriptionNews">
     </div>
 </div>
+<script>
+$(document).ready(function() {
+		$('img').each(function(index, el) {
+			if(!$( el ).hasClass( "img-responsive" )){
+			 $(el).addClass('img-responsive');
+			}
+		});
+	});
+</script>

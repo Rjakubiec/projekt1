@@ -26,8 +26,8 @@
         <lable>Opis angielski</lable>
         <textarea class="form-control" type="text" ng-model="product.descriptionEn" />
         <br>
-        <lable>Url pdf</lable>
-        <input class="form-control" type="text" ng-model="product.urlPdf">
+        <!--<lable>Url pdf</lable>
+        <input class="form-control" type="text" ng-model="product.urlPdf">-->
 
     </div>
     <div class="col-md-4">
@@ -88,7 +88,19 @@
         <span class="progress" ng-show="progress >= 0">
         <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>   
     </span> {{errorMsg}}
-     <button class="btn btn-default" ng-click="uploadFiles(files,product)">Dodaj nowy produkt</button>
+    <p>{{up.progress}}</p>
+    <div>
+  
+        <p> Dodaj pdf</p>
+        <li>
+        <input type="file" ngf-select ng-model="pdf" name="pdf"/>
+        </li>
+    </div>
+    
+    <br>
+    
+     <button class="btn btn-default" ng-click="uploadFiles(pdf,files,product)">Dodaj nowy produkt</button>
+     
      <hr style="width: 100%; color: grey; height: 1px; background-color:grey;" />
 </div>
 <div class="row" ng-repeat="product in products | filter:filterQuery">
@@ -126,7 +138,7 @@
         <lable>Url pdf</lable>
         <input class="form-control" type="text" ng-model="product.urlPdf" value="{{product.urlPdf}}">
         <br>
-        <a class="btn btn-danger" ng-click="deleteProduct(product._id)">usuń</a>
+        <a class="btn btn-danger"  ng-really-message="Czy na pewno chcesz usunąć ten produkt?" ng-really-click="deleteProduct(product._id)">usuń</a>
         <a class="btn btn-success" ng-click="updateProduct(product._id,product)">zmień</a>
         <br>
         <!--<lable>Rozmiar</lable>

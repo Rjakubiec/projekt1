@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniakAdmin')
-    .controller('NewUserCtrl', function ($scope, $rootScope, $http) {
+    .controller('NewUserCtrl', function ($scope, $rootScope, $http,$window) {
 
 
         $scope.users = [];
@@ -17,6 +17,7 @@ angular.module('szczesniakAdmin')
             $http.delete('http://pszcz.projekty.surprise.design:3123/userD/' + id)
                 .then(function () {
                     console.log('usunieto');
+                    $window.location.reload();
 
                 });
         };
@@ -25,7 +26,7 @@ angular.module('szczesniakAdmin')
             $http.post('http://pszcz.projekty.surprise.design:3123/user', data)
                 .then(function () {
                     console.log('dodano');
-
+                    $window.location.reload();
                 });
 
 
