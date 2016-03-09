@@ -5,19 +5,9 @@ angular.module('szczesniak')
         console.log('Serwis');
 
         $rootScope.podstrona = true;
-         if ($rootScope.mainLanguage == 'PL') {
 
-
-            $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Serwis</strong>");
-            $rootScope.description = $sce.trustAsHtml("szybki serwis");
-        }
-        else  {
-
-
-            $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Service</strong>");
-            $rootScope.description = $sce.trustAsHtml("quick service");
-        }
-        //formularz
+    
+    
     $scope.result = 'hidden'
     $scope.resultMessage;
     $scope.formData; 
@@ -32,7 +22,7 @@ angular.module('szczesniak')
                 method  : 'POST',
                 url     : 'contact-formSerwis.php',
                 data    : $.param($scope.formData),  
-                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
+                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
             }).success(function(data){
                 console.log(data);
                 if (data.success) { 
@@ -50,5 +40,4 @@ angular.module('szczesniak')
             $scope.resultMessage = 'Błąd <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Proszę wypełnij wszystkie pola.';
             $scope.result='bg-danger';
         }
-    }
-    });
+    }});

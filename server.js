@@ -53,7 +53,7 @@ var upload3 = multer({ //gallery
 }).single('file');
 var upload4 = multer({ //products
     storage: storage4
-}).fields([{ name: 'pdf', maxCount: 1 }, { name: 'files', maxCount: 5 }])
+}).fields([{ name: 'pdf', maxCount: 1 }, { name: 'photos', maxCount: 5 }])
 
 var User = require('./server/model/user');
 var Slider = require('./server/model/slider');
@@ -240,11 +240,11 @@ app.post('/product', function (req, res) {
         }
         var product = new Product();
 
-        for (var i in req.files) {
-            product.url[i] = req.files[i].path;
+        for (var i in req.files['photos']) {
+            product.url[i] = req.files['photos'][i].path;
         }
-        console.log(req.pdf['pdf'].path);
-        product.urlPdf = req.pdf['pdf'].path;
+        //console.log(req.pdf['pdf'].path);
+        product.urlPdf = req.files.pdf['pdf'].path;
         product.namePl = req.body.product.namePl;
         product.nameEn = req.body.product.nameEn;
         product.descriptionPl = req.body.product.descriptionPl;

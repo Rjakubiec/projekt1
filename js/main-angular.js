@@ -8,6 +8,7 @@ angular
         'ui.bootstrap',
         'ui.bootstrap.modal',
         'bootstrapLightbox',
+        'ngFileUpload', 
         'uiGmapgoogle-maps'
 
     ])

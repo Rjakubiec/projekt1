@@ -38,6 +38,9 @@
   top: 10px;
   color: #fff;
 }
+#textheader strong {
+  font-size: 12px;
+}
 #header2 {
   height: 80px;
   background: #fff;
@@ -62,18 +65,21 @@
   -moz-box-shadow: 2px 12px 11px -7px rgba(0,166,81,0.52);
   box-shadow: 2px 12px 11px -7px rgba(0,166,81,0.52);
 }
+#buttonG:hover {
+  background: #008440;
+}
 #header2 {
   padding: 20px 0px 0px 0px;
 }
-#header3 b {
-  font-size: 11px;
-}
-.daneheader {
+.daneheader p {
+  font-size: 13px;
+  margin: 0px;
   position: relative;
   color: #333;
 }
-.daneheader p {
+.daneheader strong {
   color: #a91605;
+  font-size: 13px;
 }
 #zawartosc {
   padding: 50px;
@@ -100,9 +106,16 @@
   color: #fff;
 }
 #medale {
+  background: #d6d6d6;
+  height: 180px;
   width: 100%;
   position: relative;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.medalM {
+  position: relative;
+  padding: 0px !important;
+  padding-top: 15px !important;
 }
 .boxclass {
   height: 550px;
@@ -119,18 +132,21 @@
   box-shadow: 10px 3px 1px -6px #eee;
 }
 .box:hover {
-  background: #a91605;
+  background: #efede7;
 }
 .icon {
   top: 65px;
   position: absolute;
+}
+.icon img {
+  width: 50px;
 }
 .shapeicon {
   top: 50px;
   right: 10px;
   width: 27%;
   position: relative;
-  border-bottom: 80px solid #eee;
+  border-bottom: 80px solid #cdc7b4;
   border-right: 20px solid transparent;
 }
 .textH {
@@ -168,7 +184,7 @@
   height: 520px;
   position: absolute;
   width: 100%;
-  background-color: #1f3622;
+  background-color: #333;
   opacity: 0.8;
 }
 .divparallax h3 {
@@ -215,21 +231,26 @@
   z-index: 100;
   position: absolute;
   left: -80px;
-  height: 140px;
-  width: 80px;
+  height: 160px;
+  width: 70px;
+}
+.elementS p,
+.elementS strong,
+.elementS h1 {
+  text-shadow: 3px 1px 24px #0c0c0c;
 }
 .element {
+  width: 80px;
   z-index: 100;
   position: absolute;
-  top: -30px;
-  left: -30px;
+  top: -20px;
+  left: -15px;
 }
 .sprawdzButton {
   z-index: 90;
   background: #fff;
   background: -webkit-linear-gradient(#fff, #fff);
   background: linear-gradient(#fff, #fff);
-  border: 3px solid #333;
   color: #333;
   display: inline-block;
   padding: 8px 20px;
@@ -243,7 +264,7 @@
   width: 330px;
   height: 100px;
   top: 350px;
-  background: #333;
+  background: #fff;
   position: absolute;
 }
 .podpis p {

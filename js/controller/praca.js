@@ -5,16 +5,7 @@ angular.module('szczesniak')
         console.log('Praca');
 
         $rootScope.podstrona = true;
-        if ($rootScope.mainLanguage == 'PL') {
-
-
-            $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Praca</strong>");
-            $rootScope.description = $sce.trustAsHtml("najlepsza praca");
-        }
-        else  {
-            $rootScope.pokaztitle = $sce.trustAsHtml("<strong>Job</strong>");
-            $rootScope.description = $sce.trustAsHtml("best job");
-        }
+        
         //formularz
     $scope.result = 'hidden'
     $scope.resultMessage;
@@ -25,7 +16,9 @@ angular.module('szczesniak')
         $scope.submitted = true;
         $scope.submitButtonDisabled = true;
         if (contactform.$valid) {
-            console.log('test');
+           // console.log('test');
+           // console.log($scope.formData.inputNumber);
+            //console.log($scope.formData.inputFile);
             $http({
                 method  : 'POST',
                 url     : 'contact-formPraca.php',

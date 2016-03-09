@@ -21,7 +21,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
     $mail->FromName = $_POST['inputName'];
     $mail->AddAddress('jakubiecrafal@gmail.com'); 
     $mail->Subject = $_POST['inputSubject'];
-    $mail->Body = "Imię i nazwisko: " . $_POST['inputName'] . "\r\n\r\nWiadomość: " . stripslashes($_POST['inputMessage'] . "\r\n\r\nNumer kontaktowy: " .$_POST['inputNumber']);
+    $mail->Body = "Imię i nazwisko: " . $_POST['inputName'] . "\r\n\r\nNumer kontaktowy: " . $_POST['inputNumber'] . "\r\n\r\n Wiadomość: " . stripslashes($_POST['inputMessage'] . "\r\n\r\nAdres email do korespondencji: " .$_POST['inputEmail']);
 
     if (isset($_POST['ref'])) {
         $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];

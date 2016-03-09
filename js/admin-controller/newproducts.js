@@ -64,15 +64,12 @@ angular.module('szczesniakAdmin')
         };
         
            var vm = this;
-    
-     
-$scope.uploadFiles = function (pdf,files,product) {
+       
+    $scope.uploadFiles = function (pdf,files,product) {
         $scope.pdf=pdf;
-        $scope.files = files;      
+        $scope.files = files;
         $scope.product = product;
         if (files && files.length) {
-            console.log(pdf);
-            console.log(files);
             Upload.upload({
                 url: 'http://pszcz.projekty.surprise.design:3123/product',
                 arrayKey: '',
@@ -93,12 +90,14 @@ $scope.uploadFiles = function (pdf,files,product) {
                 $window.alert('Błąd: ' + resp.status);
             }, function (evt) {
                 console.log(evt);
-               var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-               console.log('Postęp: ' + progressPercentage + '% ' + evt.config.data.pdf.name);
-               vm.progress = 'Postęp: ' + progressPercentage + '% '; // capture upload progress
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+               // console.log('Postęp: ' + progressPercentage + '% ' + evt.config.data.file.name);
+                //vm.progress = 'Postęp: ' + progressPercentage + '% '; // capture upload progress
             });
         }
     };
+    
+    
         $scope.custom = true;
         $scope.toggleCustom = function() {
             $scope.custom = $scope.custom === false ? true: false;
