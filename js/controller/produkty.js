@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniak')
-    .controller('ProduktyCtrl', function ($scope, $rootScope, $sce, $http, Lightbox, $document, $location) {
+    .controller('ProduktyCtrl', function ($scope, $rootScope, $sce, $http, $document, $location) {
         console.log('Produkty');
 
 

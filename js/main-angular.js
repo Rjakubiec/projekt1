@@ -7,8 +7,7 @@ angular
         'ngRoute',
         'ui.bootstrap',
         'ui.bootstrap.modal',
-        'bootstrapLightbox',
-        'ngFileUpload', 
+        // 'ngFileUpload', 
         'uiGmapgoogle-maps'
 
     ])
@@ -55,6 +54,10 @@ angular
                 templateUrl: 'views/produktDetal.html',
                 controller: 'ProduktyDCtrl'
             })
+            .when('/company/:id', {
+                templateUrl: 'views/firma.html',
+                controller: 'FirmaSubCtrl'
+            })
             /////ANG///////
             .when('/en', {
                 templateUrl: 'views/en/homeEn.html',
@@ -95,6 +98,10 @@ angular
             .when('en/product/:id', {
                 templateUrl: 'views/en/productDetalis.html',
                 controller: 'ProduktyDCtrl'
+            })
+            .when('en/company/:id', {
+                templateUrl: 'views/en/company.html',
+                controller: 'FirmaSubCtrl'
             })
             .otherwise({
                 redirectTo: '/'

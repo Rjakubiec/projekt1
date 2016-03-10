@@ -69,4 +69,12 @@ angular.module('szczesniak')
             
             return input;     
         }
+    }}).filter('imgCH',function() {
+    return function(input2) {
+        if (input2) {
+            input2=input2.replace("\\", "/");
+  
+            
+            return input2;     
+        }
     }});

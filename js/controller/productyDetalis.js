@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniak')
-    .controller('ProduktyDCtrl', function ($scope, $rootScope, $sce, $http, Lightbox, $document, $location) {
+    .controller('ProduktyDCtrl', function ($scope, $rootScope, $sce, $http, $document, $location) {
         console.log('ProduktyD');
         
         $rootScope.podstrona = true;

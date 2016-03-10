@@ -53,7 +53,7 @@ var upload3 = multer({ //gallery
 }).single('file');
 var upload4 = multer({ //products
     storage: storage4
-}).fields([{ name: 'pdf', maxCount: 1 }, { name: 'photos', maxCount: 5 }])
+}).fields([{ name: 'pdf', maxCount: 1 }, { name: 'files', maxCount: 5 }])
 
 var User = require('./server/model/user');
 var Slider = require('./server/model/slider');
@@ -233,18 +233,18 @@ app.post('/product', function (req, res) {
 
     upload4(req, res, function (err) {
 
-        if (err) {
+        if (err) {           
             console.log(err);
             res.json({ error_code: 1, err_desc: err });
             return;
         }
         var product = new Product();
 
-        for (var i in req.files['photos']) {
-            product.url[i] = req.files['photos'][i].path;
+        for (var i in req.files) {
+            product.url[i] = req.files[i].path;
         }
-        //console.log(req.pdf['pdf'].path);
-        product.urlPdf = req.files.pdf['pdf'].path;
+        console.log('jestem tu');
+        //product.urlPdf = req.files.pdf[0].path;
         product.namePl = req.body.product.namePl;
         product.nameEn = req.body.product.nameEn;
         product.descriptionPl = req.body.product.descriptionPl;

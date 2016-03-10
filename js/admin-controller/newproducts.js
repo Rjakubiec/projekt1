@@ -66,7 +66,7 @@ angular.module('szczesniakAdmin')
            var vm = this;
        
     $scope.uploadFiles = function (pdf,files,product) {
-        $scope.pdf=pdf;
+        $scope.pdf = pdf;
         $scope.files = files;
         $scope.product = product;
         if (files && files.length) {
@@ -74,11 +74,12 @@ angular.module('szczesniakAdmin')
                 url: 'http://pszcz.projekty.surprise.design:3123/product',
                 arrayKey: '',
                 data: {
-                    pdf:pdf,
+                    pdf: pdf,
                     files: files,
                     product: product
                 }
-            }).then(function (resp) { //upload function returns a promise
+            }).then(function (resp) { 
+                console.log(resp);//upload function returns a promise
                 if (resp.data.error_code === 0) { //validate success
                     $window.alert('Poprawnie dodano');
                     $window.location.reload();

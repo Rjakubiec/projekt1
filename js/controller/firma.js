@@ -8,7 +8,15 @@ angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScop
     $scope.noWrapSlides = false;
     $scope.slides = [];
     $scope.addons = [];
+    $scope.subs = [];
 
+ 
+         $http.get('http://pszcz.projekty.surprise.design:3123/subs')
+            .then(function (data) {
+                console.log(data.data);
+                $scope.subs = data.data;
+            });
+ 
  
         $http.get('http://pszcz.projekty.surprise.design:3123/sliders')
             .then(function (data) {
@@ -48,4 +56,32 @@ angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScop
         $scope.addSlide();
 
 
-    });
+    }).filter('spaceless',function() {
+    return function(input) {
+        if (input) {
+            input=input.replace(/\s+/g, '_');
+            input=input.replace(/ą/ig, 'a');
+            input=input.replace(/Ą/ig, 'A');
+            input=input.replace(/Ę/ig, 'E');
+            input=input.replace(/ę/ig, 'e');
+            input=input.replace(/ć/ig, 'c');
+            input=input.replace(/Ć/ig, 'C');
+            input=input.replace(/Ś/ig, 'S');
+            input=input.replace(/ś/ig, 's');
+            input=input.replace(/ł/ig, 'l');
+            input=input.replace(/Ł/ig, 'L');
+            input=input.replace(/Ń/ig, 'Ń');
+            input=input.replace(/ń/ig, 'n');
+            input=input.replace(/Ó/ig, 'O');
+            input=input.replace(/ó/ig, 'o');
+            input=input.replace(/Ż/ig, 'Z');
+            input=input.replace(/ż/ig, 'z');
+            input=input.replace(/ź/ig, 'z');
+            input=input.replace(/Ź/ig, 'Z');
+            input=input.replace(/\[.*?\]/g,'')
+            input=input.replace("\\]", '_');
+            
+            
+            return input;     
+        }
+    }});;;

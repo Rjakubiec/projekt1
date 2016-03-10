@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('szczesniak')
-    .controller('GaleriaCtrl', function ($scope, $rootScope, $sce, Lightbox, $http) {
+    .controller('GaleriaCtrl', function ($scope, $rootScope, $sce, $http) {
         console.log('Galeria');
         
          

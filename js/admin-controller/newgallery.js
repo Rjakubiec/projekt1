@@ -57,7 +57,8 @@ angular.module('szczesniakAdmin')
                     file: file,
                     img: img
                 }
-            }).then(function (resp) { //upload function returns a promise
+            }).then(function (resp) {
+                console.log(resp); //upload function returns a promise
                 if (resp.data.error_code === 0) { //validate success
                     $window.alert('Poprawnie dodano');
                     $window.location.reload();

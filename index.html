@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-    <link rel="stylesheet" href="Bootstrap-Image-Gallery\css\bootstrap-image-gallery.min.css">
-    <link rel="stylesheet" href="animate.css\animate.min.css">
+    <link rel="stylesheet" href="Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
+    <link rel="stylesheet" href="animate.css/animate.min.css">
 
 
 
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
 
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -34,15 +34,17 @@
     <script src='http://maps.google.cn/maps/api/js?sensor=false'></script>
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src='Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js'></script>
-    <script src="bower_components/parallax.js/parallax.js"></script>
+
     <script src="parallax.js"></script>
-    <script src="bower_components\ng-file-upload\ng-file-upload.min.js"></script>
+    <script src="bower_components/wow/dist/wow.js"></script>
+    <!--<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>-->
 
     <link rel="stylesheet" href="css/style.css">
 
 
     <script src="js/main-angular.js"></script>
     <script src="js/controller/firma.js"></script>
+
 
 
 </head>
@@ -63,7 +65,7 @@
             <div id="header2">
                 <div id="logo" class="col-md-4">
                     <a href="#/">
-                        <img src="stylus\site\logo.png" alt="">
+                        <img src="stylus/site/logo.png" alt="">
                     </a>
                 </div>
                 <div id="header3" class="col-md-8">
@@ -82,7 +84,7 @@
                     <div class="col-md-offset-3 col-md-3 col-xs-6" ng-controller="FirmaCtrl">
                         <a href="#/company" ng-click="getSub(id)" style="text-decoration: none;">
                             <div id="buttonG"><strong>&nbsp &nbsp &nbsp &nbsp INWESTYCJA W ROZWÓJ</strong></div>
-                            <img src="stylus\site\element.png" class="img-responsive elementB">
+                            <img src="stylus/site/element.png" class="img-responsive elementB">
                         </a>
                     </div>
                 </div>
@@ -109,30 +111,44 @@
                             <a class="navbar-brand" href="#/"></a>
                         </li>
 
-                        <!--<li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'" class="dropdown" ng-if="menu.namePl == 'FIRMA'">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FIRMA<span class="caret"></span></a>
-                            <div ng-controller="FirmaSubCtrl">
-                                <ul class="dropdown-menu">
-                                    <li ng-repeat="sub in subs"><a href="#/company" ng-click="getSub(id)" style="text-decoration: none;">{{sub.namePl}}</a></li>
+                        <li ng-show="mainLanguage == 'PL'" ng-class="{'lastt':$last}" uib-dropdown dropdown-append-to-body>
+
+                            <a href="#" ng-if="menus[0].namePl == 'FIRMA'" uib-dropdown-toggle>
+                                <strong> {{menus[0].namePl}}</strong>
+                                <ul ng-controller="FirmaCtrl" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                    <li role="menuitem" ng-repeat="sub in subs"><a href="#/company/{{sub.namePl | spaceless}}#{{sub._id}}"" ng-click="getSub(sub._id)" style="text-decoration: none;">{{sub.namePl}}</a></li>
+
                                 </ul>
-                            </div>
-                        </li>-->
+                            </a>
+                        </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'PL'" ng-class="{'lastt':$last}">
 
-                            <a href="#/{{menu.urlEn}}">
+
+                            <a href="#/{{menu.urlEn}}" ng-if="menu.namePl != 'FIRMA'">
                                 <strong> {{menu.namePl}}</strong>
                             </a>
 
+
+                        </li>
+                        <li ng-show="mainLanguage == 'EN'" ng-class="{'lastt':$last}" uib-dropdown dropdown-append-to-body>
+
+                            <a href="#" ng-if="menus[0].nameEn == 'COMPANY'" uib-dropdown-toggle>
+                                <strong> {{menus[0].nameEn}}</strong>
+                                <ul ng-controller="FirmaSubCtrl" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                    <li role="menuitem" ng-repeat="sub in subs"><a href="#">{{sub.nameEn}}</a></li>
+
+                                </ul>
+                            </a>
                         </li>
                         <li ng-repeat="menu in menus" ng-show="mainLanguage == 'EN'" ng-class="{'lastt':$last}">
-                            <a href="#/en/{{menu.urlEn}}">
+                            <a href="#/en/{{menu.urlEn}}" ng-if="menu.nameEn != 'COMPANY'">
                                 <strong>{{menu.nameEn}}</strong>
                             </a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav" style="float: right;">
-                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><strong>ENGLISH </strong><img src="stylus\site\flagagb.png" alt="" style="width:37px"></a></li>
-                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><strong>POLSKI </strong><img src="stylus\site\flagapl.png" alt="" style="width:37px"></a></li>
+                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'"> <a ng-click="changeLanguage(mainLanguage)"><strong>ENGLISH </strong><img src="stylus/site/flagagb.png" alt="" style="width:37px; height:17px;"></a></li>
+                        <li class="navbar-nav pull-right" ng-show="mainLanguage == 'EN'"> <a ng-click="changeLanguage(mainLanguage)"><strong>POLSKI </strong><img src="stylus/site/flagapl.png" alt="" style="width:37px; height:17px;"></a></li>
                         <!--<li class="navbar-nav pull-right" ng-show="mainLanguage == 'PL'" id="language"> <a ng-click="changeLanguage(mainLanguage)"><strong>ZMIEŃ English</strong></a></li>
                         <li class="navbar-nav pull-right" ng-show="mainLanguage == 'EN'" id="language"> <a ng-click="changeLanguage(mainLanguage)"><strong>CHANGE  Polski</strong></a></li>-->
                     </ul>
@@ -158,50 +174,64 @@
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
                         <h1><strong>{{slide.namePl}}<strong></h1>
                         <p style="font-size:18px"><strong>{{slide.descriptionPl}}</strong></p>
-                        <img src="stylus\site\element2.png" class="img-responsive" style="top: 20px;height: 100px;width: 70px;">
+                        <img src="stylus/site/element2.png" class="img-responsive" style="top: 20px;height: 100px;width: 70px;">
                     </div>
                 </uib-slide>
             </uib-carousel>
         </div>
     </div>
     <div ng-controller="FirmaCtrl" id="slider" ng-show="mainLanguage == 'EN'" class="slideInRight">
-        <div ng-hide="podstrona">
+        <div ng-hide="podstrona" id="preloader">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
                     <img ng-src="{{slide.img}}">
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
                         <h1><strong>{{slide.nameEn}}<strong></h1>
-                        <p style="font-size:18px">{{slide.descriptionEn}}</p>
-                        <img src="stylus\site\element.png" class="img-responsive" style="top: 20px;height: 140px;width: 80px;">
+                        <p style="font-size:18px"><strong>{{slide.descriptionEn}}</strong></p>
+                        <img src="stylus/site/element2.png" class="img-responsive" style="top: 20px;height: 100px;width: 70px;">
                     </div>
                 </uib-slide>
             </uib-carousel>
         </div>
     </div>
 
+
+
+
     <div ng-view=""></div>
 
     <section>
         <div id="medale">
             <div class="col-md-2 col-md-offset-1 medalM justy center">
-                <img src="stylus\site\znaki\lbp_logo.png" alt="">
-                <p style="font-size:9px">WSK <br> PN-EN ISO 9001:2009 <br> PN-EN ISO 14001:2005 <br> AQAP 2110:2009</p>
+                <img src="stylus/site/znaki/lbp_logo.png" alt="">
+                <p style="font-size:9px">WSK
+                    <br> PN-EN ISO 9001:2009
+                    <br> PN-EN ISO 14001:2005
+                    <br> AQAP 2110:2009</p>
             </div>
             <div class="col-md-2 medalM justy center">
-                <img src="stylus\site\znaki\lewiatan_logo_0.png" alt="">
-                <p style="font-size:9px">Członek Stowarzyszenia <br>Eksporterów Polskich <br>i "Lider Polskiego Eksportu"</p>
+                <img src="stylus/site/znaki/lewiatan_logo_0.png" alt="">
+                <p style="font-size:9px">Członek Stowarzyszenia
+                    <br>Eksporterów Polskich
+                    <br>i "Lider Polskiego Eksportu"</p>
             </div>
             <div class="col-md-2 medalM justy center">
-                <img src="stylus\site\znaki\PIPROK.jpg" alt="">
-                <p style="font-size:9px">Członek Polskiej Izby <br>Producentów na Rzecz <br>Obronności Kraju</p>
+                <img src="stylus/site/znaki/PIPROK.jpg" alt="">
+                <p style="font-size:9px">Członek Polskiej Izby
+                    <br>Producentów na Rzecz
+                    <br>Obronności Kraju</p>
             </div>
             <div class="col-md-2 medalM justy center">
-                <img src="stylus\site\znaki\SEP_0.jpg" alt="">
-                <p style="font-size:9px">Członek <br>Konfederacji <br>LEWIATAN</p>
+                <img src="stylus/site/znaki/SEP_0.jpg" alt="">
+                <p style="font-size:9px">Członek
+                    <br>Konfederacji
+                    <br>LEWIATAN</p>
             </div>
             <div class="col-md-2 medalM justy center">
-                <img src="stylus\site\znaki\zsjz_0.jpg" alt="">
-                <p style="font-size:9px"> NAGRODA <br>LIDER BEZPIECZEŃSTWA PAŃSTWA <br>2015</p>
+                <img src="stylus/site/znaki/zsjz_0.jpg" alt="">
+                <p style="font-size:9px"> NAGRODA
+                    <br>LIDER BEZPIECZEŃSTWA PAŃSTWA
+                    <br>2015</p>
             </div>
 
         </div>
@@ -214,6 +244,7 @@
             </div>
         </footer>
     </section>
+
     <script src="js/controller/galeria.js"></script>
     <script src="js/controller/kontakt.js"></script>
     <script src="js/controller/praca.js"></script>
@@ -222,7 +253,7 @@
     <script src="js/controller/serwis.js"></script>
     <script src="js/controller/news.js"></script>
     <script src="js/controller/firmasub.js"></script>
-
+    <script src="wowinit.js"></script>
 
 
 
