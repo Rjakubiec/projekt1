@@ -11,14 +11,14 @@ angular.module('szczesniak')
         $scope.products = [];
         $rootScope.productDetalis = [];
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/products')
+        $http.get('http://pszcz.projekty.surprise.design:3456/products')
             .then(function (data) {
                 console.log(data.data);
                 $scope.products = data.data;
             });
             
         $scope.getProduct = function () {
-            $http.get('http://pszcz.projekty.surprise.design:3123/product/' + $rootScope.hash)
+            $http.get('http://pszcz.projekty.surprise.design:3456/product/' + $rootScope.hash)
                 .then(function (data) {
                     $rootScope.productDetalis = data.data;
                     console.log($scope.productDetalis);

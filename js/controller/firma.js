@@ -11,20 +11,20 @@ angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScop
     $scope.subs = [];
 
  
-         $http.get('http://pszcz.projekty.surprise.design:3123/subs')
+         $http.get('http://pszcz.projekty.surprise.design:3456/subs')
             .then(function (data) {
                 console.log(data.data);
                 $scope.subs = data.data;
             });
  
  
-        $http.get('http://pszcz.projekty.surprise.design:3123/sliders')
+        $http.get('http://pszcz.projekty.surprise.design:3456/sliders')
             .then(function (data) {
                 console.log(data.data);
                 $scope.slides = data.data;
             });
             
-        $http.get('http://pszcz.projekty.surprise.design:3123/addons')
+        $http.get('http://pszcz.projekty.surprise.design:3456/addons')
             .then(function (data) {
                 console.log(data.data);
                 $scope.addons = data.data;
@@ -32,13 +32,13 @@ angular.module('szczesniak').controller('FirmaCtrl', function ($scope, $rootScop
             
            $scope.getSub = function (id) {              
                id='56d6c941290c07cc1b916542';
-            $http.get('http://pszcz.projekty.surprise.design:3123/sub/' + id)
+            $http.get('http://pszcz.projekty.surprise.design:3456/sub/' + id)
                 .then(function (data) {
                     $rootScope.descriptionSub = $sce.trustAsHtml(data.data.descriptionPl);
                 });
         };
             
-            //  $http.get('http://pszcz.projekty.surprise.design:3123/news')
+            //  $http.get('http://pszcz.projekty.surprise.design:3456/news')
             //  .then(function (data) {
             //      console.log(data.data);
             //      $scope.news = data.data;

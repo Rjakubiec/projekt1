@@ -38,7 +38,7 @@ var storage4 = multer.diskStorage({ //multers disk storage settings
     },
     filename: function (req, file, cb) {
         var datetimestamp = Date.now();
-        cb(null, file.fieldname + '-' + datetimestamp +'.png')
+        cb(null, file.fieldname + file.originalname)
     }
 });
 
@@ -230,21 +230,28 @@ app.post('/users/login', function (req, res) {
 ///////////////////////////////////////crud products//////////////////////////////////////
 // dodaj product
 app.post('/product', function (req, res) {
-
+        
     upload4(req, res, function (err) {
+        
+        // console.log(req.files['pdf']);
+        // console.log(req.files['files']);
+        // console.log(req.files);
 
         if (err) {           
             console.log(err);
             res.json({ error_code: 1, err_desc: err });
             return;
         }
+        
         var product = new Product();
 
-        for (var i in req.files) {
-            product.url[i] = req.files[i].path;
+        for (var i in req.files['files']) {
+           // console.log('plik'+req.files['files'][i].path);         
+            product.url[i] = req.files['files'][i].path;
+           // console.log(product.url[i]);  
         }
-        console.log('jestem tu');
-        //product.urlPdf = req.files.pdf[0].path;
+        //console.log(req.files);
+        product.urlPdf = req.files['pdf'][0].path;
         product.namePl = req.body.product.namePl;
         product.nameEn = req.body.product.nameEn;
         product.descriptionPl = req.body.product.descriptionPl;
@@ -255,7 +262,7 @@ app.post('/product', function (req, res) {
         product.categoryEn = req.body.product.categoryEn;
         product.sizePl = req.body.product.sizePl;
         product.sizeEn = req.body.product.sizeEn;
-        //product.urlPdf = req.body.product.urlPdf;
+  
 
         product.save();
         res.json({ error_code: 0, err_desc: null });
@@ -662,9 +669,9 @@ app.put('/subU/:id', function (req, res, next) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 
-app.listen(3123, function (err) {
+app.listen(3456, function (err) {
 
     if (err) throw err;
-    console.log('Server running on port 3123');
+    console.log('Server running on port 3456');
 
 });

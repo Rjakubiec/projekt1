@@ -6,7 +6,7 @@ angular.module('szczesniakAdmin')
         $scope.imgs = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/imgs')
+        $http.get('http://pszcz.projekty.surprise.design:3456/imgs')
             .then(function (data) {
 
                 $scope.imgs = data.data;
@@ -16,7 +16,7 @@ angular.module('szczesniakAdmin')
         $scope.typs = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3456/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
@@ -26,7 +26,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteImg = function (id) {
 
-            $http.delete('http://pszcz.projekty.surprise.design:3123/imgD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/imgD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -35,7 +35,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateImg = function (id, data) {
             console.log(data);
-            $http.put('http://pszcz.projekty.surprise.design:3123/imgU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/imgU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -51,7 +51,7 @@ angular.module('szczesniakAdmin')
             console.log(file);
             console.log(img);
             Upload.upload({
-                url: 'http://pszcz.projekty.surprise.design:3123/img',
+                url: 'http://pszcz.projekty.surprise.design:3456/img',
                 arrayKey: '',
                 data: {
                     file: file,

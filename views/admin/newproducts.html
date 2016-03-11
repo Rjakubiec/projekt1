@@ -21,10 +21,10 @@
         <br>
 
         <lable>Opis polski</lable>
-        <textarea class="form-control" type="text" ng-model="product.descriptionPl" />
+        <textarea class="form-control" rows="5" type="text" ng-model="product.descriptionPl" />
         <br>
         <lable>Opis angielski</lable>
-        <textarea class="form-control" type="text" ng-model="product.descriptionEn" />
+        <textarea class="form-control" rows="5" type="text" ng-model="product.descriptionEn" />
         <br>
         <!--<lable>Url pdf</lable>
         <input class="form-control" type="text" ng-model="product.urlPdf">-->
@@ -76,7 +76,7 @@
         <br>
     </div>
         
-        <p> Dodaj zdjęcia produktu</p>
+        <strong> Dodaj zdjęcia produktu</strong>
         <input type="file" class="btn button-default" ngf-select ng-model="files" ngf-multiple="true">
         <br>Zdjęcia:
         <ul>
@@ -91,9 +91,10 @@
     <p>{{up.progress}}</p>
     <div>
   
-        <p> Dodaj pdf</p>
+        <strong> Dodaj pdf</strong>
+        <input type="file" ngf-select ng-model="pdf" />
         <li>
-        <input type="file" ngf-select ng-model="pdf" name="pdf"/>
+            {{pdf.name}} <br>
         </li>
     </div>
     

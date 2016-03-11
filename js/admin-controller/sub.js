@@ -8,7 +8,7 @@ angular.module('szczesniakAdmin')
         $rootScope.subDetalis = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/subs')
+        $http.get('http://pszcz.projekty.surprise.design:3456/subs')
             .then(function (data) {
                
                 $scope.subs = data.data;
@@ -16,7 +16,7 @@ angular.module('szczesniakAdmin')
             });
         $scope.deleteSub = function (id) {
 
-            $http.delete('http://pszcz.projekty.surprise.design:3123/subD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/subD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -25,7 +25,7 @@ angular.module('szczesniakAdmin')
         };
         
         $scope.getSub = function (id) {
-            $http.get('http://pszcz.projekty.surprise.design:3123/sub/' + id)
+            $http.get('http://pszcz.projekty.surprise.design:3456/sub/' + id)
                 .then(function (data) {
                     $rootScope.subDetalis = data.data;
                     console.log($scope.subDetalis);
@@ -36,7 +36,7 @@ angular.module('szczesniakAdmin')
             data.descriptionPl = data.htmlVariablePl;
             data.descriptionEn = data.htmlVariableEn;
             console.log(data);
-            $http.post('http://pszcz.projekty.surprise.design:3123/sub', data)
+            $http.post('http://pszcz.projekty.surprise.design:3456/sub', data)
                 .then(function () {
                     console.log('dodano');
                     $window.location.reload();
@@ -47,7 +47,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateSub = function (id,data) {
                 console.log(id);
-            $http.put('http://pszcz.projekty.surprise.design:3123/subU/'+id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/subU/'+id, data)
                 .then(function () {
                     console.log('update');
 

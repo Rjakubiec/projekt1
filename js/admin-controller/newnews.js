@@ -6,7 +6,7 @@ angular.module('szczesniakAdmin')
         $scope.newss = [];
         
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/newss')
+        $http.get('http://pszcz.projekty.surprise.design:3456/newss')
             .then(function (data) {
 
                 $scope.newss = data.data;
@@ -18,7 +18,7 @@ angular.module('szczesniakAdmin')
             data.descriptionPl = data.htmlVariablePl;
             data.descriptionEn = data.htmlVariableEn;
             console.log(data);
-            $http.post('http://pszcz.projekty.surprise.design:3123/news', data)
+            $http.post('http://pszcz.projekty.surprise.design:3456/news', data)
                 .then(function () {
                     console.log('dodano');
                     $window.location.reload();
@@ -27,7 +27,7 @@ angular.module('szczesniakAdmin')
         };
         
          $scope.getNews = function (id) {
-            $http.get('http://pszcz.projekty.surprise.design:3123/news/' + id)
+            $http.get('http://pszcz.projekty.surprise.design:3456/news/' + id)
                 .then(function (data) {
                     $rootScope.newsDetalis = data.data;
                     console.log($scope.newsDetalis);
@@ -35,7 +35,7 @@ angular.module('szczesniakAdmin')
         }
         $scope.deleteNews = function (id) {
 
-            $http.delete('http://pszcz.projekty.surprise.design:3123/newsD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/newsD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -44,7 +44,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateNews = function (id, data) {
 
-            $http.put('http://pszcz.projekty.surprise.design:3123/newsU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/newsU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -65,7 +65,7 @@ angular.module('szczesniakAdmin')
             console.log(file);
             console.log(news);
             Upload.upload({
-                url: 'http://pszcz.projekty.surprise.design:3123/news',
+                url: 'http://pszcz.projekty.surprise.design:3456/news',
                 arrayKey: '',
                 data: {
                     file: file,

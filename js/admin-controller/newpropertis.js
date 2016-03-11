@@ -12,7 +12,7 @@ angular.module('szczesniakAdmin')
          $scope.typs = [];
         
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3456/typs')
             .then(function (data) {
 
                 $scope.data.typs = data.data;
@@ -22,7 +22,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteTyp = function (id) {
             console.log(id);
-            $http.delete('http://pszcz.projekty.surprise.design:3123/typD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/typD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -31,7 +31,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addTyp = function (data) {
             console.log(data);
-            $http.post('http://pszcz.projekty.surprise.design:3123/typ', data)
+            $http.post('http://pszcz.projekty.surprise.design:3456/typ', data)
                 .then(function () {
                     console.log('dodano');
                     $window.location.reload();
@@ -42,7 +42,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateTyp = function (id, data) {
 
-            $http.put('http://pszcz.projekty.surprise.design:3123/typU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/typU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -57,7 +57,7 @@ angular.module('szczesniakAdmin')
         };
         
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/sizes')
+        $http.get('http://pszcz.projekty.surprise.design:3456/sizes')
             .then(function (data) {
 
                 $scope.data.sizes = data.data;
@@ -65,7 +65,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteSize = function (id) {
             console.log(id);
-            $http.delete('http://pszcz.projekty.surprise.design:3123/sizeD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/sizeD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -74,7 +74,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addSize = function (data) {
             console.log(data);
-            $http.post('http://pszcz.projekty.surprise.design:3123/size', data)
+            $http.post('http://pszcz.projekty.surprise.design:3456/size', data)
                 .then(function () {
                     console.log('dodano');
                     $window.location.reload();
@@ -85,7 +85,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateSize = function (id, data) {
 
-            $http.put('http://pszcz.projekty.surprise.design:3123/sizeU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/sizeU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -101,7 +101,7 @@ angular.module('szczesniakAdmin')
         
         $scope.categorys = [];
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/categorys')
+        $http.get('http://pszcz.projekty.surprise.design:3456/categorys')
             .then(function (data) {
 
                 $scope.data.categorys = data.data;
@@ -110,7 +110,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteCategory = function (id) {
             console.log(id);
-            $http.delete('http://pszcz.projekty.surprise.design:3123/categoryD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/categoryD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -119,7 +119,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addCategory = function (data) {
             console.log(data);
-            $http.post('http://pszcz.projekty.surprise.design:3123/category', data)
+            $http.post('http://pszcz.projekty.surprise.design:3456/category', data)
                 .then(function () {
                     console.log('dodano');
                     $window.location.reload();
@@ -130,7 +130,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateCategory = function (id, data) {
 
-            $http.put('http://pszcz.projekty.surprise.design:3123/categoryU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/categoryU/' + id, data)
                 .then(function () {
                     console.log('update');
 

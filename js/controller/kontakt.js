@@ -58,8 +58,8 @@ angular.module('szczesniak')
         $scope.options = {scrollwheel: false};
         $scope.marker = {
             coords: {
-                latitude: 49.868201,
-                longitude: 19.045582
+                latitude: 49.868321,
+                longitude: 19.044577
             },
             show: false,
             id: 0

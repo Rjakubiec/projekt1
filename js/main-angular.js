@@ -114,7 +114,7 @@ angular
 
         $rootScope.menus = [];
         
-        // $http.get('http://pszcz.projekty.surprise.design:3123/menus')
+        // $http.get('http://pszcz.projekty.surprise.design:3456/menus')
         //     .then(function (data) {
         //         console.log(data.data);
         //         $rootScope.menus = data.data;

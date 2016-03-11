@@ -21,7 +21,7 @@ angular.module('szczesniak')
         ////////////////////////////////Wyszukiwanie    
         $scope.typs = [];
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3456/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
@@ -29,7 +29,7 @@ angular.module('szczesniak')
         $scope.sizes = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/sizes')
+        $http.get('http://pszcz.projekty.surprise.design:3456/sizes')
             .then(function (data) {
 
                 $scope.sizes = data.data;
@@ -37,7 +37,7 @@ angular.module('szczesniak')
         $scope.categorys = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/categorys')
+        $http.get('http://pszcz.projekty.surprise.design:3456/categorys')
             .then(function (data) {
 
                 $scope.categorys = data.data;
@@ -49,14 +49,14 @@ angular.module('szczesniak')
         $scope.products = [];
         $rootScope.productDetalis = [];
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/products')
+        $http.get('http://pszcz.projekty.surprise.design:3456/products')
             .then(function (data) {
                 console.log(data.data);
                 $scope.products = data.data;
             });
 
         $scope.getProduct = function (id) {
-            $http.get('http://pszcz.projekty.surprise.design:3123/product/' + id)
+            $http.get('http://pszcz.projekty.surprise.design:3456/product/' + id)
                 .then(function (data) {
                     $rootScope.productDetalis = data.data;
                     console.log($scope.productDetalis);

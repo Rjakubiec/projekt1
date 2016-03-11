@@ -7,14 +7,14 @@ angular.module('szczesniakAdmin')
         $scope.users = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/users')
+        $http.get('http://pszcz.projekty.surprise.design:3456/users')
             .then(function (data) {
                
                 $scope.users = data.data;
             });
         $scope.deleteUser = function (id) {
 
-            $http.delete('http://pszcz.projekty.surprise.design:3123/userD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/userD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -23,7 +23,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.addUser = function (data) {
             console.log(data);
-            $http.post('http://pszcz.projekty.surprise.design:3123/user', data)
+            $http.post('http://pszcz.projekty.surprise.design:3456/user', data)
                 .then(function () {
                     console.log('dodano');
                     $window.location.reload();
@@ -33,7 +33,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateUser = function (id,data) {
 
-            $http.put('http://pszcz.projekty.surprise.design:3123/userU/'+id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/userU/'+id, data)
                 .then(function () {
                     console.log('update');
 

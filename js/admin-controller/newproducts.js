@@ -9,7 +9,7 @@ angular.module('szczesniakAdmin')
         $scope.products = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/products')
+        $http.get('http://pszcz.projekty.surprise.design:3456/products')
             .then(function (data) {
 
                 $scope.products = data.data;
@@ -19,7 +19,7 @@ angular.module('szczesniakAdmin')
         $scope.typs = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/typs')
+        $http.get('http://pszcz.projekty.surprise.design:3456/typs')
             .then(function (data) {
 
                 $scope.typs = data.data;
@@ -28,7 +28,7 @@ angular.module('szczesniakAdmin')
         $scope.categorys = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/categorys')
+        $http.get('http://pszcz.projekty.surprise.design:3456/categorys')
             .then(function (data) {
 
                 $scope.categorys = data.data;
@@ -37,7 +37,7 @@ angular.module('szczesniakAdmin')
         $scope.sizes = [];
 
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/sizes')
+        $http.get('http://pszcz.projekty.surprise.design:3456/sizes')
             .then(function (data) {
 
                 $scope.sizes = data.data;
@@ -47,7 +47,7 @@ angular.module('szczesniakAdmin')
 
         $scope.deleteProduct = function (id) {
 
-            $http.delete('http://pszcz.projekty.surprise.design:3123/productD/' + id)
+            $http.delete('http://pszcz.projekty.surprise.design:3456/productD/' + id)
                 .then(function () {
                     console.log('usunieto');
                     $window.location.reload();
@@ -56,7 +56,7 @@ angular.module('szczesniakAdmin')
         };
         $scope.updateProduct = function (id, data) {
             console.log(data);
-            $http.put('http://pszcz.projekty.surprise.design:3123/productU/' + id, data)
+            $http.put('http://pszcz.projekty.surprise.design:3456/productU/' + id, data)
                 .then(function () {
                     console.log('update');
 
@@ -71,7 +71,7 @@ angular.module('szczesniakAdmin')
         $scope.product = product;
         if (files && files.length) {
             Upload.upload({
-                url: 'http://pszcz.projekty.surprise.design:3123/product',
+                url: 'http://pszcz.projekty.surprise.design:3456/product',
                 arrayKey: '',
                 data: {
                     pdf: pdf,

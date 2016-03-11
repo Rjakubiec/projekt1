@@ -116,7 +116,12 @@
                             <a href="#" ng-if="menus[0].namePl == 'FIRMA'" uib-dropdown-toggle>
                                 <strong> {{menus[0].namePl}}</strong>
                                 <ul ng-controller="FirmaCtrl" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-                                    <li role="menuitem" ng-repeat="sub in subs"><a href="#/company/{{sub.namePl | spaceless}}#{{sub._id}}"" ng-click="getSub(sub._id)" style="text-decoration: none;">{{sub.namePl}}</a></li>
+                                    
+                                    <li role="menuitem" ng-repeat="sub in subs">
+                                        
+                                        <a href="#/company/{{sub.namePl | spaceless}}#{{sub._id}}" ng-click="getSub(sub._id)" style="text-decoration: none;">{{sub.namePl}}</a>
+                                        
+                                    </li>
 
                                 </ul>
                             </a>

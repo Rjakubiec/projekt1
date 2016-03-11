@@ -20,14 +20,14 @@ angular.module('szczesniak')
      
         $scope.newss = [];
 
-        $http.get('http://pszcz.projekty.surprise.design:3123/newss')
+        $http.get('http://pszcz.projekty.surprise.design:3456/newss')
             .then(function (data) {
                 console.log(data.data);
                 $scope.newss = data.data;
             });
             
         $scope.getNews = function () {
-            $http.get('http://pszcz.projekty.surprise.design:3123/news/' + $rootScope.hash)
+            $http.get('http://pszcz.projekty.surprise.design:3456/news/' + $rootScope.hash)
                 .then(function (data) {
                     $rootScope.descriptionNews = $sce.trustAsHtml(data.data.descriptionPl);
                 });
@@ -66,6 +66,7 @@ angular.module('szczesniak')
             input=input.replace(/ż/ig, 'z');
             input=input.replace(/ź/ig, 'z');
             input=input.replace(/Ź/ig, 'Z');
+            input=input.replace(/\[.*?\]/g,'')
             
             return input;     
         }
