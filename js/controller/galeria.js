@@ -15,11 +15,7 @@ angular.module('szczesniak')
             })
 
         $scope.fotos = [
-            //             {
-            //                 
-            //                 'url': 'img/IMG_6297.jpg',
-            //                 'caption': 'Zdjęcie 1',
-            //                 'thumbUrl': 'img/male/IMG_6297.jpg'
+         
            
         ];
 
@@ -41,14 +37,6 @@ angular.module('szczesniak')
             $rootScope.description = $sce.trustAsHtml("nice gallery");
         }
         
-   
 
-        $scope.openLightboxModal = function (index) {
-            Lightbox.openModal($scope.fotos, index);
-        };
-    //     $scope.reset = function() {
-    // $scope.filterQuery = 0;
-    //         };
-    // 
 
     });
