@@ -89,7 +89,7 @@
 }
 #slider img {
   width: 100%;
-  height: 500px;
+  height: auto;
 }
 .footer {
   position: relative;
@@ -118,6 +118,7 @@
 }
 .boxclass {
   height: 550px;
+  position: relative;
 }
 .box {
   position: relative;
@@ -175,7 +176,6 @@
   background-size: 100% 100% !important;
   height: 100%;
   background-position: center center !important;
-  background-attachment: fixed !important;
   background-repeat: no-repeat !important;
 }
 .color-green {
@@ -239,11 +239,11 @@
   text-shadow: 3px 1px 24px #0c0c0c;
 }
 .element {
-  width: 80px;
   z-index: 100;
   position: absolute;
-  top: -20px;
-  left: -15px;
+  width: 50px;
+  top: -8px;
+  left: 8px;
 }
 .sprawdzButton {
   z-index: 90;
@@ -375,9 +375,82 @@
 }
 #preloader {
   width: 100%;
-  height: 500px;
-  background-color: #ccc;
+  height: auto;
+  background-color: #fff;
   background-repeat: no-repeat;
   background-image: url("https://www.yugma.com/images/loading-animation-7.gif");
   background-position: top 50% left 50%;
+}
+.divider {
+  opacity: 0.3;
+}
+.button_base {
+  margin: 0;
+  border: 0;
+  font-size: 18px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -100px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-user-select: none;
+  cursor: default;
+}
+.button_base:hover {
+  cursor: pointer;
+}
+.b03_skewed_slide_in {
+  overflow: hidden;
+  border: #000 solid 1px;
+}
+.b03_skewed_slide_in div {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 10px;
+}
+.b03_skewed_slide_in div:nth-child(1) {
+  color: #000;
+  background-color: #fff;
+}
+.b03_skewed_slide_in div:nth-child(2) {
+  background-color: #000;
+  width: 230px;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transform: translate(-250px, 0px) skewX(-30deg);
+  -webkit-transform: translate(-250px, 0px) skewX(-30deg);
+  -moz-transform: translate(-250px, 0px) skewX(-30deg);
+}
+.b03_skewed_slide_in div:nth-child(3) {
+  color: #fff;
+  left: -200px;
+  transition: left 0.2s ease;
+  -webkit-transition: left 0.2s ease;
+  -moz-transition: left 0.2s ease;
+}
+.b03_skewed_slide_in:hover div:nth-child(2) {
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transform: translate(-15px, 0px) skewX(-30deg);
+  -webkit-transform: translate(-15px, 0px) skewX(-30deg);
+  -moz-transform: translate(-15px, 0px) skewX(-30deg);
+}
+.b03_skewed_slide_in:hover div:nth-child(3) {
+  left: 0px;
+  transition: left 0.3s ease;
+  -webkit-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
 }

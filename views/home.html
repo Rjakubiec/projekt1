@@ -5,7 +5,7 @@
     <br>
     <div class="row boxclass">
         <div class="col-md-4">
-            <div class="box wow slideInLeft">
+            <div class="box wow slideInUp">
                 <div class="shapeicon">
 
                 </div>
@@ -21,7 +21,7 @@
                 </div>
 
             </div>
-            <div class="box wow slideInLeft">
+            <div class="box wow slideInUp">
                 <div class="shapeicon">
 
                 </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="box wow slideInLeft">
+            <div class="box wow slideInUp">
                 <div class="shapeicon">
 
                 </div>
@@ -55,7 +55,7 @@
                 </div>
 
             </div>
-            <div class="box wow slideInLeft">
+            <div class="box wow slideInUp">
                 <div class="shapeicon">
 
                 </div>
@@ -72,7 +72,7 @@
 
             </div>
         </div>
-        <div class="col-md-4 wow slideInLeft">
+        <div class="col-md-4 wow slideInUp">
             <div class="box">
                 <div class="shapeicon">
 
@@ -89,7 +89,7 @@
                 </div>
 
             </div>
-            <div class="box wow slideInLeft">
+            <div class="box wow slideInUp">
                 <div class="shapeicon">
                 </div>
                 <div class="textH">
@@ -108,9 +108,10 @@
     </div>
 </div>
 
-<div class="divparallax wow slideInRight">
+<div class="divparallax ">
 
-    <div class="parallax" style="background-image: url('stylus/site/imgparalax.png')">
+    <div class="parallax">
+        <!--style="background-image: url('stylus/site/imgparalax.png')"-->
         <div class="color-green"> </div>
         <div class="container" ng-controller="NewsCtrl">
             <div class="row">
@@ -119,16 +120,16 @@
                 </div>
                 <div class="col-md-offset-2 col-md-1">
                     <a href="#/news">
-                        <button class="sprawdzButton" style="position: absolute; top: 60px;text-align: right;"><strong>Więcej</strong></button>
+                        <div class="sprawdzButton" style="position: absolute; top: 60px;text-align: right;"><strong>Więcej</strong></div>
                     </a>
                 </div>
             </div>
             <div class="row " ng-model="newss">
                 <div class="col-md-4">
                     <a href="#/news/{{newss[0].namePl | spaceless}}#{{newss[0]._id}}" ng-click="getNews(newss[0]._id)">
-                    <img ng-src="{{newss[1].img | imgCH}}" alt="" class="img-responsive">
+                        <img ng-src="{{newss[1].img | imgCH}}" alt="" class="img-responsive">
 
-                    
+
                         <div class="podpis">
                             <div>
                                 <p style="text-align: right;font-size:11px; margin-right:3px;"><i>{{newss[0].data |limitTo: 10}}</i></p>
@@ -138,9 +139,9 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                     <a href="#/news/{{newss[2].namePl | spaceless}}#{{newss[2]._id}}" ng-click="getNews()">
-                    <img ng-src="{{newss[1].img | imgCH}}" alt="" class="img-responsive">
-                   
+                    <a href="#/news/{{newss[2].namePl | spaceless}}#{{newss[2]._id}}" ng-click="getNews()">
+                        <img ng-src="{{newss[1].img | imgCH}}" alt="" class="img-responsive">
+
                         <div class="podpis">
                             <div>
                                 <p style="text-align: right;font-size:11px; margin-right:3px;"><i>{{newss[2].data |limitTo: 10}}</i> </p>
@@ -186,50 +187,62 @@
     <div class="row ">
         <div class="col-md-4 center ">
             <a href="#/products#strazackie">
-            <img src="stylus/site/straz.png" class="img-responsive" alt="">
-            <br>
-            <img src="stylus/site/element.png" class="img-responsive element">
+                <img src="stylus/site/straz.png" class="img-responsive" alt="">
+                <br>
+                <img src="stylus/site/element.png" class="img-responsive element">
             </a>
             <p style="font-size:18px;"><strong>PRODUKTY STRAŻACKIE</strong></p>
             <br>
-            <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p style="text-align: justify; padding-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <a href="#/products#strazackie">
-                <button class="sprawdzButton center"><strong>Więcej</strong></button>
+                <div class="button_base b03_skewed_slide_in" >
+                    <div>Więcej</div>
+                    <div></div>
+                    <div>Więcej</div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 center">
             <a href="#/products#wojskowe">
-            <img src="stylus/site/wojskowe.png" class="img-responsive" alt="">
-            <br>
-            <img src="stylus/site/element.png" class="img-responsive element">
+                <img src="stylus/site/wojskowe.png" class="img-responsive" alt="">
+                <br>
+                <img src="stylus/site/element.png" class="img-responsive element">
             </a>
             <p style="font-size:18px;"><strong>PRODUKTY WOJSKOWE</strong></p>
             <br>
-            <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p style="text-align: justify; padding-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <a href="#/products#wojskowe">
-                <button class="sprawdzButton center"><strong>Więcej</strong></button>
+                <div class="button_base b03_skewed_slide_in">
+                    <div>Więcej</div>
+                    <div></div>
+                    <div>Więcej</div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 center">
             <a href="#/products#inne">
-            <img src="stylus/site/inne.png" class="img-responsive" alt="">
-            <br>
-            <img src="stylus/site/element.png" class="img-responsive element">
+                <img src="stylus/site/inne.png" class="img-responsive" alt="">
+                <br>
+                <img src="stylus/site/element.png" class="img-responsive element">
             </a>
             <p style="font-size:18px;"><strong>PRODUKTY INNE</strong></p>
             <br>
-            <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p style="text-align: justify; padding-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <a href="#/products#inne">
-                <button class="sprawdzButton center"><strong>Więcej</strong></button>
+                <div class="button_base b03_skewed_slide_in">
+                    <div>Więcej</div>
+                    <div></div>
+                    <div>Więcej</div>
+                </div>
             </a>
         </div>
     </div>
@@ -237,7 +250,7 @@
 
 
 
-<script>
+<!--<script>
     $('.parallax').parallax("50%", 0.5);
 
-</script>
+</script>-->

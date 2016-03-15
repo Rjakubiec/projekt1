@@ -32,7 +32,9 @@
 </div>
 <div class="container padding1">
     <div class="row">
-        <h3>Wyszukaj</h3>
+        <div class="col-md-2" style="margin-top: 5px;">
+        <h3 style="margin: 0px;font-size:20px">Wyszukaj kategorie:</h3>
+        </div>
         <div class="col-md-3">
             <select id="select" class="form-control" ng-model="filterQuery">
                 <div>
@@ -53,7 +55,8 @@
                     <img src="{{foto.url}}" class="img-responsive" alt="{{foto.namePl}}">
                 </a>            
                 <a href="{{foto.url}}" download style="text-align:center;">
-                    <button class="btn glyphicon glyphicon-download"> Pobierz</button>
+                    <button class="btn glyphicon glyphicon-download">Pobierz LowQ</button>
+                    <button class="btn glyphicon glyphicon-download">Pobierz HighQ</button>
                 </a>
             </div>
         </div>

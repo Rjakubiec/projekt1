@@ -7,8 +7,9 @@ angular
         'ngRoute',
         'ui.bootstrap',
         'ui.bootstrap.modal',
-        // 'ngFileUpload', 
+        'bootstrapSubmenu', 
         'uiGmapgoogle-maps'
+        
 
     ])
     .config(function ($routeProvider) {

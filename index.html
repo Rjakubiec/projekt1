@@ -7,11 +7,11 @@
 
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <link rel="stylesheet" href="Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
+    <link rel="stylesheet" href="ng-bootstrap-submenu-master\dist\ng-bootstrap-submenu.css">
     <link rel="stylesheet" href="animate.css/animate.min.css">
-	<link rel="shortcut icon" type="image/png" href="stylus/site/elementL.png"/>
+    <link rel="shortcut icon" type="image/png" href="stylus/site/elementL.png" />
 
 
 
@@ -25,9 +25,10 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    
 
     <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
+
 
     <script src='bower_components/lodash/dist/lodash.min.js'></script>
     <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
@@ -36,9 +37,9 @@
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src='Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js'></script>
 
-    <script src="parallax.js"></script>
+    <!--<script src="parallax.js"></script>-->
     <script src="bower_components/wow/dist/wow.js"></script>
-    <!--<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>-->
+    <script src="ng-bootstrap-submenu-master\dist\ng-bootstrap-submenu.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -116,13 +117,20 @@
 
                             <a href="#" ng-if="menus[0].namePl == 'FIRMA'" uib-dropdown-toggle>
                                 <strong> {{menus[0].namePl}}</strong>
-                                <ul ng-controller="FirmaCtrl" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                <ul ng-controller="FirmaCtrl" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body" style="padding-right: 10px;">
+
+                                    <div ng-repeat="sub in subs">
+                                        <li role="menuitem">
+                                            <a href="#/company/{{sub.namePl | spaceless}}#{{sub._id}}" ng-click="getSub(sub._id)" ng-if="menus[0].namePl == 'FIRMA'" style="padding-left:10px;text-decoration: none;font-size: 11px;font-weight: 700;">
+                                            
+                                            {{sub.namePl}}
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                    </div>
+                                    <!--<bootstrap-submenu ng-repeat="item in menuItems" menu-item="item">
+                                     </bootstrap-submenu>-->
                                     
-                                    <li role="menuitem" ng-repeat="sub in subs">
-                                        
-                                        <a href="#/company/{{sub.namePl | spaceless}}#{{sub._id}}" ng-click="getSub(sub._id)" style="text-decoration: none;">{{sub.namePl}}</a>
-                                        
-                                    </li>
 
                                 </ul>
                             </a>
@@ -176,7 +184,7 @@
         <div ng-hide="podstrona" id="preloader">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.img}}">
+                    <img ng-src="{{slide.img}}" class="img-responsive">
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
                         <h1><strong>{{slide.namePl}}<strong></h1>
                         <p style="font-size:18px"><strong>{{slide.descriptionPl}}</strong></p>
@@ -190,7 +198,7 @@
         <div ng-hide="podstrona" id="preloader">
             <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                 <uib-slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.img}}">
+                    <img ng-src="{{slide.img}}" class="img-responsive">
                     <div class="carousel-caption elementS" style="text-align:left;padding-bottom:130px;">
                         <h1><strong>{{slide.nameEn}}<strong></h1>
                         <p style="font-size:18px"><strong>{{slide.descriptionEn}}</strong></p>
@@ -259,10 +267,8 @@
     <script src="js/controller/serwis.js"></script>
     <script src="js/controller/news.js"></script>
     <script src="js/controller/firmasub.js"></script>
+
     <script src="wowinit.js"></script>
-
-
-
 
 </body>
 
